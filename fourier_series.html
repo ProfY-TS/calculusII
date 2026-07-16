@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Fourier Series: The Birth of an Engineering Nightmare – Calculus Stories</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3cd44411fd72149452863431a2dfbeee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sample.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./fourier_series.html">Fourier Series</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Calculus Stories</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Core Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sample</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./continuity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Continuity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./natural_base.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Natural Base</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./integral.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integral</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./neptune.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neptune</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./integral_story.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integral II</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Stokes_Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stoke’s Theorem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./jacobian.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jacobian</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tangents-areas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tangents and Areas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pseries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">p-series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./brachistochrone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Brachistochrone</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bernoulli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bernoulli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./differentiability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differentiability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./maggkari.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Leibniz v. Newton</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gaussian.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gaussian Integral</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./infinite-boundaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Infinite Boundaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./fourier_series.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Fourier Series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./taylor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taylor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gradient_ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Extra</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#prologue-how-dangerous-is-one-missing-point" id="toc-prologue-how-dangerous-is-one-missing-point" class="nav-link active" data-scroll-target="#prologue-how-dangerous-is-one-missing-point">Prologue: how dangerous is one missing point?</a></li>
+  <li><a href="#fourier-enters-accidentally-holding-a-match" id="toc-fourier-enters-accidentally-holding-a-match" class="nav-link" data-scroll-target="#fourier-enters-accidentally-holding-a-match">Fourier enters, accidentally holding a match</a></li>
+  <li><a href="#the-wave-machine" id="toc-the-wave-machine" class="nav-link" data-scroll-target="#the-wave-machine">The wave machine</a></li>
+  <li><a href="#interactive-operate-the-nightmare-machine" id="toc-interactive-operate-the-nightmare-machine" class="nav-link" data-scroll-target="#interactive-operate-the-nightmare-machine">Interactive: operate the nightmare machine</a></li>
+  <li><a href="#gibbs-phenomenon-the-jump-that-refuses-therapy" id="toc-gibbs-phenomenon-the-jump-that-refuses-therapy" class="nav-link" data-scroll-target="#gibbs-phenomenon-the-jump-that-refuses-therapy">Gibbs phenomenon: the jump that refuses therapy</a></li>
+  <li><a href="#pointwise-convergence-vs.-uniform-convergence" id="toc-pointwise-convergence-vs.-uniform-convergence" class="nav-link" data-scroll-target="#pointwise-convergence-vs.-uniform-convergence">Pointwise convergence vs.&nbsp;uniform convergence</a></li>
+  <li><a href="#dirichlet-fine-let-us-define-a-function-properly" id="toc-dirichlet-fine-let-us-define-a-function-properly" class="nav-link" data-scroll-target="#dirichlet-fine-let-us-define-a-function-properly">Dirichlet: “Fine, let us define a function properly”</a></li>
+  <li><a href="#riemann-lebesgue-and-the-revenge-of-bad-points" id="toc-riemann-lebesgue-and-the-revenge-of-bad-points" class="nav-link" data-scroll-target="#riemann-lebesgue-and-the-revenge-of-bad-points">Riemann, Lebesgue, and the revenge of bad points</a></li>
+  <li><a href="#so-what-did-fourier-really-break" id="toc-so-what-did-fourier-really-break" class="nav-link" data-scroll-target="#so-what-did-fourier-really-break">So what did Fourier really break?</a></li>
+  <li><a href="#discussion-ready-summary" id="toc-discussion-ready-summary" class="nav-link" data-scroll-target="#discussion-ready-summary">Discussion-ready summary</a></li>
+  <li><a href="#how-ai-was-used-responsibly" id="toc-how-ai-was-used-responsibly" class="nav-link" data-scroll-target="#how-ai-was-used-responsibly">How AI was used responsibly</a></li>
+  <li><a href="#references-and-fact-checks" id="toc-references-and-fact-checks" class="nav-link" data-scroll-target="#references-and-fact-checks">References and fact checks</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sample.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./fourier_series.html">Fourier Series</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Fourier Series: The Birth of an Engineering Nightmare</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Group Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Group:</strong> SOS<br>
+<strong>Authors:</strong> Wang Junbo, Zhang Jiage, Chen Liuyi</p>
+<div style="text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="asset/fourier_series_group_photo.png" class="img-fluid figure-img" width="250"></p>
+<figcaption>SOS</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Topic:</strong> Fourier and Fourier Series: The Birth of an Engineering Nightmare<br>
+<strong>Topic Short:</strong> Fourier Series<br>
+<strong>QMD file name:</strong> <code>fourier_series.qmd</code></p>
+</div>
+</div>
+<section id="prologue-how-dangerous-is-one-missing-point" class="level1">
+<h1>Prologue: how dangerous is one missing point?</h1>
+<p>Let us begin with a tiny question that looks too harmless to deserve supervision.</p>
+<p>Take the function</p>
+<p><span class="math display">\[
+f(x)=x+3
+\]</span></p>
+<p>on the interval <span class="math inline">\([-3,3]\)</span>. Its definite integral is</p>
+<p><span class="math display">\[
+\int_{-3}^{3} (x+3)\,dx = 18.
+\]</span></p>
+<p>Geometrically, it is just the area of a triangle. Nothing dramatic. No thunder. No mathematical police report.</p>
+<p>Now delete the point <span class="math inline">\(x=0\)</span> from the interval.</p>
+<p>Does the integral panic?</p>
+<p>No.&nbsp;It keeps calmly being 18.</p>
+<p>Delete three points? Still 18. Delete one hundred specific points? Still 18. At this stage the integral is basically saying, “Call me when something serious happens.”</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="asset/fourier_series_missing_point.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>The integral of (y=x+3) over ([-3,3]) does not care about one missing point.</figcaption>
+</figure>
+</div>
+<p>This innocent observation is the trap door of the story. Once mathematicians began asking what happens when we remove infinitely many points, or when a function has infinitely many tiny bad behaviors, calculus stopped being a comfortable machine and became a detective novel.</p>
+<p>And one of the people who kicked open that door was Jean-Baptiste Joseph Fourier.</p>
+</section>
+<section id="fourier-enters-accidentally-holding-a-match" class="level1">
+<h1>Fourier enters, accidentally holding a match</h1>
+<p>Fourier was not born as “the reason engineering students lose sleep.” That title had to be earned.</p>
+<p>During the French Revolution, Fourier was young, politically involved, arrested, and lucky enough not to become a historical footnote with a very short ending. In 1798 he joined Napoleon’s expedition to Egypt as a scientific adviser. According to MacTutor, Fourier later became secretary of the Institut d’Egypte, then returned to France and was appointed prefect of Isere by Napoleon.</p>
+<p>That sounds like a strangely busy resume:</p>
+<ol type="1">
+<li>Survive revolutionary France.</li>
+<li>Go to Egypt with Napoleon.</li>
+<li>Become a government administrator.</li>
+<li>Quietly create a mathematical tool that will haunt physics, engineering, signal processing, and basically every classroom with a waveform in it.</li>
+</ol>
+<p>The haunting began with heat.</p>
+<p>Fourier studied heat conduction: how temperature spreads through a solid object. Today that sounds like a normal applied mathematics problem. At the time, it was more like asking mathematics to cook dinner with tools it had not invented yet.</p>
+<p>His major work, <em>The Analytical Theory of Heat</em> (1822), attacked heat flow using partial differential equations. But the real historical explosion came from the method he used to solve them: representing functions as infinite sums of sine and cosine waves.</p>
+</section>
+<section id="the-wave-machine" class="level1">
+<h1>The wave machine</h1>
+<p>Fourier’s bold idea was that many functions can be represented by a trigonometric series:</p>
+<p><span class="math display">\[
+f(x)\sim \frac{a_0}{2}+\sum_{n=1}^{\infty}\left(a_n\cos nx+b_n\sin nx\right).
+\]</span></p>
+<p>For a periodic function, the coefficients are chosen by integration:</p>
+<p><span class="math display">\[
+a_n=\frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\cos(nx)\,dx,
+\qquad
+b_n=\frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\sin(nx)\,dx.
+\]</span></p>
+<p>This is already weird in a beautiful way. Sine and cosine are smooth, polite, well-trained functions. Fourier then said, in effect:</p>
+<blockquote class="blockquote">
+<p>What if we use infinitely many polite waves to imitate functions that are absolutely not polite?</p>
+</blockquote>
+<p>For example, the square wave</p>
+<p><span class="math display">\[
+f(x)=
+\begin{cases}
+-1, &amp; -\pi &lt; x &lt; 0,\\
+1, &amp; 0 &lt; x &lt; \pi
+\end{cases}
+\]</span></p>
+<p>has the Fourier series</p>
+<p><span class="math display">\[
+S_N(x)=\frac{4}{\pi}\sum_{k=0}^{N-1}\frac{\sin((2k+1)x)}{2k+1}.
+\]</span></p>
+<p>The formula says: take a sine wave, add a smaller sine wave with triple frequency, add a smaller one with five times the frequency, and continue. Somehow, the result begins to look like a square wave.</p>
+<p>Mathematically, this is elegant.</p>
+<p>Emotionally, it feels illegal.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="asset/fourier_series_gibbs.png" class="img-fluid figure-img" style="width:92.0%"></p>
+<figcaption>Partial Fourier sums for a square wave. The more waves we add, the more the graph resembles a square wave, except near the jump where it refuses to behave.</figcaption>
+</figure>
+</div>
+</section>
+<section id="interactive-operate-the-nightmare-machine" class="level1">
+<h1>Interactive: operate the nightmare machine</h1>
+<p>Move the slider below. The blue curve is the Fourier partial sum for a square wave. The white dashed line is the square wave it is trying very hard to become. Watch near <span class="math inline">\(x=0\)</span>, where the jump occurs.</p>
+<style>
+.fourier-widget {
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 18px;
+  margin: 1.2rem 0 1.4rem;
+}
+.fourier-widget label,
+.fourier-widget output,
+.fourier-widget .hint {
+  color: #e5e7eb;
+}
+.fourier-widget label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.fourier-widget input[type="range"] {
+  width: min(520px, 100%);
+}
+.fourier-widget canvas {
+  width: 100%;
+  height: 360px;
+  display: block;
+  border-radius: 6px;
+  background: #0f172a;
+}
+.fourier-widget .hint {
+  margin-top: 10px;
+  font-size: 0.92rem;
+  color: #cbd5e1;
+}
+</style>
+<div class="fourier-widget">
+<label for="fourierTerms"> Odd sine terms: <input id="fourierTerms" type="range" min="1" max="80" value="12">
+<output id="fourierTermsOut">
+12
+</output>
+</label>
+<canvas id="fourierCanvas" aria-label="Interactive Fourier series square wave approximation">
+</canvas>
+<div class="hint">
+The overshoot near the jump becomes narrower as terms increase, but its height does not politely shrink to zero. This is the Gibbs phenomenon being stubborn in public.
+</div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const slider = document.getElementById("fourierTerms");
+  const output = document.getElementById("fourierTermsOut");
+  const canvas = document.getElementById("fourierCanvas");
+  if (!slider || !output || !canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  const dpr = window.devicePixelRatio || 1;
+
+  function resizeCanvas() {
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = Math.max(320, Math.floor(rect.width * dpr));
+    canvas.height = Math.floor(360 * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function sx(x, w, pad) {
+    return pad + (x + Math.PI) / (2 * Math.PI) * (w - 2 * pad);
+  }
+
+  function sy(y, h, pad) {
+    return pad + (1.65 - y) / 3.3 * (h - 2 * pad);
+  }
+
+  function series(x, terms) {
+    let s = 0;
+    for (let k = 0; k < terms; k++) {
+      const n = 2 * k + 1;
+      s += Math.sin(n * x) / n;
+    }
+    return 4 * s / Math.PI;
+  }
+
+  function draw() {
+    resizeCanvas();
+    const w = canvas.width / dpr;
+    const h = canvas.height / dpr;
+    const pad = 42;
+    const terms = Number(slider.value);
+    output.value = terms;
+
+    ctx.clearRect(0, 0, w, h);
+
+    ctx.strokeStyle = "#334155";
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= 6; i++) {
+      const x = pad + i * (w - 2 * pad) / 6;
+      ctx.beginPath();
+      ctx.moveTo(x, pad);
+      ctx.lineTo(x, h - pad);
+      ctx.stroke();
+    }
+    for (let j = 0; j <= 4; j++) {
+      const y = pad + j * (h - 2 * pad) / 4;
+      ctx.beginPath();
+      ctx.moveTo(pad, y);
+      ctx.lineTo(w - pad, y);
+      ctx.stroke();
+    }
+
+    ctx.strokeStyle = "#94a3b8";
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.moveTo(pad, sy(0, h, pad));
+    ctx.lineTo(w - pad, sy(0, h, pad));
+    ctx.moveTo(sx(0, w, pad), pad);
+    ctx.lineTo(sx(0, w, pad), h - pad);
+    ctx.stroke();
+
+    ctx.strokeStyle = "#e5e7eb";
+    ctx.setLineDash([8, 7]);
+    ctx.lineWidth = 2.2;
+    ctx.beginPath();
+    ctx.moveTo(sx(-Math.PI, w, pad), sy(-1, h, pad));
+    ctx.lineTo(sx(0, w, pad), sy(-1, h, pad));
+    ctx.moveTo(sx(0, w, pad), sy(1, h, pad));
+    ctx.lineTo(sx(Math.PI, w, pad), sy(1, h, pad));
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    ctx.strokeStyle = "#38bdf8";
+    ctx.lineWidth = 2.8;
+    ctx.beginPath();
+    const samples = 900;
+    for (let i = 0; i <= samples; i++) {
+      const x = -Math.PI + (2 * Math.PI * i) / samples;
+      const y = series(x, terms);
+      const px = sx(x, w, pad);
+      const py = sy(y, h, pad);
+      if (i === 0) ctx.moveTo(px, py);
+      else ctx.lineTo(px, py);
+    }
+    ctx.stroke();
+
+    ctx.fillStyle = "#f8fafc";
+    ctx.font = "14px system-ui, sans-serif";
+    ctx.fillText("white dashed: square wave", pad, 24);
+    ctx.fillStyle = "#38bdf8";
+    ctx.fillText("blue: Fourier partial sum", pad + 210, 24);
+
+    ctx.fillStyle = "#fb7185";
+    ctx.fillText("jump point", sx(0, w, pad) + 8, sy(-1.42, h, pad));
+  }
+
+  slider.addEventListener("input", draw);
+  window.addEventListener("resize", draw);
+  draw();
+});
+</script>
+</section>
+<section id="gibbs-phenomenon-the-jump-that-refuses-therapy" class="level1">
+<h1>Gibbs phenomenon: the jump that refuses therapy</h1>
+<p>Near the discontinuity, the Fourier partial sums overshoot. Adding more terms makes the wiggle narrower, but the height of the first overshoot approaches about 9 percent of the jump. Wolfram MathWorld describes the Gibbs phenomenon as an overshoot or ringing near simple discontinuities in Fourier series and similar expansions.</p>
+<p>This is the awkward part:</p>
+<ul>
+<li>Away from the jump, the Fourier series behaves beautifully.</li>
+<li>At the jump, the Fourier series converges to the midpoint of the left and right limits.</li>
+<li>Near the jump, the approximation keeps overshooting.</li>
+</ul>
+<p>So is the Fourier series “equal” to the square wave?</p>
+<p>The correct mathematical answer is: “Please define what you mean by equal, then come back with coffee.”</p>
+<p>In modern language, the square-wave Fourier series converges pointwise to the square wave at every continuity point. But it does not converge uniformly on an interval containing the jump.</p>
+<p>That distinction matters.</p>
+</section>
+<section id="pointwise-convergence-vs.-uniform-convergence" class="level1">
+<h1>Pointwise convergence vs.&nbsp;uniform convergence</h1>
+<p>Pointwise convergence is the chill judge. For each fixed <span class="math inline">\(x\)</span>, it asks:</p>
+<blockquote class="blockquote">
+<p>If I wait long enough, does <span class="math inline">\(S_N(x)\)</span> approach <span class="math inline">\(f(x)\)</span>?</p>
+</blockquote>
+<p>Uniform convergence is the strict judge. It asks:</p>
+<blockquote class="blockquote">
+<p>Can one large enough <span class="math inline">\(N\)</span> make the whole function close to <span class="math inline">\(f\)</span> everywhere at once?</p>
+</blockquote>
+<p>Symbolically, pointwise convergence says</p>
+<p><span class="math display">\[
+\lim_{N\to\infty}S_N(x)=f(x)
+\quad \text{for each fixed }x.
+\]</span></p>
+<p>Uniform convergence says</p>
+<p><span class="math display">\[
+\lim_{N\to\infty}\sup_x |S_N(x)-f(x)|=0.
+\]</span></p>
+<p>Pointwise convergence checks one seat in the classroom at a time. Uniform convergence checks whether the entire classroom is behaving simultaneously. Unsurprisingly, the second one is harder, because classrooms contain jumps, and jumps have attitude.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="asset/fourier_series_convergence.png" class="img-fluid figure-img" style="width:92.0%"></p>
+<figcaption>Pointwise convergence and uniform convergence ask different questions. The jump is where the difference becomes visible.</figcaption>
+</figure>
+</div>
+<p>This was not just a technical footnote. Fourier series forced mathematicians to separate several ideas that used to be mushed together:</p>
+<ul>
+<li>a function,</li>
+<li>its formula,</li>
+<li>its graph,</li>
+<li>a series representation,</li>
+<li>and the kind of convergence being used.</li>
+</ul>
+<p>Fourier did not merely solve heat problems. He made analysis admit that its vocabulary was underdeveloped.</p>
+</section>
+<section id="dirichlet-fine-let-us-define-a-function-properly" class="level1">
+<h1>Dirichlet: “Fine, let us define a function properly”</h1>
+<p>Before the nineteenth century, many mathematicians thought of functions as formulas or curves. That works nicely until Fourier walks in with a series of smooth waves pretending to be a discontinuous square wave.</p>
+<p>At that moment, the old idea of “function” started sweating.</p>
+<p>Dirichlet helped clarify the modern view: a function is not required to be a nice formula or a drawable curve. A function is a rule assigning exactly one output to each input in its domain. MacTutor notes that Fourier’s work eventually helped clarify the function concept, especially through Dirichlet’s work on Fourier series and convergence.</p>
+<p>Then Dirichlet gave a famous example that feels like mathematics doing a stress test on reality:</p>
+<p><span class="math display">\[
+D(x)=
+\begin{cases}
+1, &amp; x \in \mathbb{Q},\\
+0, &amp; x \notin \mathbb{Q}.
+\end{cases}
+\]</span></p>
+<p>This function is 1 on rational numbers and 0 on irrational numbers.</p>
+<p>Can you draw it?</p>
+<p>No.&nbsp;The graph is basically a printer jam in the universe. Between any two rational numbers there is an irrational number, and between any two irrational numbers there is a rational number. No matter how much you zoom in, the function keeps switching between 0 and 1.</p>
+<p>But it is still a function.</p>
+<p>This is the kind of example that makes old definitions quietly pack their bags.</p>
+</section>
+<section id="riemann-lebesgue-and-the-revenge-of-bad-points" class="level1">
+<h1>Riemann, Lebesgue, and the revenge of bad points</h1>
+<p>Now return to the opening question.</p>
+<p>Removing one point from an interval does not change our ordinary integral. Removing finitely many points also does not change it. But what about infinitely many points? What if the bad points are everywhere? What if every microscope reveals more chaos?</p>
+<p>That is where integration itself had to evolve.</p>
+<p>The Riemann integral, the one most calculus students meet first, slices the <span class="math inline">\(x\)</span>-axis into intervals and builds sums from vertical rectangles. It handles continuous functions very well and many discontinuous functions too. But the Dirichlet function defeats it on <span class="math inline">\([0,1]\)</span>: every interval contains both rational and irrational numbers, so the upper sums act like the function is 1 everywhere and the lower sums act like it is 0 everywhere. They never agree.</p>
+<p>Lebesgue’s later idea was different. Instead of slicing only by <span class="math inline">\(x\)</span>-position, it measures the size of the sets on which the function takes certain values. Since the rational numbers in <span class="math inline">\([0,1]\)</span> are countable, they have measure zero. For the Dirichlet function above, the Lebesgue integral over <span class="math inline">\([0,1]\)</span> is therefore 0.</p>
+<p>That is a major plot twist:</p>
+<blockquote class="blockquote">
+<p>Riemann says, “I cannot integrate this.”<br>
+Lebesgue says, “I can, but I will need a new worldview.”</p>
+</blockquote>
+<p>And this worldview is connected to the same issue that Fourier series made impossible to ignore: bad points are not all equally dangerous. Some are isolated. Some are dense. Some have measure zero. Some wreck the entire calculation. Calculus had to learn the difference.</p>
+</section>
+<section id="so-what-did-fourier-really-break" class="level1">
+<h1>So what did Fourier really break?</h1>
+<p>Fourier wanted to solve heat conduction. That was the official mission.</p>
+<p>The side effects were larger:</p>
+<ol type="1">
+<li>He made trigonometric series central to analysis.</li>
+<li>He showed that smooth waves can approximate discontinuous behavior.</li>
+<li>He exposed the difference between pointwise and uniform convergence.</li>
+<li>He pushed mathematicians toward a sharper definition of function.</li>
+<li>He helped set the stage for later theories of integration and measure.</li>
+</ol>
+<p>In other words, Fourier did not just hand engineers a tool. He handed mathematicians a box of suspiciously powerful tools with no safety manual.</p>
+<p>The Fourier series was successful in physics and engineering before analysis fully understood why it worked. That is exactly what makes the story interesting: applications ran ahead, theory chased behind, and somewhere in the middle a square wave was causing trouble with excellent timing.</p>
+</section>
+<section id="discussion-ready-summary" class="level1">
+<h1>Discussion-ready summary</h1>
+<p>If I had to explain this story verbally, I would say:</p>
+<blockquote class="blockquote">
+<p>Fourier series began as a method for heat conduction, but it forced mathematicians to ask what it really means for a series of functions to represent another function. The square wave and Gibbs phenomenon show why convergence is not one simple idea. This led to sharper distinctions such as pointwise versus uniform convergence, and it helped motivate broader modern ideas about functions, integration, and bad sets of points.</p>
+</blockquote>
+<p>Or, less politely:</p>
+<blockquote class="blockquote">
+<p>Fourier tried to solve heat, and analysis caught fire.</p>
+</blockquote>
+</section>
+<section id="how-ai-was-used-responsibly" class="level1">
+<h1>How AI was used responsibly</h1>
+<p>AI was used as a writing and organization assistant: to translate the original Chinese draft into English, polish the humor, improve section structure, and check whether the mathematical story was clear for fellow students. The main ideas, jokes, and storyline come from the original draft. Mathematical claims and historical details were checked against references, and the final page should be understood and explainable by the authors.</p>
+</section>
+<section id="references-and-fact-checks" class="level1">
+<h1>References and fact checks</h1>
+<ul>
+<li>J. J. O’Connor and E. F. Robertson, <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Fourier/">Joseph Fourier - Biography</a>, MacTutor History of Mathematics.</li>
+<li>J. J. O’Connor and E. F. Robertson, <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Dirichlet/">Lejeune Dirichlet - Biography</a>, MacTutor History of Mathematics.</li>
+<li>MacTutor History of Mathematics, <a href="https://mathshistory.st-andrews.ac.uk/HistTopics/Functions/">The function concept</a>.</li>
+<li>Eric W. Weisstein, <a href="https://mathworld.wolfram.com/GibbsPhenomenon.html">Gibbs Phenomenon</a>, Wolfram MathWorld.</li>
+<li>J. J. O’Connor and E. F. Robertson, <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Lebesgue/">Henri Lebesgue - Biography</a>, MacTutor History of Mathematics.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

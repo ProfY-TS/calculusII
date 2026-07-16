@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="">
+
+<title>neptune – Calculus Stories</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-a2a938b4dd5711f7a799c87bd16ba44c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sample.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./neptune.html">Neptune</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Calculus Stories</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Core Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sample</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./continuity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Continuity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./natural_base.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Natural Base</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./integral.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integral</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./neptune.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Neptune</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./integral_story.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integral II</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Stokes_Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stoke’s Theorem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./jacobian.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jacobian</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tangents-areas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tangents and Areas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pseries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">p-series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./brachistochrone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Brachistochrone</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bernoulli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bernoulli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./differentiability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differentiability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./maggkari.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Leibniz v. Newton</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gaussian.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gaussian Integral</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./infinite-boundaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Infinite Boundaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./fourier_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fourier Series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./taylor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taylor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gradient_ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Extra</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#the-mystery-begins" id="toc-the-mystery-begins" class="nav-link" data-scroll-target="#the-mystery-begins"><span class="header-section-number">2</span> The Mystery Begins</a></li>
+  <li><a href="#predicting-uranus" id="toc-predicting-uranus" class="nav-link" data-scroll-target="#predicting-uranus"><span class="header-section-number">3</span> Predicting Uranus</a>
+  <ul class="collapse">
+  <li><a href="#explore-the-real-solar-system" id="toc-explore-the-real-solar-system" class="nav-link" data-scroll-target="#explore-the-real-solar-system"><span class="header-section-number">3.1</span> 🌌 Explore the Real Solar System</a></li>
+  </ul></li>
+  <li><a href="#calculus-enters-the-story" id="toc-calculus-enters-the-story" class="nav-link" data-scroll-target="#calculus-enters-the-story"><span class="header-section-number">4</span> Calculus Enters the Story</a></li>
+  <li><a href="#a-small-perturbation" id="toc-a-small-perturbation" class="nav-link" data-scroll-target="#a-small-perturbation"><span class="header-section-number">5</span> A Small Perturbation</a></li>
+  <li><a href="#taylor-series-to-the-rescue" id="toc-taylor-series-to-the-rescue" class="nav-link" data-scroll-target="#taylor-series-to-the-rescue"><span class="header-section-number">6</span> Taylor Series to the Rescue</a></li>
+  <li><a href="#the-differential-equation" id="toc-the-differential-equation" class="nav-link" data-scroll-target="#the-differential-equation"><span class="header-section-number">7</span> The Differential Equation</a></li>
+  <li><a href="#finding-the-dominant-term" id="toc-finding-the-dominant-term" class="nav-link" data-scroll-target="#finding-the-dominant-term"><span class="header-section-number">8</span> Finding the Dominant Term</a></li>
+  <li><a href="#solving-for-the-perturbation" id="toc-solving-for-the-perturbation" class="nav-link" data-scroll-target="#solving-for-the-perturbation"><span class="header-section-number">9</span> Solving for the Perturbation</a></li>
+  <li><a href="#the-complete-model" id="toc-the-complete-model" class="nav-link" data-scroll-target="#the-complete-model"><span class="header-section-number">10</span> The Complete Model</a></li>
+  <li><a href="#the-discovery" id="toc-the-discovery" class="nav-link" data-scroll-target="#the-discovery"><span class="header-section-number">11</span> The Discovery</a></li>
+  <li><a href="#conclusion-the-power-of-calculus" id="toc-conclusion-the-power-of-calculus" class="nav-link" data-scroll-target="#conclusion-the-power-of-calculus"><span class="header-section-number">12</span> Conclusion: The Power of Calculus</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sample.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./neptune.html">Neptune</a></li></ol></nav><h1 class="title display-7">The Calculus of Neptune</h1></header>
+
+
+
+
+<div class="hero">
+
+<h2 class="anchored">A Mathematical Detective Story</h2>
+
+<p><strong>Joel Tang Yi Xian · Yeong Zhi Perng · Ngae Kie Siong</strong></p>
+
+<h3 class="anchored">Can mathematics discover a planet before anyone sees it?</h3>
+
+<p><em>Using calculus to uncover an invisible world.</em></p>
+
+<div class="scroll-down">↓ Scroll to Begin</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Abstract">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Abstract
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This paper retraces the mathematical journey that led to the discovery of Neptune in 1846. Starting from unexplained deviations in Uranus’s orbit, we follow the steps astronomers took to quantify the discrepancy, describe planetary motion using parametric equations, and apply calculus to uncover the presence of an unseen world. Through differentiation, Taylor series, and differential equations, we show how mathematics transformed tiny observational anomalies into the prediction of a new planet.</p>
+</div>
+</div>
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>Imagine discovering an entirely new planet without ever seeing it through a telescope. It sounds impossible, yet this is exactly what happened in the nineteenth century. Long before anyone laid eyes on Neptune, mathematicians had already predicted its existence using nothing more than observations, Newton’s laws, and the power of calculus.</p>
+<p>The story began in 1781 when William Herschel discovered Uranus, the first planet ever found with a telescope. At first, astronomers believed that Newton’s law of universal gravitation could perfectly predict its orbit. However, as more observations were collected over the following decades, they noticed something unsettling: Uranus was never exactly where mathematics said it should be. The differences were tiny at first, but they became larger and more systematic with time. It was as if an invisible hand was gently pulling the planet away from its predicted path.</p>
+<p>By the 1820s, the French astronomer Alexis Bouvard had published tables predicting Uranus’ orbit. When repeated observations continued to disagree with his calculations, he proposed a bold idea: perhaps another, unknown planet beyond Uranus was disturbing its motion through gravity. This mysterious clue marked the beginning of one of the greatest mathematical investigations in the history of astronomy.</p>
+<p>In the 1840s, two brilliant mathematicians independently took up the challenge: the 24-year-old English mathematician John Couch Adams and the 35-year-old French mathematician Urbain Le Verrier. Their task was far from simple. They faced the famous three-body problem, in which the Sun, Uranus, and an unseen planet all exert gravitational forces on one another. Since no general closed-form solution exists for this problem, they turned to perturbation theory. Instead of solving the impossible system directly, they first calculated Uranus’ normal orbit under the Sun’s gravity and then treated the unknown planet as a small perturbation that slightly altered its path.</p>
+<p>For months, they performed thousands of calculations entirely by hand, carefully analysing the systematic deviations in Uranus’ orbit. From these tiny irregularities, they estimated the unknown planet’s orbital distance, approximate mass, and position in the night sky.</p>
+<p>In 1845, Adams sent his prediction to the Astronomer Royal, Sir George Airy, but it received little attention. One year later, Le Verrier independently completed his own calculations and mailed his predicted coordinates to Johann Galle at the Berlin Observatory.</p>
+<p>On the evening of 23 September 1846, Galle pointed his telescope toward the exact location calculated by Le Verrier. Less than an hour later, he found a faint blue planet less than one degree from the predicted position. The invisible world described by mathematics had become a real celestial object. It was later named <strong>Neptune</strong>.</p>
+<p>The story contains one final surprise. Historians later discovered that Galileo Galilei had actually observed Neptune in 1612 and 1613. Because the planet moved so slowly across the sky, he mistakenly recorded it as a fixed star. More than two centuries passed before mathematics revealed what the telescope alone had overlooked.</p>
+<p>Neptune is often called <strong>“the planet discovered with the tip of a pen”</strong> because it was the first planet whose existence was predicted before it was ever seen. By combining calculus, Newtonian mechanics, perturbation theory, and careful astronomical observations, scientists transformed tiny errors in Uranus’ orbit into convincing evidence of an entirely new world. This remarkable achievement showed that mathematics is not merely a language for describing the universe—it is also a powerful tool for uncovering the invisible.</p>
+</section>
+<section id="the-mystery-begins" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> The Mystery Begins</h1>
+<p>In 1781, William Herschel discovered Uranus. It was the first planet ever found with a telescope, and astronomers were thrilled. But that excitement quickly turned to confusion.</p>
+<p>Uranus was not following its predicted path.</p>
+<p>Year after year, its actual position in the sky was slightly different from where Newton’s laws said it should be. The difference grew larger over time. By the 1820s, the French astronomer Alexis Bouvard threw up his hands and declared: “Either Newton’s laws are wrong, or something invisible is pulling on Uranus.”</p>
+<p>That <em>something invisible</em> became the greatest mystery in astronomy.</p>
+<p>The first thing astronomers needed was a way to measure the problem. They couldn’t work with vague descriptions like “a little to the left.” They needed numbers. So they defined the discrepancy:</p>
+<p><span class="math display">\[
+\Delta\phi = \phi_{\text{obs}} - \phi_{\text{pred}}
+\]</span></p>
+<p>Here, <span class="math inline">\(\phi_{\text{obs}}\)</span> is the actual position seen through a telescope, and <span class="math inline">\(\phi_{\text{pred}}\)</span> is the position calculated from Newton’s laws. Their difference, <span class="math inline">\(\Delta\phi\)</span>, was the error.</p>
+<p>When astronomers collected observations spanning many decades, the residuals between Uranus’s observed and predicted positions formed a systematic pattern rather than random measurement errors. As shown in Figure 1, the residuals varied smoothly over time and became increasingly significant, suggesting that another planet was perturbing Uranus’s orbit.</p>
+<p><img src="images/cal_3.png" class="img-fluid" style="width:75.0%" data-fig-cap="Historical residuals (Observed and Computed) of Uranus's orbital longitude from approximately 1690 to 1846.[SpaceEngine, 2019]"></p>
+<p>The systematic deviations between the observed and predicted positions suggested the gravitational influence of an unknown planet. The graph includes both observations made after Uranus was discovered in 1781 and earlier pre-discovery observations that were identified retrospectively. These historical records allowed astronomers to reconstruct Uranus’s orbit over a much longer period, making the systematic deviations easier to recognize.</p>
+<p>The error was real, it was growing, and it followed a regular pattern. This was not a mistake in measurement. Something was pulling on Uranus. But what? And where was it?</p>
+<p>To answer that, astronomers first needed to know exactly where Uranus should be if nothing else was affecting it.</p>
+</section>
+<section id="predicting-uranus" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Predicting Uranus</h1>
+<p>To prove something is wrong, you must first show what “right” looks like. Astronomers needed a way to calculate Uranus’s position at any time, assuming no unknown planet existed.</p>
+<p>For simplicity, Uranus’s slightly elliptical orbit is approximated as a circular orbit. Since its orbital eccentricity is relatively small (approximately 0.047), this approximation is sufficient for illustrating the calculus concepts used in this project. In this simplified model, the planet moves with constant angular velocity, so its angular position is given by</p>
+<p><span class="math display">\[
+\theta=\omega t,
+\]</span></p>
+<p>where <span class="math inline">\(\omega\)</span> is the angular velocity.</p>
+<p>If we place the Sun at the origin, the planet’s position is given by parametric equations:</p>
+<p><span class="math display">\[
+x = R\cos(\omega t), \qquad y = R\sin(\omega t)
+\]</span></p>
+<p>For Uranus, astronomers already knew the measured values: the orbital radius was <span class="math inline">\(R_1 = 19.19\)</span> AU (astronomical units), and the orbital period was <span class="math inline">\(T_1 = 84.01\)</span> years. From this, the angular velocity was:</p>
+<p><span class="math display">\[
+\omega_1 = \frac{2\pi}{T_1} = \frac{2\pi}{84.01} = 7.479\times10^{-2} \text{ rad/yr}
+\]</span></p>
+<p>Plugging these numbers in, they could predict Uranus’s position at any time:</p>
+<p><span class="math display">\[
+x_{\text{pred}}(t) = 19.19\cos(7.479\times10^{-2} \, t)
+\]</span></p>
+<p><span class="math display">\[
+y_{\text{pred}}(t) = 19.19\sin(7.479\times10^{-2} \, t)
+\]</span></p>
+<p>Let’s test this. Suppose we want to find Uranus’s position exactly one year after our starting point (<span class="math inline">\(t = 1\)</span> year):</p>
+<p><span class="math display">\[
+x = 19.19\cos(7.479\times10^{-2})
+\]</span></p>
+<p>Since <span class="math inline">\(7.479\times10^{-2}\)</span> is a small angle (about 4.29 degrees), <span class="math inline">\(\cos(7.479\times10^{-2}) \approx 0.9972\)</span>:</p>
+<p><span class="math display">\[
+x \approx 19.19 \times 0.9972 = 19.136 \text{ AU}
+\]</span></p>
+<p><span class="math display">\[
+y = 19.19\sin(7.479\times10^{-2}) \approx 19.19 \times 0.0748 = 1.435 \text{ AU}
+\]</span></p>
+<p>So after one year, Uranus has moved only slightly from its starting position — about 1.435 AU vertically while staying nearly the same horizontally. This makes sense because Uranus takes 84 years to complete one full orbit.</p>
+<p>After one quarter of an orbit (<span class="math inline">\(t = T_1/4 = 21.0025\)</span> years), the angle is <span class="math inline">\(\omega_1 t = 2\pi \times (1/4) = \pi/2\)</span> radians:</p>
+<p><span class="math display">\[
+x = 19.19\cos(\pi/2) = 0
+\]</span></p>
+<p><span class="math display">\[
+y = 19.19\sin(\pi/2) = 19.19 \text{ AU}
+\]</span></p>
+<p>So after 21 years, Uranus has moved to the top of its circular orbit, at position <span class="math inline">\((0, 19.19)\)</span>.</p>
+<p>Now astronomers had a clear prediction: this is where Uranus <em>should</em> be if nothing else is pulling on it.</p>
+<p>When they compared this predicted position with telescope observations, they found the two did not match. The difference was exactly the <span class="math inline">\(\Delta\phi\)</span> they had measured before. The predictions and observations diverged more and more each year.</p>
+<p>Something was definitely pulling Uranus off its expected path. But to find the puller, astronomers needed to know not just where Uranus was, but how fast it was moving and how that speed was changing. That meant velocity and acceleration. That meant calculus.</p>
+<section id="explore-the-real-solar-system" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="explore-the-real-solar-system"><span class="header-section-number">3.1</span> 🌌 Explore the Real Solar System</h2>
+<p>The model above is simplified for Calculus II.<br>
+If you want to explore the actual Solar System interactively, try NASA’s 3D Solar System model below.</p>
+<iframe src="https://eyes.nasa.gov/apps/solar-system/#/?embed=true" width="100%" height="700" style="border:none; border-radius:18px;" allowfullscreen="">
+</iframe>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Try This
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use the NASA model to compare the motion of Uranus and Neptune.<br>
+Notice how slowly Neptune moves compared with Uranus.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="calculus-enters-the-story" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Calculus Enters the Story</h1>
+<p>Newton’s second law says <span class="math inline">\(F = ma\)</span> — force equals mass times acceleration. To find the unknown force pulling on Uranus, astronomers needed acceleration. But they only had position.</p>
+<p>Calculus connects position to acceleration through differentiation. Velocity is the rate of change of position — the first derivative. Acceleration is the rate of change of velocity — the second derivative.</p>
+<p>Starting from the position equations:</p>
+<p><span class="math display">\[
+x = R\cos(\omega t), \qquad y = R\sin(\omega t)
+\]</span></p>
+<p><strong>Step 1: Calculate velocity (first derivative).</strong></p>
+<p>Using the chain rule: the derivative of <span class="math inline">\(\cos(\omega t)\)</span> with respect to <span class="math inline">\(t\)</span> is <span class="math inline">\(-\omega\sin(\omega t)\)</span>.</p>
+<p><span class="math display">\[
+v_x = \frac{dx}{dt} = -R\omega\sin(\omega t)
+\]</span></p>
+<p>Similarly, the derivative of <span class="math inline">\(\sin(\omega t)\)</span> with respect to <span class="math inline">\(t\)</span> is <span class="math inline">\(\omega\cos(\omega t)\)</span>.</p>
+<p><span class="math display">\[
+v_y = \frac{dy}{dt} = R\omega\cos(\omega t)
+\]</span></p>
+<p><strong>Step 2: Calculate acceleration (second derivative).</strong></p>
+<p>Now differentiate velocity to get acceleration:</p>
+<p><span class="math display">\[
+a_x = \frac{dv_x}{dt} = -R\omega^2\cos(\omega t)
+\]</span></p>
+<p><span class="math display">\[
+a_y = \frac{dv_y}{dt} = -R\omega^2\sin(\omega t)
+\]</span></p>
+<p>Let’s work through a numerical example to see what this means.</p>
+<p><strong>At <span class="math inline">\(t = 0\)</span></strong> (starting point, Uranus at position <span class="math inline">\((R, 0)\)</span>):</p>
+<p><strong>Interpretation:</strong> At <span class="math inline">\(t=0\)</span>, Uranus is at the far right of its orbit. Its velocity is entirely upward (<span class="math inline">\(v_y = R\omega\)</span>), and its acceleration is entirely leftward (<span class="math inline">\(a_x = -R\omega^2\)</span>) — pulling it toward the center. This is exactly what we expect for circular motion: the velocity is tangent to the circle, and the acceleration points toward the center.</p>
+<p><strong>At <span class="math inline">\(t = T/4 = 21\)</span> years</strong> (one quarter orbit, Uranus at position <span class="math inline">\((0, R)\)</span>):</p>
+<p><strong>Interpretation:</strong> At the top of the orbit, velocity is leftward, and acceleration is downward toward the center.</p>
+<p>Now plug in Uranus’s actual numbers: <span class="math inline">\(R_1 = 19.19\)</span> AU and <span class="math inline">\(\omega_1 = 7.479\times10^{-2}\)</span> rad/yr.</p>
+<p><strong>Velocity magnitude</strong> (speed along the orbit):</p>
+<p><span class="math display">\[
+v = R_1\omega_1 = 19.19 \times 7.479\times10^{-2} = 1.435 \text{ AU/yr}
+\]</span></p>
+<p>This means Uranus travels about 1.435 AU (about 215 million kilometers) every year.</p>
+<p><strong>Acceleration magnitude</strong> (toward the Sun):</p>
+<p><span class="math display">\[
+a = R_1\omega_1^2 = 19.19 \times (7.479\times10^{-2})^2 = 0.1074 \text{ AU/yr}^2
+\]</span></p>
+<p>With these values, astronomers could calculate the gravitational force from the Sun alone:</p>
+<p><span class="math display">\[
+F_{\text{Sun}} = m_1 a
+\]</span></p>
+<p>But when they compared this to the force needed to explain Uranus’s actual motion, they didn’t match. There was an extra force — exactly the amount needed to explain the growing discrepancy <span class="math inline">\(\Delta\phi\)</span>.</p>
+<p>The extra force was real. It had to come from somewhere. And if it came from a planet, astronomers were now facing a three-body problem: Sun, Uranus, and the unknown planet. Three-body problems have no exact solution. No formula exists that gives the positions of all three bodies at all times.</p>
+<p>They needed another approach.</p>
+</section>
+<section id="a-small-perturbation" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> A Small Perturbation</h1>
+<p>The general three-body problem has no known closed-form analytical solution because the bodies continuously influence one another through gravity. However, some special cases do admit exact solutions. But astronomers noticed something important: the unknown planet had to be much smaller than the Sun. Its gravitational pull on Uranus would be tiny compared to the Sun’s.</p>
+<p>This meant they could treat the unknown planet’s influence as a small perturbation — a tiny correction to the main orbit. Instead of solving the impossible three-body problem, they could start with the easy two-body problem (Sun and Uranus) and then add small corrections.</p>
+<p>To understand the effect mathematically, we introduce small perturbations around the circular orbit. The following perturbation model is a simplified mathematical representation inspired by modern perturbation theory. Although Adams and Le Verrier used more sophisticated celestial mechanics in their original calculations, this simplified model captures the essential calculus concepts needed to explain how small gravitational perturbations affect Uranus’s orbit.</p>
+<p>Let <span class="math inline">\(R_1\)</span> denote the radius of Uranus’s unperturbed circular orbit, and let <span class="math inline">\(\omega_1\)</span> be its constant angular velocity in the simplified model.</p>
+<p><span class="math display">\[
+\rho_1(\tau) = R_1 + u(\tau)
+\]</span></p>
+<p><span class="math display">\[
+\phi_1(\tau) = \omega_1\tau + \frac{v(\tau)}{R_1}
+\]</span></p>
+<p>Here, <span class="math inline">\(R_1\)</span> and <span class="math inline">\(\omega_1\tau\)</span> represent the normal orbit — where Uranus would be if only the Sun existed. The small corrections are <span class="math inline">\(u(\tau)\)</span> (a tiny radial shift, pulled in or out) and <span class="math inline">\(v(\tau)\)</span> (a tiny tangential shift, pulled forward or backward). The variable <span class="math inline">\(\tau = t - 1822\)</span> measures time from the year when Uranus and Neptune were aligned.</p>
+<p>Let’s check that this is valid. How small are <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span>?</p>
+<p>The observed discrepancy <span class="math inline">\(\Delta\phi\)</span> was about 74 arcseconds by 1845. In radians, this is:</p>
+<p><span class="math display">\[
+74 \text{ arcseconds} = 74 \times \frac{\pi}{180 \times 3600} = 3.588\times10^{-4} \text{ radians}
+\]</span></p>
+<p>Since <span class="math inline">\(\Delta\phi = v/R_1\)</span>, the tangential perturbation is:</p>
+<p><span class="math display">\[
+v = R_1 \times \Delta\phi = 19.19 \times 3.588\times10^{-4} = 6.884\times10^{-3} \text{ AU}
+\]</span></p>
+<p>Compare this to <span class="math inline">\(R_1 = 19.19\)</span> AU:</p>
+<p><span class="math display">\[
+\frac{v}{R_1} = \frac{6.884\times10^{-3}}{19.19} = 3.588\times10^{-4} \approx 0.036\%
+\]</span></p>
+<p>The perturbation is indeed tiny — less than 0.04% of the orbital radius.</p>
+<p>The problem was now much simpler. Instead of finding the entire orbit, astronomers only needed to find the small corrections <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span>. If they could find <span class="math inline">\(v\)</span>, they would know exactly how much the unknown planet was pulling Uranus off its predicted path.</p>
+<p>But to find <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span>, they had to substitute this perturbed orbit into Newton’s law. And that’s where a new problem appeared.</p>
+</section>
+<section id="taylor-series-to-the-rescue" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Taylor Series to the Rescue</h1>
+<p>In the simplified perturbation model introduced in this report, substituting <span class="math inline">\(\rho = R + u\)</span> into Newton’s law of gravitation produces the inverse-square term</p>
+<p><span class="math display">\[
+\frac{1}{(R+u)^2}
+\]</span></p>
+<p>To simplify the perturbation equations, we approximate the inverse-square term using a Taylor series. Historically, Adams and Le Verrier derived the perturbation equations from the complete Newtonian gravitational potential. We expand only the inverse-square term because it illustrates the key calculus concept while keeping the mathematics suitable for a Calculus II level.</p>
+<p><span class="math display">\[
+\frac{1}{(R+u)^2}=\frac{1}{R^2(1+\frac{u}{R})^2}
+\]</span></p>
+<p>And finally,</p>
+<p><span class="math display">\[
+\frac{1}{(R+u)^2}\approx\frac{1}{R^2}-\frac{2u}{R^3}
+\]</span></p>
+<p>The inverse-square term is difficult to manipulate because the perturbation u appears in the denominator. Since u is assumed to be much smaller than R, the Taylor series provides an excellent approximation.</p>
+<p>Let’s derive the Taylor expansion step by step.</p>
+<p>We want to expand <span class="math inline">\((1+x)^{-2}\)</span> around <span class="math inline">\(x = 0\)</span>. The Taylor series formula is:</p>
+<p><span class="math display">\[
+f(x) = f(0) + f'(0)x + \frac{f''(0)}{2!}x^2 + \frac{f'''(0)}{3!}x^3 + \cdots
+\]</span></p>
+<p>For <span class="math inline">\(f(x) = (1+x)^{-2}\)</span>:</p>
+<p>So:</p>
+<p><span class="math display">\[
+(1+x)^{-2} = 1 - 2x + 3x^2 - 4x^3 + \cdots
+\]</span></p>
+<p>Now substitute <span class="math inline">\(x = u/R\)</span>:</p>
+<p><span class="math display">\[
+\left(1 + \frac{u}{R}\right)^{-2} = 1 - 2\left(\frac{u}{R}\right) + 3\left(\frac{u}{R}\right)^2 - 4\left(\frac{u}{R}\right)^3 + \cdots
+\]</span></p>
+<p>Since <span class="math inline">\(u/R \approx 0.0004\)</span>, let’s estimate the size of each term:</p>
+<p>The second term is 1000 times smaller than the first. The third term is 1000 times smaller than the second. So we can safely ignore everything beyond the first two terms:</p>
+<p><span class="math display">\[
+\left(1 + \frac{u}{R}\right)^{-2} \approx 1 - \frac{2u}{R}
+\]</span></p>
+<p>Applying this to the gravitational term:</p>
+<p><span class="math display">\[
+\frac{1}{(R+u)^2} = \frac{1}{R^2} \left(1 + \frac{u}{R}\right)^{-2} \approx \frac{1}{R^2} \left(1 - \frac{2u}{R}\right) = \frac{1}{R^2} - \frac{2u}{R^3}
+\]</span></p>
+<p>The complicated nonlinear expression <span class="math inline">\(\frac{1}{(R+u)^2}\)</span> had become the simple linear expression <span class="math inline">\(\frac{1}{R^2} - \frac{2u}{R^3}\)</span>. This was a massive simplification. A problem that was nearly impossible to solve had become manageable.</p>
+<p>Let’s test the accuracy of this approximation with actual numbers. For Uranus, <span class="math inline">\(R = 19.19\)</span> AU and suppose <span class="math inline">\(u = 0.007\)</span> AU:</p>
+<p><strong>Exact value:</strong></p>
+<p><span class="math display">\[
+\frac{1}{(19.197)^2} = \frac{1}{368.524} = 0.0027138
+\]</span></p>
+<p><strong>Approximation:</strong></p>
+<p><span class="math display">\[
+\frac{1}{19.19^2} - \frac{2(0.007)}{19.19^3} = \frac{1}{368.256} - \frac{0.014}{7068.5}
+\]</span></p>
+<p><span class="math display">\[
+= 0.0027155 - 1.981\times10^{-6} = 0.0027135
+\]</span></p>
+<p><strong>Error:</strong> <span class="math inline">\(0.0027138 - 0.0027135 = 0.0000003\)</span>, which is less than 0.01%.</p>
+<p>This is the power of Taylor series: they turn hard nonlinear problems into easy linear ones with negligible error. And this was exactly what astronomers needed to move forward.</p>
+</section>
+<section id="the-differential-equation" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> The Differential Equation</h1>
+<p><strong>Coupled Linear Differential Equations</strong> A system of coupled ordinary differential equations (ODEs) involves multiple dependent variables whose derivatives depend on one another. In classical mechanics, a general second-order linear coupled system with two variables, <span class="math inline">\(u(t)\)</span> and <span class="math inline">\(v(t)\)</span>, takes the form:</p>
+<p><span class="math display">\[$
+\begin{aligned}
+\ddot{u} + c_1 \dot{v} + c_2 u &amp;= f_1(t) \\
+\ddot{v} + c_3 \dot{u} + c_4 v &amp;= f_2(t)
+\end{aligned}
+\]</span></p>
+<p>Because the rate of change of <span class="math inline">\(u\)</span> depends on the velocity of <span class="math inline">\(v\)</span> (and vice versa), these equations cannot be solved in isolation; they must be solved simultaneously.</p>
+<p><strong>Role in this Project:</strong> In our model, <span class="math inline">\(u(\tau)\)</span> and <span class="math inline">\(v(\tau)\)</span> represent Uranus’s radial and tangential displacements. The coupling terms (<span class="math inline">\(2\omega_1\dot{v}\)</span> and <span class="math inline">\(2\omega_1\dot{u}\)</span>) mathematically represent the physical Coriolis effect, showing how a structural shift in one direction instantly forces a dynamic velocity change in the perpendicular direction.</p>
+<p>With the gravitational term simplified, astronomers could now substitute everything into Newton’s law. Let’s walk through the derivation.</p>
+<p>In polar coordinates, the acceleration has two components: - Radial: <span class="math inline">\(a_r = \ddot{\rho} - \rho\dot{\phi}^2\)</span> - Tangential: <span class="math inline">\(a_\phi = \rho\ddot{\phi} + 2\dot{\rho}\dot{\phi}\)</span> Where dots represent derivatives with respect to time: <span class="math inline">\(\dot{\rho} = d\rho/dt\)</span>, <span class="math inline">\(\ddot{\rho} = d^2\rho/dt^2\)</span>.</p>
+<p>Newton’s law <span class="math inline">\(F = ma\)</span> gives:</p>
+<p><span class="math display">\[
+F_r = m(\ddot{\rho} - \rho\dot{\phi}^2)
+\]</span></p>
+<p><span class="math display">\[
+F_\phi = m(\rho\ddot{\phi} + 2\dot{\rho}\dot{\phi})
+\]</span></p>
+<p><strong>Step 1: Substitute the perturbed orbit.</strong></p>
+<p>Recall that <span class="math inline">\(\rho = R_1 + u\)</span> and <span class="math inline">\(\phi = \omega_1\tau + v/R_1\)</span>.</p>
+<p>First, compute the derivatives:</p>
+<p><span class="math display">\[
+\dot{\rho} = \dot{u},  \qquad \ddot{\rho} = \ddot{u}
+\]</span></p>
+<p><span class="math display">\[
+\dot{\phi} = \omega_1 + \frac{\dot{v}}{R_1}, \qquad \ddot{\phi} = \frac{\ddot{v}}{R_1}
+\]</span></p>
+<p><strong>Step 2: Substitute into the radial equation.</strong></p>
+<p><span class="math display">\[
+F_r = \ddot{u} - (R_1+u)\left(\omega_1 + \frac{\dot{v}}{R_1}\right)^2
+\]</span></p>
+<p>Expand the squared term:</p>
+<p><span class="math display">\[
+\left(\omega_1 + \frac{\dot{v}}{R_1}\right)^2 = \omega_1^2 + \frac{2\omega_1\dot{v}}{R_1} + \frac{\dot{v}^2}{R_1^2}
+\]</span></p>
+<p>Since <span class="math inline">\(\dot{v}^2\)</span> is tiny (perturbation squared), we ignore it:</p>
+<p><span class="math display">\[
+\left(\omega_1 + \frac{\dot{v}}{R_1}\right)^2 \approx \omega_1^2 + \frac{2\omega_1\dot{v}}{R_1}
+\]</span></p>
+<p>Now multiply by <span class="math inline">\((R_1+u)\)</span>:</p>
+<p><span class="math display">\[
+(R_1+u)\left(\omega_1^2 + \frac{2\omega_1\dot{v}}{R_1}\right) = R_1\omega_1^2 + 2\omega_1\dot{v} + u\omega_1^2 + \frac{2u\omega_1\dot{v}}{R_1}
+\]</span></p>
+<p>The last term is tiny (product of two small quantities), so we ignore it:</p>
+<p><span class="math display">\[
+(R_1+u)\left(\omega_1^2 + \frac{2\omega_1\dot{v}}{R_1}\right) \approx R_1\omega_1^2 + 2\omega_1\dot{v} + u\omega_1^2
+\]</span></p>
+<p>Thus:</p>
+<p><span class="math display">\[
+F_r = \ddot{u} - R_1\omega_1^2 - 2\omega_1\dot{v} - u\omega_1^2
+\]</span></p>
+<p><strong>Step 3: Account for gravity.</strong></p>
+<p>The Sun’s gravitational acceleration acting on Uranus is given by Newton’s law of gravitation. Since the Sun’s mass is much greater than Uranus’s mass (<span class="math inline">\(M\gg m_1\)</span>), Uranus’s mass is neglected when calculating the orbital acceleration.</p>
+<p>The Sun’s gravitational force (with Taylor expansion):</p>
+<p><span class="math display">\[
+F_{\text{Sun}} = \frac{GM}{(R_1+u)^2} \approx \frac{GM}{R_1^2} - \frac{2uGM}{R_1^3}
+\]</span></p>
+<p>For the unperturbed orbit, we know that:</p>
+<p><span class="math display">\[
+\frac{GM}{R_1^2} = R_1\omega_1^2 \implies \frac{GM}{R_1^3} = \omega_1^2
+\]</span></p>
+<p>This means the Sun’s force exactly balances the centripetal acceleration needed for circular motion.</p>
+<p><strong>Step 4: Combine everything.</strong></p>
+<p>The full radial equation is:</p>
+<p><span class="math display">\[
+\ddot{u} - R_1\omega_1^2 - 2\omega_1\dot{v} - u\omega_1^2 = -\frac{GM}{R_1^2} + \frac{2uGM}{R_1^3} + F_{\text{perturb}}
+\]</span></p>
+<p>But the terms <span class="math inline">\(-R_1\omega_1^2\)</span> and <span class="math inline">\(-\frac{GM}{R_1^2}\)</span> cancel (they are equal and opposite).</p>
+<p>Also, <span class="math inline">\(\frac{GM}{R_1^3} = \omega_1^2\)</span>.</p>
+<p>So we get:</p>
+<p><span class="math display">\[
+\ddot{u} - 2\omega_1\dot{v} - u\omega_1^2 = 2u\omega_1^2 + F_{\text{perturb}}
+\]</span></p>
+<p><span class="math display">\[
+\ddot{u} - 2\omega_1\dot{v} - 3\omega_1^2 u = F_{\text{perturb}}
+\]</span></p>
+<p><strong>Step 5: The tangential equation follows similarly.</strong></p>
+<p><span class="math display">\[
+F_\phi = (R_1+u)\left(\frac{\ddot{v}}{R_1}\right) + 2\dot{u}\left(\omega_1 + \frac{\dot{v}}{R_1}\right)
+\]</span></p>
+<p>Ignoring tiny terms:</p>
+<p><span class="math display">\[
+F_\phi = \ddot{v} + 2\omega_1\dot{u}
+\]</span></p>
+<p>Thus, the full system of differential equations is:</p>
+<p><span class="math display">\[
+\ddot{u} - 2\omega_1\dot{v} - 3\omega_1^2 u = F_r
+\]</span></p>
+<p><span class="math display">\[
+\ddot{v} + 2\omega_1\dot{u} = F_\phi
+\]</span></p>
+<p>Here, <span class="math inline">\(F_r\)</span> and <span class="math inline">\(F_\phi\)</span> represent the gravitational pull from the unknown planet.</p>
+<p><strong>Step 6: Interpret the equations.</strong> - The first equation describes how the radial perturbation <span class="math inline">\(u\)</span> evolves. The term <span class="math inline">\(-3\omega_1^2 u\)</span> acts like a restoring force — if Uranus is pulled outward (<span class="math inline">\(u &gt; 0\)</span>), gravity pulls it back. - The second equation describes how the tangential perturbation <span class="math inline">\(v\)</span> evolves. The terms <span class="math inline">\(2\omega_1\dot{u}\)</span> are Coriolis-like terms that arise naturally because the equations are expressed in a rotating polar coordinate system. These terms describe the coupling between the radial and tangential perturbations rather than a separate physical force acting on Uranus. These equations were the key to everything. If astronomers could solve for <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span>, they would know exactly how the unknown planet was pulling Uranus off its path.</p>
+</section>
+<section id="finding-the-dominant-term" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Finding the Dominant Term</h1>
+<p><strong>Simple Introduction:</strong> Fourier Series Expansion</p>
+<p>A Fourier series represents a periodic function as an infinite sum of sine and cosine functions, repeating function <span class="math inline">\(f(t)\)</span> with a fundamental frequency <span class="math inline">\(\omega\)</span> into an infinite sum of harmonically related sine and cosine waves. The general expansion is given by:</p>
+<p><span class="math display">\[
+f(t) = a_0 + \sum_{n=1}^{\infty} a_n \cos(n\omega t) + \sum_{n=1}^{\infty} b_n \sin(n\omega t)
+\]</span></p>
+<p>where the coefficients <span class="math inline">\(a_n\)</span> and <span class="math inline">\(b_n\)</span> represent the amplitude or weight of each specific harmonic frequency component (<span class="math inline">\(n\omega\)</span>), calculated by integrating the original function over one complete orbital cycle.</p>
+<p>The forces <span class="math inline">\(F_r\)</span> and <span class="math inline">\(F_\phi\)</span> come from the unknown planet’s gravity. Since the unknown planet orbits the Sun, these forces are periodic — they vary periodically as Uranus and the perturbing planet move along their orbits. In this report, the periodic perturbing forces are represented using a Fourier series to illustrate how periodic functions can be analyzed mathematically</p>
+<p><span class="math display">\[
+F_r(\tau) = a_0 + a_1\cos(\omega\tau) + a_2\cos(2\omega\tau) + a_3\cos(3\omega\tau) + \cdots
+\]</span></p>
+<p><span class="math display">\[
+F_\phi(\tau) = b_1\sin(\omega\tau) + b_2\sin(2\omega\tau) + b_3\sin(3\omega\tau) + \cdots
+\]</span></p>
+<p>Here, <span class="math inline">\(\omega\)</span> is the relative angular velocity between Uranus and the unknown planet:</p>
+<p><span class="math display">\[
+\omega = \omega_1 - \omega_2
+\]</span></p>
+<p>Let’s calculate this:</p>
+<p>Now compute the ratio:</p>
+<p><span class="math display">\[
+\frac{\omega_1}{\omega} = \frac{7.479\times10^{-2}}{3.666\times10^{-2}} = 2.040 \approx 2
+\]</span></p>
+<p>The ratio <span class="math inline">\(\frac{\omega_1}{\omega}\approx2\)</span> motivates the use of a second-harmonic term in this simplified model. It is introduced for mathematical illustration and should not be interpreted as the historical mechanism responsible for Neptune’s discovery.</p>
+<p>In general, the Fourier coefficients are obtained by integration:</p>
+<p><span class="math display">\[
+a_n = \frac{1}{2\pi}\int_0^{2\pi} F_r(\tau)\cos(n\omega\tau)\,d(\omega\tau)
+\]</span></p>
+<p>The periodic perturbation can be represented by the Fourier series</p>
+<p><span class="math display">\[
+F(\tau)=a_{0}+\sum_{n=1}^{\infty}\left(a_{n}\cos(n\omega\tau)+b_{n}\sin(n\omega\tau)\right),
+\]</span></p>
+<p>where <span class="math inline">\(a_n\)</span> and <span class="math inline">\(b_n\)</span> are the Fourier coefficients determined from the observational data. Since this report focuses on demonstrating the calculus involved rather than reproducing the complete historical analysis carried out by Adams and Le Verrier, only the general Fourier series formulation is presented. In the following analysis, a single harmonic component is considered to illustrate how periodic gravitational perturbations influence Uranus’s orbit while keeping the mathematics suitable for a Calculus II level.</p>
+</section>
+<section id="solving-for-the-perturbation" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Solving for the Perturbation</h1>
+<p><strong>Simple Introduction:</strong> Cramer’s Rule for Linear Systems</p>
+<p>Cramer’s rule is an explicit formula for solving a system of linear equations using determinants. Given a <span class="math inline">\(2 \times 2\)</span> linear system expressed in matrix form as <span class="math inline">\(A\mathbf{x} = \mathbf{b}\)</span>:</p>
+<p><span class="math display">\[
+\begin{pmatrix} a_{11} &amp; a_{12} \\ a_{21} &amp; a_{22} \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
+\]</span></p>
+<p>If the determinant of the coefficient matrix, <span class="math inline">\(\det(A) = a_{11}a_{22} - a_{12}a_{21}\)</span>, is non-zero, the unique solutions for the variables <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> are given by:</p>
+<p><span class="math display">\[
+x_1 = \frac{\det(A_1)}{\det(A)}, \quad x_2 = \frac{\det(A_2)}{\det(A)}
+\]</span></p>
+<p>where <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span> are matrices formed by replacing the first and second columns of <span class="math inline">\(A\)</span> with the constant vector <span class="math inline">\(\mathbf{b}\)</span>, respectively:</p>
+<p><span class="math display">\[
+\det(A_1) = \begin{vmatrix} b_1 &amp; a_{12} \\ b_2 &amp; a_{22} \end{vmatrix}, \quad \det(A_2) = \begin{vmatrix} a_{11} &amp; b_1 \\ a_{21} &amp; b_2 \end{vmatrix}
+\]</span></p>
+<p><strong>Role in this Project:</strong> Once the perturbing forces are represented by harmonic functions, the coupled differential equations can be reduced to a system of linear algebraic equations by assuming a particular solution of the same frequency. Cramer’s rule is then used to determine the amplitudes of the perturbations.</p>
+<p>In this report, the periodic perturbing forces are represented using a Fourier series to illustrate how periodic functions can be analysed mathematically. For simplicity, only a single harmonic component is retained, giving</p>
+<p><span class="math display">\[
+F_r = a_2\cos(2\omega\tau), \qquad F_\phi = b_2\sin(2\omega\tau)
+\]</span></p>
+<p>To obtain a particular solution, we assume that the perturbations oscillate at the same frequency as the forcing terms:</p>
+<p><span class="math display">\[
+u(\tau) = \epsilon u_2\cos(2\omega\tau), \qquad v(\tau) = \epsilon v_2\sin(2\omega\tau)
+\]</span></p>
+<p>This is a standard technique in differential equations: when the forcing term is a sine or cosine, the particular solution has the same form.</p>
+<p>Substituting these expressions into the coupled differential equations and equating coefficients of <span class="math inline">\(\cos(2\omega\tau)\)</span> and <span class="math inline">\(\sin(2\omega\tau)\)</span> yielded a system of two linear algebraic equations:</p>
+<p><span class="math display">\[
+-4\omega^2 u_2 - 4\omega_1\omega v_2 - 3\omega_1^2 u_2 = a_2
+\]</span></p>
+<p><span class="math display">\[
+-4\omega^2 v_2 - 4\omega_1\omega u_2 = b_2
+\]</span></p>
+<p>Solving this system gave:</p>
+<p><span class="math display">\[
+u_2 = \frac{\omega_1 b_2 - \omega a_2}{\omega(4\omega^2 - \omega_1^2)}
+\]</span></p>
+<p><span class="math display">\[
+v_2 = \frac{(-4\omega^2 - 3\omega_1^2)b_2 + 4\omega_1\omega a_2}{4\omega^2(4\omega^2 - \omega_1^2)}
+\]</span></p>
+<p>Notice the denominator in both expressions,</p>
+<p><span class="math display">\[
+4\omega^{2}-\omega_{1}^{2},
+\]</span></p>
+<p>which arises naturally when solving the forced ordinary differential equations. In the simplified model, the magnitude of this denominator influences the amplitude of the periodic response. If the denominator were to approach zero, the mathematical solution would exhibit resonant behaviour. However, this resonance is a feature of the simplified model and should not be interpreted as the physical mechanism behind Neptune’s discovery. Historically, the observed deviations in Uranus’s orbit resulted from the cumulative gravitational perturbations exerted by Neptune rather than from orbital resonance.</p>
+<p>The amplitudes <span class="math inline">\(u_2\)</span> and <span class="math inline">\(v_2\)</span> are obtained by substituting the appropriate forcing coefficients and orbital parameters into Equations (71) and (72).</p>
+<p>Converting the tangential perturbation to angular displacement:</p>
+<p><span class="math display">\[
+\Delta\phi(\tau) = \frac{v(\tau)}{R_1} = \gamma \sin(2\omega\tau)
+\]</span></p>
+<p>where <span class="math inline">\(\gamma\)</span> denotes the amplitude of the angular perturbation.</p>
+</section>
+<section id="the-complete-model" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> The Complete Model</h1>
+<p>The full solution includes terms from the unperturbed orbit (the homogeneous solution of the differential equation). Adding these gives:</p>
+<p><span class="math display">\[
+\Delta\phi(\tau) = -\gamma\sin(2\omega\tau) + \beta_1\omega\tau + \beta_2 + \beta_3\sin(\omega_1\tau) + \beta_4\cos(\omega_1\tau)
+\]</span></p>
+<p>Equation (74) represents the analytical solution of the simplified perturbation model. For parameter estimation, it is convenient to express the periodic perturbation in the simplified regression model.</p>
+<p>The previous sections developed the mathematical tools needed to model Uranus’s orbital perturbations. Combining the linear trend with the periodic perturbation obtained from the Fourier representation gives the following simplified model:</p>
+<p><span class="math display">\[
+\Delta\phi(t)
+=
+\beta_0
++
+\beta_1 t
++
+\beta_2\cos(2\omega t)
++
+\beta_3\sin(2\omega t),
+\]</span></p>
+<p>where <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span>, <span class="math inline">\(\beta_2\)</span>, and <span class="math inline">\(\beta_3\)</span> are constants that would be determined by fitting the model to observational data using the method of least squares.</p>
+<p>In practice, astronomers estimate these parameters by minimizing the sum of the squared differences between the observed and predicted orbital positions. This produces the best-fitting model for the available observational data.</p>
+<p>Since this report focuses on the calculus involved in the discovery of Neptune rather than reproducing the complete historical data analysis, the numerical estimation of these parameters is not carried out.</p>
+<p>The resulting model demonstrates how Taylor series, ordinary differential equations, Fourier series, and least squares can be combined to describe the periodic deviations in Uranus’s orbit.</p>
+</section>
+<section id="the-discovery" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> The Discovery</h1>
+<p>From the perturbation model, astronomers estimated the position and approximate orbital characteristics of the unknown planet. [Space Engine, 2019]</p>
+<p><img src="images/cal_2.png" class="img-fluid" style="width:70.0%"></p>
+<p>On September 23, 1846, Johann Galle received a letter from Urbain Le Verrier with the predicted coordinates. That night, he pointed his telescope to that location.</p>
+<p>Within one hour, he saw a faint blue dot.</p>
+<p>It was within one degree of the predicted position.</p>
+<p>Neptune had been found.</p>
+</section>
+<section id="conclusion-the-power-of-calculus" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Conclusion: The Power of Calculus</h1>
+<p>Calculus transformed tiny deviations in Uranus’s orbit into the discovery of a new world. The subsequent telescopic observation confirmed the prediction obtained from the mathematical analysis.</p>
+<p>The combination of Newtonian gravitation, astronomical observations, and calculus enabled astronomers to predict the existence and approximate location of a previously unknown planet before it was observed.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

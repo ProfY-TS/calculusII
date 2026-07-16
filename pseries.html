@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>How Infinitely Small Contributions Create Unexpected Outcomes: The p-Series – Calculus Stories</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3cd44411fd72149452863431a2dfbeee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sample.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./pseries.html">p-series</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Calculus Stories</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Core Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sample</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./continuity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Continuity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./natural_base.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Natural Base</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./integral.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integral</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./neptune.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neptune</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./integral_story.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integral II</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Stokes_Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stoke’s Theorem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./jacobian.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jacobian</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tangents-areas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tangents and Areas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pseries.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">p-series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./brachistochrone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Brachistochrone</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bernoulli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bernoulli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./differentiability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differentiability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./maggkari.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Leibniz v. Newton</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gaussian.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gaussian Integral</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./infinite-boundaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Infinite Boundaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./fourier_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fourier Series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./taylor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taylor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gradient_ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Extra</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#the-harmonic-series" id="toc-the-harmonic-series" class="nav-link" data-scroll-target="#the-harmonic-series">The Harmonic Series</a></li>
+  <li><a href="#the-general-p-series" id="toc-the-general-p-series" class="nav-link" data-scroll-target="#the-general-p-series">The General p-Series</a></li>
+  </ul></li>
+  <li><a href="#visualizing-the-p-series" id="toc-visualizing-the-p-series" class="nav-link" data-scroll-target="#visualizing-the-p-series">Visualizing the p-Series</a>
+  <ul class="collapse">
+  <li><a href="#the-harmonic-bridge" id="toc-the-harmonic-bridge" class="nav-link" data-scroll-target="#the-harmonic-bridge">The Harmonic Bridge</a>
+  <ul class="collapse">
+  <li><a href="#the-leaning-tower-of-lire" id="toc-the-leaning-tower-of-lire" class="nav-link" data-scroll-target="#the-leaning-tower-of-lire">The Leaning Tower of Lire</a></li>
+  </ul></li>
+  <li><a href="#the-basel-problem" id="toc-the-basel-problem" class="nav-link" data-scroll-target="#the-basel-problem">The Basel Problem</a>
+  <ul class="collapse">
+  <li><a href="#a-line-of-lighthouses" id="toc-a-line-of-lighthouses" class="nav-link" data-scroll-target="#a-line-of-lighthouses">A Line of Lighthouses</a></li>
+  <li><a href="#our-old-friend-pythagoras" id="toc-our-old-friend-pythagoras" class="nav-link" data-scroll-target="#our-old-friend-pythagoras">Our Old Friend Pythagoras</a></li>
+  <li><a href="#the-circle-of-lighthouses" id="toc-the-circle-of-lighthouses" class="nav-link" data-scroll-target="#the-circle-of-lighthouses">The Circle of Lighthouses</a></li>
+  <li><a href="#the-finishing-touches" id="toc-the-finishing-touches" class="nav-link" data-scroll-target="#the-finishing-touches">The Finishing Touches</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sample.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./pseries.html">p-series</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">How Infinitely Small Contributions Create Unexpected Outcomes: The p-Series</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Group Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Group:</strong> Indomie Beef Rendang<br>
+<strong>Authors:</strong> Cliff Pramana, Jason William Teja, Wilbert Lucell</p>
+<div style="text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pseries_asset/pseries_group.jpeg" class="img-fluid figure-img" width="250"></p>
+<figcaption>Indomie Beef Rendang</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Imagine a curious cat observing a never-ending line of treats being arranged in a pattern. On the first step, the cat receives 1 full treat. On the second, it receives less than the previous. On the third, it receives even less of the previous. This pattern continues indefinitely, with the cat receiving smaller and smaller fractions of treats as it progresses along the line. The question arises: will the cat ever be satisfied, or will it continue to receive treats forever without reaching a point of contentment?</p>
+<p>This leads us to the series <span class="math display">\[
+\sum_{n=1}^{\infty} \frac{1}{n^p} = 1 + \frac{1}{2^p} + \frac{1}{3^p} + \cdots \text{,}
+\]</span> which is called a <strong>p-series</strong>. The convergence or divergence of this series depends on the value of <span class="math inline">\(p\)</span>.</p>
+<ul>
+<li>If <span class="math inline">\(p &gt; 1\)</span>, the series converges, meaning the cat will eventually get a set amount of treats.</li>
+<li>If <span class="math inline">\(p \leq 1\)</span>, the series diverges, and the cat will, in theory, be infinitely satisfied.</li>
+</ul>
+<section id="the-harmonic-series" class="level2">
+<h2 class="anchored" data-anchor-id="the-harmonic-series">The Harmonic Series</h2>
+<p>In the case where <span class="math inline">\(p = 1\)</span>, the series is called the <strong>harmonic series</strong>: <span class="math display">\[
+\sum_{n=1}^{\infty} \frac{1}{n} = 1 + \frac{1}{2} + \frac{1}{3} + \cdots \text{.}
+\]</span> Despite the terms getting smaller and smaller, the harmonic series diverges. This means that even though the cat receives increasingly smaller treats, the total amount of treats grows without bound.</p>
+<p>The cat knows this by doing a simple comparison. First, he groups terms of the harmonic series as follows: <span class="math display">\[
+\begin{align*}
+\sum_{n=1}^{\infty} \frac{1}{n} =&amp;  \;\;1 + \left(\frac{1}{2}\right) + \left(\frac{1}{3} + \frac{1}{4}\right) + \left(\frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8}\right) +\\
+&amp;\left(\frac{1}{9} + \frac{1}{10} + \frac{1}{11} + \frac{1}{12} + \frac{1}{13} + \frac{1}{14} + \frac{1}{15} + \frac{1}{16}\right) + \cdots
+\end{align*}
+\]</span></p>
+<p>That is, excluding the first term, group the terms into sets of 1, 2, 4, 8, 16, and so on. A fact about fractions is that if <span class="math inline">\(a &gt; b\)</span>, then <span class="math inline">\(\displaystyle \frac{1}{b} &gt; \frac{1}{a}\)</span>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Then, every term in one group is always greater than the last term in the group. For example, <span class="math display">\[
+\frac{1}{3} + \frac{1}{4} &gt; \frac{1}{4} + \frac{1}{4}
+\]</span></p>
+<p>Then, <span class="math display">\[
+\begin{align*}
+\sum_{n=1}^{\infty} \frac{1}{n} &gt;&amp; \;\;1 + \left(\frac{1}{2}\right) + \left(\frac{1}{4} + \frac{1}{4}\right) + \left(\frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8}\right) +\\
+&amp;\left(\frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16}\right) + \cdots. \\
+=&amp; \;\;1 + \frac{1}{2} + \frac{1}{2} + \frac{1}{2} + \frac{1}{2} + \cdots
+\end{align*}
+\]</span></p>
+<p>The right-hand-side contains the repeated sum of <span class="math inline">\(\frac{1}{2}\)</span>, which diverges. Adding a constant, that is the first term 1, does not change this fact. Since the harmonic series is <strong>at least</strong> this diverging sum, the series itself must diverge.</p>
+</section>
+<section id="the-general-p-series" class="level2">
+<h2 class="anchored" data-anchor-id="the-general-p-series">The General p-Series</h2>
+<p>For <span class="math inline">\(p\)</span> greater than 1, the series is known as part of the <strong>Riemann zeta function</strong><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, denoted as <span class="math inline">\(\zeta(p)\)</span>. The convergence of the p-series for <span class="math inline">\(p &gt; 1\)</span> can be shown using the integral test or comparison test. One property of the p-series is that it decreases monotonically, where <span class="math inline">\(p\)</span> affects that rate in which terms decrease. That is, as <span class="math inline">\(p\)</span> increases, the treats shrink faster, and the total amount the cat receives approaches a finite but smaller limit.</p>
+<p>That said, the simplicity of the series does not equate to simplicity in its computation. For most values of <span class="math inline">\(p\)</span>, the sum of the series cannot be expressed in a simple closed form. For example,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty} \frac{1}{n^3} = \frac{1}{1^3} + \frac{1}{2^3} + \frac{1}{3^3} + \cdots
+\]</span> does not have a simple closed form (this series in particular is known as <strong>Apéry’s constant</strong>), though can be approximated numerically. This is the case for all odd integers of <span class="math inline">\(p\)</span> greater than 1. However, for even integers of <span class="math inline">\(p\)</span>, the series can surprisingly be expressed in terms of <span class="math inline">\(\pi\)</span>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> The following are the values of the series for increasing values of <span class="math inline">\(p\)</span>:</p>
+<p><span class="math display">\[
+\begin{align*}
+    \sum_{n=1}^{\infty} \frac{1}{n^2} &amp;= \frac{\pi^2}{6} \quad \\
+    \sum_{n=1}^{\infty} \frac{1}{n^3} &amp;= 1.2020569... \quad \\
+    \sum_{n=1}^{\infty} \frac{1}{n^4} &amp;= \frac{\pi^4}{90} \quad \\
+    \sum_{n=1}^{\infty} \frac{1}{n^5} &amp;= 1.0369277... \quad \\
+    \sum_{n=1}^{\infty} \frac{1}{n^6} &amp;= \frac{\pi^6}{945} \quad \\
+\end{align*}
+\]</span></p>
+<p>The simple nature of the p-series allows it to be incredibly useful in many areas of mathematics. In particular, the p-series is often used in the study of convergence and divergence of series, providing a useful benchmark in analyzing infinite series.</p>
+</section>
+</section>
+<section id="visualizing-the-p-series" class="level1">
+<h1>Visualizing the p-Series</h1>
+<section id="the-harmonic-bridge" class="level2">
+<h2 class="anchored" data-anchor-id="the-harmonic-bridge">The Harmonic Bridge</h2>
+<p>As a curious (and lazy) cat in <strong>Xiamen University Malaysia</strong>, the daily journey from LY3 to A3 can be unnecessarily exhausting. The pathway curved gently around the lake; sure, it’s scenic, but very inefficient.</p>
+<p>“Why?” the cat wondered. “Why must I take this long, winding path when my destination is straight ahead? Surely there must be a shortcut.” One lazy afternoon, the cat kept pondering of a straight path across the lake, and soon, he dreamt of a solution.</p>
+<section id="the-leaning-tower-of-lire" class="level3">
+<h3 class="anchored" data-anchor-id="the-leaning-tower-of-lire">The Leaning Tower of Lire</h3>
+<p>The <strong>Leaning Tower of Lire</strong> is a fascinating mathematical construction. By stacking identical blocks such that each subsequent block hangs slightly further than the previous, one could build a structure that extends far beyond its base. The Leaning Tower of Lire takes advantage of the behaviour of the harmonic series, where each block’s overhang represents the terms of the series.</p>
+<div style="display: flex">
+<div style="text-align: center; flex: 0.8">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pseries_asset/pseries_leaning.png" class="img-fluid figure-img" width="300"></p>
+<figcaption>A diagram of the Leaning Tower of Lire</figcaption>
+</figure>
+</div>
+</div>
+<div style="flex: 1">
+<p>The first layer has a half-width overhang over the second block. The second has a quarter-width overhang over the third block, and so on. The overhang of the <span class="math inline">\(n\)</span>-th block is given by <span class="math inline">\(\frac{1}{2n}\)</span>. The total overhang of the tower is given by the sum of the series:</p>
+<p><span class="math display">\[
+\begin{align*}
+\sum_{n=1}^{\infty} \frac{1}{2n} &amp;= \frac{1}{2} \cdot \sum_{n=1}^{\infty} \frac{1}{n} \\
+&amp;= \frac{1}{2} \left( 1 + \frac{1}{2} + \frac{1}{3} + \cdots \right)
+\end{align*}
+\]</span></p>
+</div>
+</div>
+<p>With this theoretical construction in mind, the cat realized that the Leaning Tower of Lire could indeed extend infinitely far, as the harmonic series diverges. The cat’s dream of a shortcut across the lake was now feasible, and he began construction in his dream.</p>
+<p>Using 1000 35-meter-long 2.5-centimeter-thick titanium blocks, the cat built a Leaning Tower of Lire. The tower had the following dimensions:</p>
+<ol type="1">
+<li>Its height is approximately <span class="math inline">\(1000 \times 2.5 \text{ cm} = 25 \text{ m}\)</span>.</li>
+<li>Its total overhang is approximately <span class="math inline">\(\displaystyle 35 \text{ m} \cdot \sum_{n=1}^{1000} \frac{1}{2n} = 35 \text{ m} \cdot 3.74273... \approx 131 \text{ m}\)</span>.</li>
+</ol>
+<p>From afar, the construction looked impossible, a suspended pathway formed by the elegant balance of forces. The cat<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, now standing on the Leaning Tower of Lire, could cross the lake with ease. The dream was a success, and the cat could now cross the lake in a straight line, thanks to the properties of the harmonic series.</p>
+</section>
+</section>
+<section id="the-basel-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-basel-problem">The Basel Problem</h2>
+<p><strong>The Basel problem</strong> refers to the sum of the inverse of squares, that is the p-series for <span class="math inline">\(p=2\)</span>. Solved by <strong>Leonhard Euler</strong> in 1734 in the city of Basel, Switzerland, hence the name, the problem asks for the exact value of the series:</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty} \frac{1}{n^2} = 1 + \frac{1}{2^2} + \frac{1}{3^2} + \cdots
+\]</span></p>
+<p>Euler’s solution was a remarkable achievement, as he found that the sum of the series is equal to <span class="math inline">\(\frac{\pi^2}{6}\)</span>. Following Euler’s findings, there are numerous other ways to derive the sum of the series, including Fourier series, complex analysis, and rigorous mathematical proofs.</p>
+<div style="display: flex; vertical-align: middle;">
+<div style="flex: 1;">
+<p>However, one elegant way to visualize the convergence of the series is through a series of lighthouses, where each lighthouse shines a light of decreasing apparent intensity, representing the terms of the series. Introduced by the <strong>3Blue1Brown</strong> YouTube channel, and where all credit is given, the total brightness of all the lighthouses combined represents the sum of the series, which converges to the finite value <span class="math inline">\(\frac{\pi^2}{6}\)</span>.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+</div>
+<div style="text-align: center; flex: 1;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.youtube.com/watch?v=d-o3eB9sfls" target="_blank"><img src="pseries_asset/pseries_3b1b.jpg" class="img-fluid figure-img" width="220"></a></p>
+<figcaption>3Blue1Brown’s YouTube Channel,<br>
+linked to his video on the Basel Problem</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="a-line-of-lighthouses" class="level3">
+<h3 class="anchored" data-anchor-id="a-line-of-lighthouses">A Line of Lighthouses</h3>
+<p>Recall the previous cat who, on his bridge, imagined a never-ending line of lighthouses, each shining equally bright and are equally spaced apart. The cat now wonders, “How bright is the combined light of all the lighthouses?” Would it be infinitely bright, as is the case for the length of his theoretical bridge? Or would it be finite, reaching a certain brightness limit?</p>
+<p>The cat first considers the apparent brightness of each lighthouse. He imagines the area illuminated by each lighthouse as a square. Suppose the first lighthouse is one unit away and shines onto this screen with a brightness of 1. The second lighthouse, which is twice the distance away, would shine at a square twice its width and height, resulting in an apparent brightness of <span class="math inline">\(\frac{1}{2^2} = \frac{1}{4}\)</span> on this screen. The third lighthouse continues this pattern, shining at a square three times its width and height, resulting in an apparent brightness of <span class="math inline">\(\frac{1}{3^2} = \frac{1}{9}\)</span> on the screen. Letting all these lighthouses shine together against one square, the total brightness gives us the sum of the inverse of squares, which is the Basel problem.</p>
+<div style="text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pseries_asset/pseries_light.jpg" class="img-fluid figure-img" width="600"></p>
+<figcaption>Diagram of the Inverse Square Law</figcaption>
+</figure>
+</div>
+</div>
+<p>The question now is on how to evaluate this series, as the cat cannot simply add up all the brightnesses of the lighthouses. With that said, the cat decides a different approach, separating one lighthouse into two separate but identical lighthouses that, when shined together, gives the same apparent brightness as the original. From here, the cat remembers a vital theorem in geometry, the <strong>Pythagorean theorem</strong>, though more relevantly, the <strong>Inverse Pythagorean theorem</strong>.</p>
+</section>
+<section id="our-old-friend-pythagoras" class="level3">
+<h3 class="anchored" data-anchor-id="our-old-friend-pythagoras">Our Old Friend Pythagoras</h3>
+<p>The well-known <strong>Pythagorean theorem</strong> relates the length of the hypotenuse of a right triangle to the lengths of the other two sides. The <strong>Inverse Pythagorean theorem</strong>, on the other hand, relates the lengths of the two sides to the height from the right angle to the hypotenuse:</p>
+<p><span class="math display">\[
+\frac{1}{a^2} + \frac{1}{b^2} = \frac{1}{h^2}
+\]</span></p>
+<p>The cat imagines himself as the corner of such triangle, with this height being the distance of the lighthouse from the screen. The lighthouse sits at the hypotenuse, and drawing a line normal to this point, the cat can separate the lighthouse into two, each positioned at the other two corners of this right triangle, identical to the original. This new approach gave the cat a new perspective on the problem. If he knows the intensity of one lighthouse, separating it infinitely into two, then four, then eight, and so on should give the same brightness as the original lighthouse. The problem now simply becomes on how to relate this to the sum of the series.</p>
+<div style="text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pseries_asset/pseries_lighthouse.jpg" class="img-fluid figure-img" width="500"></p>
+<figcaption>Separating the lighthouse, taken from 3B1B’s video</figcaption>
+</figure>
+</div>
+</div>
+<p>One notable peculiarity of the Basel problem is that the sum of the series converges to a value that is related to <span class="math inline">\(\pi\)</span>. As such, the cat naturally thinks of ways to relate the problem to a circle. And so, he discovered the following geometric construction, which he calls the <strong>Circle of Lighthouses</strong>.</p>
+</section>
+<section id="the-circle-of-lighthouses" class="level3">
+<h3 class="anchored" data-anchor-id="the-circle-of-lighthouses">The Circle of Lighthouses</h3>
+<div style="display:flex; align-items: center;">
+<div style="text-align: center; flex:0.3;">
+<p><img src="pseries_asset/pseries_circle1.png" class="img-fluid" width="200"></p>
+</div>
+<div style="flex: 0.7;">
+<p>The cat starts with a circle of diameter <span class="math inline">\(\frac{2}{\pi}\)</span>. If he sits at one point of the circle, and places the lighthouse at the opposite end of the circle, the cat would be a distance of one unit away along the circumference of the circle. The apparent brightness from this lighthouse would be the inverse of the square of the diameter, which turns out to be <span class="math inline">\(\frac{\pi^2}{4}\)</span>.</p>
+</div>
+</div>
+<p>The cat then draws a circle twice as big, centered at the lighthouse. Using the lighthouse as a starting point, the cat draws a tangent line of the smaller circle through this lighthouse onto the larger circle. Connecting the two new points on the larger circle with the cat forms a right triangle, a key property of circles. The hypotenuse is the diameter of the larger circle, and the height from the right angle to the hypotenuse is the diameter of the smaller circle.</p>
+<div style="display:flex; align-items: center;">
+<div style="flex: 0.7;">
+<p>Using the Inverse Pythagorean theorem, the cat can now separate this lighthouse into two new lighthouses, positioned at the other two corners of the right triangle. In fact, from how these points were constructed, they are equidistant from each other along the circumference: 2 units apart within the 4-unit-circumference circle, where the cat sits between the two lighthouses.</p>
+</div>
+<div style="text-align: center; flex:0.3;">
+<p><img src="pseries_asset/pseries_circle2.png" class="img-fluid" width="200"></p>
+</div>
+</div>
+<div style="display:flex; align-items: center;">
+<div style="text-align: center; flex:0.3;">
+<p><img src="pseries_asset/pseries_circle3.png" class="img-fluid" width="200"></p>
+</div>
+<div style="flex: 0.7;">
+<p>The cat draws an even bigger circle, centered at the lighthouse with the same idea. This time, he draws a line from the new lighthouses through the center of the larger circle. The two points where this line intersects the larger circle are the new positions of the lighthouses, forming another right triangle with the cat. Doing this with the other lighthouse, the cat now has 4 lighthouses around the larger circle, each still 2 units apart from each other within the 8-unit-circumference circle and the cat sitting in the middle of two lighthouses.</p>
+</div>
+</div>
+<div style="display:flex; align-items: center;">
+<div style="flex: 0.7;">
+<p>Repeating this process to get 8 lighthouses on a 16-unit-circumference circle, then 16 lighthouses on a 32-unit-circumference circle, and so on, the cat can now separate the original lighthouse into infinitely many lighthouses, each shining with the same total apparent brightness as the original. Furthermore, as the circle becomes larger and larger, the circumference of the circle approaches a straight line.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> In this line, the cat sits in the middle of 2 lighthouses, 1 unit away from them. The other subsequent lighthouses are each 2 units away from each other, and still, the total apparent brightness is that of the original lighthouse: <span class="math inline">\(\frac{\pi^2}{4}\)</span>.</p>
+</div>
+<div style="text-align: center; flex:0.3;">
+<p><img src="pseries_asset/pseries_circle4.png" class="img-fluid" width="200"></p>
+</div>
+</div>
+</section>
+<section id="the-finishing-touches" class="level3">
+<h3 class="anchored" data-anchor-id="the-finishing-touches">The Finishing Touches</h3>
+<p>With this new line of lighthouses, the cat can now construct a new series. If the cat places himself at the origin of the number line, all lighthouses sits on the odd numbers in both the positive and negative direction.</p>
+<div style="text-align: center;">
+<p><img src="pseries_asset/pseries_line.png" class="img-fluid" width="600"></p>
+</div>
+<p>As such, he gets</p>
+<p><span class="math display">\[
+\begin{align*}
+\frac{\pi^2}{4} &amp;= 2 \cdot \left( \frac{1}{1^2} + \frac{1}{3^2} + \frac{1}{5^2} + \cdots \right) \\
+\implies \frac{\pi^2}{8} &amp;= \sum_{n=1}^{\infty} \frac{1}{(2n-1)^2}
+\end{align*}
+\]</span></p>
+<p>The only missing part of this new series are the even terms, and the cat has a clever trick in mind. The even terms of the series is akin to taking the original line of lighthouses and shifting their position such that they are twice as far as they were previously.</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty} \frac{1}{(2n)^2} = \frac{1}{4} \cdot \sum_{n=1}^{\infty} \frac{1}{n^2}
+\]</span></p>
+<p>The first lighthouse becomes two units apart, the second becomes four units, and so forth. As such, as they are twice as far, their apparent brightness is, again, the inverse of the square of this factor, that is the even terms are one forth of the Basel problem. Now, the even and odd terms must add up to the whole value of the series, and the even terms contribute to one forth of this value. The cat sees this as a simple algebraic problem:</p>
+<p><span class="math display">\[
+\begin{align*}
+\sum_{n=1}^{\infty} \frac{1}{n^2} &amp;= \sum_{n=1}^{\infty} \frac{1}{(2n-1)^2} + \sum_{n=1}^{\infty} \frac{1}{(2n)^2} \quad \quad\\
+&amp;= \frac{\pi^2}{8} + \frac{1}{4} \sum_{n=1}^{\infty} \frac{1}{n^2} \\
+\implies \frac{3}{4} \sum_{n=1}^{\infty} \frac{1}{n^2} &amp;= \frac{\pi^2}{8} \\
+\sum_{n=1}^{\infty} \frac{1}{n^2} &amp;= \frac{\pi^2}{6}
+\end{align*}
+\]</span></p>
+<p>Just like that, the cat solved the Basel problem. Where some may require rigorous and often complex algebraic manipulation and even integration, some requires one to see the problem in a different perspective. This key idea is relevant in all areas of mathematics. The question isn’t how to solve a problem directly, but how one manipulates the problem to something else that is, for the most part, far easier than dealing with the original problem head-on.</p>
+</section>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>The p-series asks the simplest of questions: the sum of the inverse of powers, and yet its answer involves more than simple computation. Despite that, there is an odd beauty about the p-series, most notably the appearance of <span class="math inline">\(\pi\)</span> when the series seems very unrelated to circles. It serves as a reminder that mathematics is not a mere collection of formulas and procedures, but a web of unexpected outcomes where ideas from seemingly distant fields converge in some harmonious way.</p>
+<div style="display:flex; align-items: center; padding:">
+<div style="flex: 0.05;">
+
+</div>
+<div style="flex: 0.6; padding: 5px;">
+<p><em>“The mathematician’s patterns, like the painter’s or the poet’s must be beautiful; the ideas like the colours or the words, must fit together in a harmonious way. Beauty is the first test: there is no permanent place in the world for ugly mathematics.”</em><br>
+– <strong>G. H. Hardy</strong>, A Mathematician’s Apology</p>
+</div>
+<div style="text-align: center; flex:0.3; padding: 5px;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pseries_asset/pseries_ghhardy.jpg" class="img-fluid figure-img" width="200"></p>
+<figcaption>Godfrey Harold Hardy<br>
+(1877 - 1947)</figcaption>
+</figure>
+</div>
+</div>
+<div style="flex: 0.05;">
+
+</div>
+</div>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are positive integers in this case.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Though the Riemann zeta function is a more general concept that is defined for complex values of <span class="math inline">\(p\)</span>, the p-series happens to be a special case.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Although there is a closed form for even integers of <span class="math inline">\(p\)</span>, the derivation of the closed form is not trivial and requires advanced mathematical techniques beyond our current scope.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Assuming cats are weightless.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>The following ideas are adapted from 3Blue1Brown’s explanation.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>One can imagine that as a circle increase in size, its curve becomes flatter, approaching a straight line as the circle becomes infinitely large.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,196 @@
+/* ===== Global ===== */
+
+body {
+  background:
+    linear-gradient(rgba(3, 8, 18, 0.55), rgba(3, 8, 18, 0.75)),
+    url("images/stars.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #e8eef8;
+}
+
+/* ===== Navbar ===== */
+
+.navbar {
+  background: #111827 !important;
+  min-height: 78px;
+  padding: 0.8rem 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+}
+
+.navbar-brand img {
+  max-height: 52px;
+  margin-right: 16px;
+}
+
+.navbar-title,
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.05rem;
+  margin-left: 1.4rem;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #7db7ff !important;
+}
+
+/* ===== Remove Quarto title blank area ===== */
+
+.quarto-title-block {
+  display: none;
+}
+
+/* ===== Hero Section ===== */
+
+.hero {
+  height: 88vh;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 0;
+  margin-bottom: 4rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding-left: 10vw;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,0.75) 0%,
+      rgba(0,0,0,0.45) 45%,
+      rgba(0,0,0,0.05) 100%
+    ),
+    url("images/hero.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.page-columns {
+  column-gap: 0;
+}
+
+.hero h1 {
+  font-size: 4.8rem;
+  font-weight: 800;
+  max-width: 850px;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+
+.hero h2 {
+  font-size: 2.1rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.hero h3 {
+  font-size: 1.45rem;
+  font-weight: 400;
+  max-width: 780px;
+  margin-top: 1.5rem;
+}
+
+.hero p {
+  font-size: 1.12rem;
+  font-style: italic;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 42px;
+  left: 9vw;
+  font-weight: 600;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(12px); }
+}
+
+/* ===== Main Content like NASA layout ===== */
+
+main.content {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 1.8rem 5rem 1.8rem;
+  background: rgba(8, 18, 33, 0.96);
+  color: #e8eef8;
+  border-radius: 20px;
+}
+
+main.content h1,
+main.content h2 {
+  color: #ffffff;
+}
+
+main.content p,
+main.content li {
+  color: #e3ebf7;
+}
+
+
+/* ===== TOC like NASA left contents ===== */
+
+#quarto-sidebar,
+#quarto-margin-sidebar {
+  margin-top: 92vh;
+}
+
+#TOC {
+  background: rgba(8, 18, 33, 0.92);
+  border-left: 2px solid #4ea3ff;
+  border-radius: 14px;
+  padding: 1rem;
+  width:230px;
+  padding:20px;
+  border-radius:18px;
+}
+
+#TOC::before {
+  content: "CONTENTS";
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+#TOC a {
+  color: #d8e6ff;
+  text-decoration: none;
+}
+
+#TOC a:hover {
+  color: #ffffff;
+}
+
+/* Left sidebar */
+#quarto-sidebar {
+    background: transparent !important;
+    padding-top:60px;
+}
+
+/* Margin sidebar */
+#quarto-margin-sidebar {
+    background: transparent !important;
+}
+
+/* TOC column */
+.sidebar {
+    background: transparent !important;
+}

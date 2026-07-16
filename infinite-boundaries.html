@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Finite Dirt, Infinite Coast: The Paradox of the Enclosed Universe – Calculus Stories</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3cd44411fd72149452863431a2dfbeee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sample.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./infinite-boundaries.html">Infinite Boundaries</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Calculus Stories</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Core Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sample</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./continuity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Continuity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./natural_base.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Natural Base</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./integral.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integral</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./neptune.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neptune</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./integral_story.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integral II</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Stokes_Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stoke’s Theorem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./jacobian.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jacobian</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tangents-areas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tangents and Areas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pseries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">p-series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./brachistochrone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Brachistochrone</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bernoulli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bernoulli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./differentiability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differentiability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./maggkari.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Leibniz v. Newton</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gaussian.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gaussian Integral</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./infinite-boundaries.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Infinite Boundaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./fourier_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fourier Series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./taylor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taylor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gradient_ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Extra</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#topic-1-gabriels-horn-the-infinite-paint-paradox" id="toc-topic-1-gabriels-horn-the-infinite-paint-paradox" class="nav-link active" data-scroll-target="#topic-1-gabriels-horn-the-infinite-paint-paradox">Topic 1: Gabriel’s Horn (The Infinite Paint Paradox)</a>
+  <ul class="collapse">
+  <li><a href="#the-recipe" id="toc-the-recipe" class="nav-link" data-scroll-target="#the-recipe">The Recipe</a></li>
+  <li><a href="#the-proof-why-it-breaks-your-brain" id="toc-the-proof-why-it-breaks-your-brain" class="nav-link" data-scroll-target="#the-proof-why-it-breaks-your-brain">The Proof (Why it breaks your brain)</a></li>
+  <li><a href="#the-painters-paradox" id="toc-the-painters-paradox" class="nav-link" data-scroll-target="#the-painters-paradox">The Painter’s Paradox</a></li>
+  <li><a href="#interactive-3d-visualization" id="toc-interactive-3d-visualization" class="nav-link" data-scroll-target="#interactive-3d-visualization">Interactive 3D Visualization</a></li>
+  </ul></li>
+  <li><a href="#bridging-to-the-coastline-paradox" id="toc-bridging-to-the-coastline-paradox" class="nav-link" data-scroll-target="#bridging-to-the-coastline-paradox">Bridging to the Coastline Paradox</a></li>
+  <li><a href="#topic-2-the-coastline-paradox-when-limits-dont-behave" id="toc-topic-2-the-coastline-paradox-when-limits-dont-behave" class="nav-link" data-scroll-target="#topic-2-the-coastline-paradox-when-limits-dont-behave">Topic 2: The Coastline Paradox (When limits don’t behave)</a></li>
+  <li><a href="#the-calculus-behind-it" id="toc-the-calculus-behind-it" class="nav-link" data-scroll-target="#the-calculus-behind-it">The Calculus Behind It:</a>
+  <ul class="collapse">
+  <li><a href="#step-1-introducing-the-koch-snowflake" id="toc-step-1-introducing-the-koch-snowflake" class="nav-link" data-scroll-target="#step-1-introducing-the-koch-snowflake">Step 1: Introducing the Koch Snowflake</a></li>
+  <li><a href="#step-2-the-sequence-of-the-perimeter" id="toc-step-2-the-sequence-of-the-perimeter" class="nav-link" data-scroll-target="#step-2-the-sequence-of-the-perimeter">Step 2: The Sequence of the Perimeter</a></li>
+  <li><a href="#step-3-why-the-snowflake-doesnt-grow-infinitely-large" id="toc-step-3-why-the-snowflake-doesnt-grow-infinitely-large" class="nav-link" data-scroll-target="#step-3-why-the-snowflake-doesnt-grow-infinitely-large">Step 3: Why the Snowflake Doesn’t Grow Infinitely Large</a></li>
+  <li><a href="#visualizing-the-paradox-with-interactivity" id="toc-visualizing-the-paradox-with-interactivity" class="nav-link" data-scroll-target="#visualizing-the-paradox-with-interactivity">Visualizing the Paradox with Interactivity</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#the-big-takeaways" id="toc-the-big-takeaways" class="nav-link" data-scroll-target="#the-big-takeaways">The Big Takeaways:</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sample.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./infinite-boundaries.html">Infinite Boundaries</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Finite Dirt, Infinite Coast: The Paradox of the Enclosed Universe</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Group Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Group:</strong> Hmmmm<br>
+<strong>Authors:</strong> Loo Weng Yan, Lee Xin Ning</p>
+<div style="text-align: center; margin-top: 15px;">
+<img src="Hmmmm.jpg" class="img-fluid" style="border-radius: 8px;;width:40.0%">
+<div style="font-size: 14px; color: #aaa; margin-top: 5px;">
+Hmmmm… Where is the group photo?
+</div>
+</div>
+</div>
+</div>
+<p>As math majors, we get used to infinity popping up in calculus problems, usually neatly tamed by a friendly limit. But every now and then, infinity breaks out of its algebraic cage and destroys our physical intuition.</p>
+<p>Today, we’re looking at two classic historical mind-benders where smooth calculus met geometric reality and caused a massive existential crisis for mathematicians: Gabriel’s Horn and the Coastline Paradox.</p>
+<hr>
+<section id="topic-1-gabriels-horn-the-infinite-paint-paradox" class="level2">
+<h2 class="anchored" data-anchor-id="topic-1-gabriels-horn-the-infinite-paint-paradox">Topic 1: Gabriel’s Horn (The Infinite Paint Paradox)</h2>
+<p>In 1641, long before Newton and Leibniz formalized calculus to torment college students, an Italian physicist and mathematician named Evangelista Torricelli discovered something that broke the minds of 17th-century philosophers. He found an object with a finite volume but an infinite surface area.</p>
+<p>They called it <strong>Gabriel’s Horn</strong> (or Torricelli’s Trumpet).</p>
+<section id="the-recipe" class="level3">
+<h3 class="anchored" data-anchor-id="the-recipe">The Recipe</h3>
+<p>Take the innocent looking function <span class="math inline">\(y = \frac{1}{x}\)</span>, bound it from <span class="math inline">\(x = 1\)</span> to <span class="math inline">\(x = \infty\)</span>, and spin it around the <span class="math inline">\(x\)</span>-axis.</p>
+</section>
+<section id="the-proof-why-it-breaks-your-brain" class="level3">
+<h3 class="anchored" data-anchor-id="the-proof-why-it-breaks-your-brain">The Proof (Why it breaks your brain)</h3>
+<section id="the-volume-v" class="level4">
+<h4 class="anchored" data-anchor-id="the-volume-v">1. The Volume (<span class="math inline">\(V\)</span>)</h4>
+<p>Using the disk method, the volume of a solid of revolution is given by the integral of <span class="math inline">\(\pi [f(x)]^2\)</span> from 1 to <span class="math inline">\(\infty\)</span>:</p>
+<p><span class="math display">\[V = \pi \int_{1}^{\infty} [f(x)]^2 \, dx\]</span></p>
+<p>Plugging in <span class="math inline">\(f(x) = \frac{1}{x}\)</span>:</p>
+<p><span class="math display">\[\begin{aligned}
+\text{Volume} &amp;= \pi \int_{1}^{\infty} \frac{1}{x^2} \, dx \\
+&amp;= \pi \lim_{t \to \infty} \left[ -\frac{1}{x} \right]_{1}^{t} \\
+&amp;= \pi \lim_{t \to \infty} \left( 1 - \frac{1}{t} \right) \\
+&amp;= \pi
+\end{aligned}\]</span></p>
+<p>Look at that. The volume converges beautifully to exactly <span class="math inline">\(\pi\)</span> cubic units. Hence, the volume is finite.</p>
+</section>
+<section id="the-surface-area-a" class="level4">
+<h4 class="anchored" data-anchor-id="the-surface-area-a">2. The Surface Area (<span class="math inline">\(A\)</span>)</h4>
+<p>Now let’s compute the outer surface area using the surface of revolution formula, which integrates <span class="math inline">\(2\pi f(x) \sqrt{1 + [f'(x)]^2} \, dx\)</span>:</p>
+<p><span class="math display">\[A = 2\pi \int_{1}^{\infty} f(x) \sqrt{1 + [f'(x)]^2} \, dx\]</span></p>
+<p>Since the derivative <span class="math inline">\(f'(x) = -\frac{1}{x^2}\)</span>, our integrand becomes:</p>
+<p><span class="math display">\[\text{Surface Area} = 2\pi \int_{1}^{\infty} \frac{1}{x} \sqrt{1 + \frac{1}{x^4}} \, dx\]</span></p>
+<p>This looks messy to integrate directly, but we can cheat a little and use a comparison test. Notice that for all <span class="math inline">\(x \ge 1\)</span>, the square root term is strictly greater than 1:</p>
+<p><span class="math display">\[\sqrt{1 + \frac{1}{x^4}} &gt; 1\]</span></p>
+<p>Therefore, we can establish our inequality:</p>
+<p><span class="math display">\[\text{Surface Area} &gt; 2\pi \int_{1}^{\infty} \frac{1}{x} \, dx\]</span></p>
+<p>We know that the classic harmonic integral <span class="math inline">\(\int_{1}^{\infty} \frac{1}{x} \, dx\)</span> diverges to infinity. By the Comparison Test, the surface area must be infinite.</p>
+</section>
+</section>
+<section id="the-painters-paradox" class="level3">
+<h3 class="anchored" data-anchor-id="the-painters-paradox">The Painter’s Paradox</h3>
+<p>Think about what this means physically. You could fill the inside of the horn completely with <span class="math inline">\(\pi\)</span> gallons of paint. However, if you tried to paint the outside surface, you would run out of paint, because the surface area is completely infinite. How can a finite volume bound an infinite surface? Welcome to the ultimate geometric glitch.</p>
+</section>
+<section id="interactive-3d-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="interactive-3d-visualization">Interactive 3D Visualization</h3>
+<p>Rotate, pan, and zoom around Torricelli’s trumpet below using the dynamic 3D layout (and feel free to contemplate your life choices while doing so):</p>
+<div id="gabriels-horn-plot" style="width:100%; height:500px;">
+
+</div>
+<script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+<script>
+  let x_data = []; let y_data = []; let z_data = [];
+  for (let i = 0; i < 50; i++) {
+    let x_val = 1 + (i / 49) * 9;
+    let r_val = 1 / x_val;
+    let x_row = []; let y_row = []; let z_row = [];
+    for (let j = 0; j < 50; j++) {
+      let theta = (j / 49) * 2 * Math.PI;
+      x_row.push(x_val);
+      y_row.push(r_val * Math.cos(theta));
+      z_row.push(r_val * Math.sin(theta));
+    }
+    x_data.push(x_row); y_data.push(y_row); z_data.push(z_row);
+  }
+  Plotly.newPlot('gabriels-horn-plot', [{type: 'surface', x: x_data, y: y_data, z: z_data, colorscale: 'Viridis'}], {
+    title: "Gabriel's Horn (y = 1/x)", margin: {l: 0, r: 0, b: 0, t: 40},
+    scene: {xaxis: {title: 'X Axis'}, yaxis: {title: 'Y Axis'}, zaxis: {title: 'Z Axis'}}
+  });
+</script>
+<hr>
+</section>
+</section>
+<section id="bridging-to-the-coastline-paradox" class="level2">
+<h2 class="anchored" data-anchor-id="bridging-to-the-coastline-paradox">Bridging to the Coastline Paradox</h2>
+<p>We paired Gabriel’s Horn with the Coastline Paradox because they are structural twins. The horn shows a finite volume trapped by an infinite surface area. The Coastline Paradox shows a finite landmass area trapped by an infinite perimeter.</p>
+<hr>
+</section>
+<section id="topic-2-the-coastline-paradox-when-limits-dont-behave" class="level2">
+<h2 class="anchored" data-anchor-id="topic-2-the-coastline-paradox-when-limits-dont-behave">Topic 2: The Coastline Paradox (When limits don’t behave)</h2>
+<p>If someone asks you, <em>“How long is the coastline of Great Britain?”</em>, you’d probably look it up on Wikipedia like a normal person, write down the number, and move on.</p>
+<p>But in 1967, mathematician Benoît Mandelbrot proved that doing this makes you fundamentally wrong. His shocking conclusion? <strong>The answer depends entirely on how long your ruler is.</strong></p>
+<p>If you measure the island using a giant 100km ruler from space, you skip right over tiny bays, beaches, and jagged rocks, giving you a short, neat measurement. If you walk the coast with a standard 30cm ruler, you suddenly have to trace around every single large boulder, small inlet, and curve, making the total distance skyrocket.</p>
+<p>If you decide to be an overachiever and measure around every grain of sand with an atomic-sized ruler, the perimeter stretches out toward infinity.</p>
+<p>To see how a shape can have an <strong>infinite perimeter</strong> but a <strong>finite area</strong>, we use a perfect mathematical model called the <strong>Koch Snowflake</strong>.</p>
+<hr>
+</section>
+<section id="the-calculus-behind-it" class="level2">
+<h2 class="anchored" data-anchor-id="the-calculus-behind-it">The Calculus Behind It:</h2>
+<section id="step-1-introducing-the-koch-snowflake" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-introducing-the-koch-snowflake">Step 1: Introducing the Koch Snowflake</h3>
+<p>Imagine starting with a simple, flat line segment that is exactly <strong>3 units</strong> long:</p>
+<p>[———1 unit———][———1 unit———][———1 unit———] (Total: 3)</p>
+<p>So, <span class="math inline">\(P_0 = 3\)</span></p>
+<p>Now, we apply a repeating rule to this line:</p>
+<ol type="1">
+<li><p>Divide the line into 3 equal pieces.</p></li>
+<li><p>Erase the middle piece.</p></li>
+<li><p>Replace that missing middle piece with an outward triangle point.</p></li>
+</ol>
+<p>Look at what happens to our line’s shape and length:</p>
+<pre style="background-color: #1e1e1e; color: #fff; padding: 15px; border-radius: 5px; font-family: monospace; line-height: 1.5;">          /\
+         /  \  &lt;- Each triangle side is 1 unit
+[---1---]    [---3---]
+</pre>
+<p>What we just did to a single line segment is the fundamental building block of the <strong>Koch Snowflake</strong>.</p>
+<p>Instead of starting with just one flat line, imagine starting with a full, three-sided equilateral triangle. If you apply this exact same “triangle-adding” rule to all three sides simultaneously, and then repeat it infinitely on every new flat edge that appears, the shape blooms outward.</p>
+<p>It forms a beautiful, infinitely complex geometric shape that looks exactly like a snowflake. This shape is our perfect model for understanding how a fractured coastline behaves.</p>
+<p>If we count up our new 1-unit segments, we now have <strong>4 units</strong> of total length instead of 3.</p>
+<p>Mathematically, our line just grew by a factor of <strong><span class="math inline">\(\frac{4}{3}\)</span></strong>:</p>
+<p><span class="math display">\[\text{Growth Factor} = \frac{\text{New Length}}{\text{Old Length}} = \frac{4}{3}\]</span></p>
+<hr>
+</section>
+<section id="step-2-the-sequence-of-the-perimeter" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-the-sequence-of-the-perimeter">Step 2: The Sequence of the Perimeter</h3>
+<p>Because every single side increases by a factor of <span class="math inline">\(\frac{4}{3}\)</span> at each step, we can calculate the perimeter at any step (<span class="math inline">\(n\)</span>) using a geometric sequence:</p>
+<ul>
+<li><strong>Step 0 (Start):</strong> <span class="math inline">\(P_0 = 3s\)</span></li>
+<li><strong>Step 1:</strong> <span class="math inline">\(P_1 = 3s \cdot \left(\frac{4}{3}\right)\)</span></li>
+<li><strong>Step 2:</strong> <span class="math inline">\(P_2 = 3s \cdot \left(\frac{4}{3}\right)^2\)</span></li>
+<li><strong>Step 3:</strong> <span class="math inline">\(P_3 = 3s \cdot \left(\frac{4}{3}\right)^3\)</span></li>
+</ul>
+<p>This gives us a general formula for the perimeter after <span class="math inline">\(n\)</span> steps:</p>
+<p><span class="math display">\[P_n = 3s \left(\frac{4}{3}\right)^n\]</span></p>
+<p>Every single time we repeat this trick on a flat segment, its length multiplies by <span class="math inline">\(\frac{4}{3}\)</span>. Because <span class="math inline">\(\frac{4}{3}\)</span> is greater than 1, repeating this process forever causes the total perimeter (<span class="math inline">\(P\)</span>) to explode to infinity:</p>
+<p><span class="math display">\[\lim_{n \to \infty} P_n = \lim_{n \to \infty} 3s \left(\frac{4}{3}\right)^n = \infty\]</span></p>
+<hr>
+</section>
+<section id="step-3-why-the-snowflake-doesnt-grow-infinitely-large" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-why-the-snowflake-doesnt-grow-infinitely-large">Step 3: Why the Snowflake Doesn’t Grow Infinitely Large</h3>
+<p>It feels like an infinite perimeter should mean an infinitely massive shape. But it doesn’t, thanks to a beautiful mathematical tug-of-war between <strong>length</strong> and <strong>area</strong>.</p>
+<p>When you shrink a shape, its area shrinks <strong>much faster</strong> than its flat edge lengths. Let’s look at why:</p>
+<section id="the-triangles-shrink-fast" class="level4">
+<h4 class="anchored" data-anchor-id="the-triangles-shrink-fast">1. The Triangles Shrink Fast</h4>
+<p>Think of area as a two-dimensional grid (length <span class="math inline">\(\times\)</span> width). If you take a triangle and cut its side lengths down to <span class="math inline">\(\frac{1}{3}\)</span> of their original size, you aren’t just losing length—you are losing space in <em>both</em> dimensions.</p>
+<ul>
+<li><strong>Length</strong> is cut by: <span class="math inline">\(\frac{1}{3}\)</span></li>
+<li><strong>Area</strong> is cut by: <span class="math inline">\(\frac{1}{3} \times \frac{1}{3} = \left(\frac{1}{3}\right)^2 = \frac{1}{9}\)</span></li>
+</ul>
+<p>Visually, this means it takes exactly 9 of our new tiny triangles packed together just to fill up the space of 1 single triangle from the previous step.</p>
+</section>
+<section id="the-triangles-multiply-slowly" class="level4">
+<h4 class="anchored" data-anchor-id="the-triangles-multiply-slowly">2. The Triangles Multiply Slowly</h4>
+<p>At each new step, every single straight line segment produces a new triangle. Since 1 line becomes 4 smaller segments, the number of new triangles we add is multiplied by 4 at each step.</p>
+</section>
+<section id="the-tug-of-war-putting-it-together" class="level4">
+<h4 class="anchored" data-anchor-id="the-tug-of-war-putting-it-together">The Tug-of-War: Putting It Together</h4>
+<p>Now, look at the balance of what is being added to the snowflake’s total area (<span class="math inline">\(\Delta A\)</span>) at any step: We are adding 4 times as many triangles. But each individual triangle is 9 times smaller in area.</p>
+<p><span class="math display">\[\Delta A = 4 \times \frac{1}{9} = \frac{4}{9}\]</span></p>
+<p>Because <span class="math inline">\(\frac{4}{9}\)</span> is less than 1, in fact, it’s less than half, the new area we add gets much smaller with every step.”.</p>
+<p>Imagine painting the snowflake: in the first step, you might need a whole cup of paint. In the next step, you only need <span class="math inline">\(\frac{4}{9}\)</span> of a cup. Then <span class="math inline">\(\frac{16}{81}\)</span> of a cup. The amount of extra paint you need drops so fast toward zero that even if you paint forever, you will never finish a second cup.</p>
+<p>To find the total area, we take the initial triangle area (<span class="math inline">\(A_0\)</span>) and keep adding the area of every new layer of tiny triangles:</p>
+<p><span class="math display">\[\text{Total Area} = A_0 + \frac{1}{3}A_0 + \left(\frac{1}{3}A_0 \times \frac{4}{9}\right) + \left(\frac{1}{3}A_0 \times \left(\frac{4}{9}\right)^2\right) + \dots\]</span></p>
+<p>Factoring out the first layer’s area gives us a clean infinite geometric series:</p>
+<p><span class="math display">\[\text{Total Area} = A_0 + \frac{1}{3}A_0 \left( 1 + \frac{4}{9} + \left(\frac{4}{9}\right)^2 + \left(\frac{4}{9}\right)^3 + \dots \right)\]</span></p>
+<p>Using the sum formula for a shrinking infinite series, <span class="math inline">\(\frac{a}{1-r}\)</span>, where <span class="math inline">\(a = 1\)</span> and <span class="math inline">\(r = \frac{4}{9}\)</span>, that entire endless chain inside the brackets perfectly collapses:</p>
+<p><span class="math display">\[\text{Sum} = \frac{1}{1 - \frac{4}{9}} = \frac{9}{5}\]</span></p>
+<p>Plugging this sum back into our main equation lets the fractions simplify beautifully:</p>
+<p><span class="math display">\[\text{Total Area} = A_0 + \frac{1}{3}A_0 \left(\frac{9}{5}\right) = A_0 + \frac{3}{5}A_0 = \frac{8}{5}A_0\]</span></p>
+</section>
+<section id="the-final-result" class="level4">
+<h4 class="anchored" data-anchor-id="the-final-result">The Final Result</h4>
+<p><span class="math display">\[\text{Total Area} = \frac{8}{5} \times A_0 \]</span></p>
+<p>The perimeter runs away to infinity, but the total area hits a solid brick wall.</p>
+</section>
+</section>
+<section id="visualizing-the-paradox-with-interactivity" class="level3">
+<h3 class="anchored" data-anchor-id="visualizing-the-paradox-with-interactivity">Visualizing the Paradox with Interactivity</h3>
+<p>Below is a simulation showing how a jagged coastline layout changes shape. Go ahead and zoom in deep, you’ll notice that the closer you look, the more hidden, tiny zigzags dynamically generate out of nowhere, proving that the closer you look, the longer the path gets:</p>
+<div id="coastline-plot" style="width:100%; height:450px;">
+
+</div>
+<script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+<script>
+  let plotDiv = document.getElementById('coastline-plot');
+
+  // Math function combining multiple frequencies to simulate infinite fractal detail
+  function getFractalCoastline(x) {
+    return Math.sin(x) * 0.6 + 
+           Math.sin(x * 3.5) * 0.3 + 
+           Math.sin(x * 11) * 0.15 + 
+           Math.sin(x * 35) * 0.07 + 
+           Math.sin(x * 115) * 0.03 + 
+           Math.sin(x * 350) * 0.01;
+  }
+
+  // Function to generate data points dynamically based on the current zoom window
+  function renderCoastline(xMin, xMax) {
+    let x_vals = [];
+    let y_vals = [];
+    let density = 400; // Number of points to display in the visible window
+    let step = (xMax - xMin) / density;
+
+    for (let i = 0; i <= density; i++) {
+      let currentX = xMin + (i * step);
+      x_vals.push(currentX);
+      y_vals.push(getFractalCoastline(currentX));
+    }
+
+    let coastData = [{
+      x: x_vals,
+      y: y_vals,
+      mode: 'lines', // Switched to lines only so markers don't clutter the dense view
+      name: 'Coastline Boundary',
+      line: {color: '#17a2b8', width: 2}
+    }];
+
+    let coastLayout = {
+      title: "Simulated Infinite Coastline Geometry",
+      xaxis: {title: "Distance Along Coast", range: [xMin, xMax]},
+      yaxis: {title: "Inlet Depth", autorange: true},
+      margin: {l: 40, r: 20, b: 40, t: 40}
+    };
+
+    Plotly.react(plotDiv, coastData, coastLayout);
+  }
+
+  // Initial draw of the coastline from 0 to 10
+  renderCoastline(0, 10);
+
+  // The Magic Trigger: Listen for zoom or pan changes and recalculate the details
+  plotDiv.on('plotly_relayout', function(eventdata) {
+    if (eventdata['xaxis.range[0]'] !== undefined) {
+      // User zoomed in or panned
+      renderCoastline(eventdata['xaxis.range[0]'], eventdata['xaxis.range[1]']);
+    } else if (eventdata['xaxis.autorange'] || eventdata['resetAxes']) {
+      // User clicked the 'Reset Axes' or home button
+      renderCoastline(0, 10);
+    }
+  });
+</script>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Gabriel’s Horn and the Coastline Paradox blow our minds because they break all our everyday rules. In the real world, if you buy a gift box with a fixed size, you expect that a normal, finite amount of wrapping paper can cover it without forcing you into an infinite loop of existential dread.</p>
+<p>Yet calculus exposes a wild truth: you can trap an infinite line inside a tiny, confined space. Infinity isn’t just an unreachable point at the end of a never-ending road,it can be neatly packaged and held right in the palm of your hand.</p>
+<section id="the-big-takeaways" class="level3">
+<h3 class="anchored" data-anchor-id="the-big-takeaways">The Big Takeaways:</h3>
+<ul>
+<li><strong>The Rate of the Shrink:</strong> Gabriel’s Horn works because of a high-speed race between dimensions. Volume collapses down to a hard limit (<span class="math inline">\(\pi\)</span>) because its equations shrink at lightning speed, while the boundary expands forever.</li>
+<li><strong>The Reality of Nature:</strong> Smooth, perfect lines only exist in textbooks. The natural world is rugged, jagged, and broken. When standard calculus rules hit these rough edges, they shatter, forcing us to step into the mind-bending world of fractal geometry to measure reality.</li>
+</ul>
+<p>Ultimately, these paradoxes prove that mathematical infinity isn’t a glitch in the matrix, it’s a feature. By finding the exact breaking points where traditional math stops working, we unlock the keys to mapping out entirely new dimensions.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

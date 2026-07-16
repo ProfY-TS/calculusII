@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>The Gaussian Integral – Calculus Stories</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3cd44411fd72149452863431a2dfbeee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sample.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./gaussian.html">Gaussian Integral</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Calculus Stories</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Core Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sample</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./continuity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Continuity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./natural_base.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Natural Base</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./integral.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integral</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./neptune.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neptune</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./integral_story.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integral II</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Stokes_Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stoke’s Theorem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./jacobian.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jacobian</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tangents-areas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tangents and Areas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pseries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">p-series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./brachistochrone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Brachistochrone</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bernoulli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bernoulli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./differentiability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differentiability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./maggkari.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Leibniz v. Newton</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gaussian.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Gaussian Integral</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./infinite-boundaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Infinite Boundaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./fourier_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fourier Series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./taylor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taylor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gradient_ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Extra</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#history" id="toc-history" class="nav-link active" data-scroll-target="#history">1. History of the Gaussian Integral</a>
+  <ul class="collapse">
+  <li><a href="#gauss-normal" id="toc-gauss-normal" class="nav-link" data-scroll-target="#gauss-normal">1.1. Gauss and the Normal Distribution</a></li>
+  <li><a href="#naming-history" id="toc-naming-history" class="nav-link" data-scroll-target="#naming-history">1.2. The Integral Named After Someone Who Didn’t Discover It</a></li>
+  </ul></li>
+  <li><a href="#three-ways" id="toc-three-ways" class="nav-link" data-scroll-target="#three-ways">2. Three Ways to <span class="math inline">\(\sqrt{\pi}\)</span></a>
+  <ul class="collapse">
+  <li><a href="#polar-proof" id="toc-polar-proof" class="nav-link" data-scroll-target="#polar-proof">2.1. The Polar Coordinate Proof</a></li>
+  <li><a href="#feynman-proof" id="toc-feynman-proof" class="nav-link" data-scroll-target="#feynman-proof">2.2. The Feynman-Inspired Proof</a></li>
+  <li><a href="#gamma-proof" id="toc-gamma-proof" class="nav-link" data-scroll-target="#gamma-proof">2.3. The Gamma Function Approach</a></li>
+  </ul></li>
+  <li><a href="#generalization" id="toc-generalization" class="nav-link" data-scroll-target="#generalization">3. Generalization</a>
+  <ul class="collapse">
+  <li><a href="#quadratic-exponents-scaling-and-translation" id="toc-quadratic-exponents-scaling-and-translation" class="nav-link" data-scroll-target="#quadratic-exponents-scaling-and-translation">4.1. Quadratic Exponents (Scaling and Translation)</a></li>
+  <li><a href="#complex-rotation-and-the-fresnel-integrals" id="toc-complex-rotation-and-the-fresnel-integrals" class="nav-link" data-scroll-target="#complex-rotation-and-the-fresnel-integrals">4.2. Complex Rotation and the Fresnel Integrals</a></li>
+  <li><a href="#the-multidimensional-gaussian-integral" id="toc-the-multidimensional-gaussian-integral" class="nav-link" data-scroll-target="#the-multidimensional-gaussian-integral">4.3. The Multidimensional Gaussian Integral</a></li>
+  </ul></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">4. Applications: Why the Gaussian Integral Rules the Universe</a>
+  <ul class="collapse">
+  <li><a href="#statistics-the-normal-distribution" id="toc-statistics-the-normal-distribution" class="nav-link" data-scroll-target="#statistics-the-normal-distribution">5.1. Statistics: The Normal Distribution</a></li>
+  <li><a href="#physics-partition-functions-and-path-integrals" id="toc-physics-partition-functions-and-path-integrals" class="nav-link" data-scroll-target="#physics-partition-functions-and-path-integrals">5.2. Physics: Partition Functions and Path Integrals</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">5. References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sample.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./gaussian.html">Gaussian Integral</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">The Gaussian Integral</h1>
+<p class="subtitle lead">Three ways to evaluate the classical Euler–Poisson integral, with extensions and generalizations.</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Group Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Group:</strong> Algebraic<br>
+<strong>Authors:</strong> Chen Yanfu, Zhang Yuming, Wang Shihan</p>
+<div style="text-align: center; margin: 15px auto;">
+<p><img src="asset/algebraic.jpg" style="width: 80%; max-width: 500px; display: block; margin: 0 auto;"> <span style="font-size: 0.8em; color: #888; display: block; margin-top: 5px;">Algebraic (Left to right: Zhang Yuming, Wang Shihan, Chen Yanfu)</span></p>
+</div>
+</div>
+</div>
+<section id="history" class="level2">
+<h2 class="anchored" data-anchor-id="history">1. History of the Gaussian Integral</h2>
+<section id="gauss-normal" class="level3">
+<h3 class="anchored" data-anchor-id="gauss-normal">1.1. Gauss and the Normal Distribution</h3>
+<p>When people first encounter the Gaussian integral, <span class="math display">\[\int_{-\infty}^{\infty} e^{-x^2}\,dx,\]</span> they are often surprised that such a simple-looking function has no elementary antiderivative. Even more surprising is that its exact value turns out to be <span class="math inline">\(\sqrt{\pi}\)</span>, introducing the famous constant <span class="math inline">\(\pi\)</span> into a problem that seems to have nothing to do with circles.</p>
+<p>The story begins in the early 19th century with Carl Friedrich Gauss, one of the greatest mathematicians in history. At the time, astronomers were trying to determine the positions of planets and stars—most notably tracking the orbit of the newly discovered dwarf planet Ceres—but every observation contained small measurement errors. Different astronomers often recorded slightly different results, making it difficult to decide which value was the “true” one.</p>
+<div style="text-align: center; margin: 15px auto;">
+<p><img src="asset/Carl_Friedrich_Gauss.jpg" style="width: 18%; display: block; margin: 0 auto;"> <span style="font-size: 0.8em; color: #888; display: block; margin-top: 5px; margin-bottom: 10px;">Carl Friedrich Gauss (1777–1855)</span></p>
+</div>
+<p>Gauss proposed that these errors were not random chaos but instead followed a specific mathematical pattern: small errors occur much more frequently than large ones. This idea eventually became the normal (Gaussian) distribution, the familiar bell-shaped curve used throughout statistics today.</p>
+<p>However, there was one important problem. To make the curve represent a probability distribution, the total area under it had to equal 1. This required evaluating the integral <span class="math display">\[\int_{-\infty}^{\infty} e^{-x^2}\,dx.\]</span> Unfortunately, mathematicians soon discovered that no elementary function could describe its antiderivative. Rather than giving up, they approached the problem from an entirely different perspective. By squaring the integral, interpreting it as the area under a surface in two dimensions (as shown below), and converting Cartesian coordinates into polar coordinates, they obtained the elegant result <span class="math display">\[\int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}.\]</span></p>
+<p>Today, this ingenious method is regarded as one of the most beautiful arguments in calculus. The Gaussian integral has become a cornerstone of probability theory, statistics, quantum mechanics, heat transfer, signal processing, and many other fields of mathematics and science.</p>
+</section>
+<section id="naming-history" class="level3">
+<h3 class="anchored" data-anchor-id="naming-history">1.2. The Integral Named After Someone Who Didn’t Discover It</h3>
+<p>Many mathematical discoveries are named after the people who first found them. Surprisingly, the Gaussian integral is not one of them.</p>
+<p>The function <span class="math inline">\(e^{-x^2}\)</span> first appeared in the early eighteenth century, long before Carl Friedrich Gauss became famous. In 1733, the English mathematician Abraham de Moivre was studying large binomial distributions. While searching for a simpler way to approximate complicated probability calculations, he discovered that the familiar binomial curve gradually approached a new continuous curve involving the expression <span class="math inline">\(e^{-x^2}\)</span>. Although he did not study the integral itself, his work marked the first appearance of the Gaussian function in mathematics.</p>
+<p>Several decades later, the French mathematician Pierre-Simon Laplace expanded de Moivre’s ideas. He realized that this mysterious exponential function appeared naturally whenever many small random effects were combined. His work eventually evolved into the Central Limit Theorem, one of the most fundamental results in probability theory. By this time, mathematicians had begun to recognize that the function <span class="math inline">\(e^{-x^2}\)</span> was far more important than anyone had imagined.</p>
+<div style="display: flex; justify-content: center; gap: 20px; margin: 15px auto;">
+<div style="text-align: center; width: 18%;">
+<p><img src="asset/abraham_de_moivre.jpg" style="width: 100%; display: block; margin: 0 auto;"> <span style="font-size: 0.8em; color: #888; display: block; margin-top: 5px;">Abraham de Moivre (1667–1754)</span></p>
+</div>
+<div style="text-align: center; width: 18%;">
+<p><img src="asset/laplace.jpg" style="width: 100%; display: block; margin: 0 auto;"> <span style="font-size: 0.8em; color: #888; display: block; margin-top: 5px;">Pierre-Simon Laplace (1749–1827)</span></p>
+</div>
+</div>
+<p>It was not until the early nineteenth century that Carl Friedrich Gauss gave the function its most influential interpretation. While studying astronomical observations, Gauss noticed that repeated measurements of the same object rarely produced identical results. Instead, small errors occurred frequently, while large errors were much less common. He proposed that these measurement errors followed the same bell-shaped curve that de Moivre and Laplace had encountered decades earlier.</p>
+<p>However, one crucial question remained. If this curve was to represent a probability distribution, the total area beneath it had to equal 1. To determine the correct scaling constant, mathematicians needed to evaluate the integral <span class="math display">\[\int_{-\infty}^{\infty} e^{-x^2}\,dx.\]</span></p>
+<p>Ironically, although the integral now bears Gauss’s name, he neither discovered the function nor was the first person to study it. Instead, his remarkable achievement was recognizing its profound connection to the real world. Through his work, the curve became the mathematical model for measurement errors and eventually the foundation of modern statistics. As a result, both the bell curve and the integral came to be known as Gaussian, honoring the mathematician who revealed their true significance rather than the one who first encountered them.</p>
+<hr>
+</section>
+</section>
+<section id="three-ways" class="level2">
+<h2 class="anchored" data-anchor-id="three-ways">2. Three Ways to <span class="math inline">\(\sqrt{\pi}\)</span></h2>
+<p>This guide explores the evaluation of the classical Gaussian integral. We cover three distinct proof paths, illustrating the concept of “the same result, different approaches.”</p>
+<blockquote class="blockquote">
+<p><span class="math display">\[I = \int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi}\]</span></p>
+<p>Equivalent to the half-line integral:</p>
+<p><span class="math display">\[\int_{0}^{\infty} e^{-x^2} \, dx = \frac{\sqrt{\pi}}{2}\]</span></p>
+</blockquote>
+<section id="polar-proof" class="level3">
+<h3 class="anchored" data-anchor-id="polar-proof">2.1. The Polar Coordinate Proof</h3>
+<p><em>The classic proof. The one Laplace used in 1812. The one every calculus textbook leads with—and for good reason: once you see it, you never forget it.</em></p>
+<ol type="1">
+<li><p><strong>Identify the antiderivative roadblock:</strong> We seek to evaluate <span class="math inline">\(I = \int_{-\infty}^{\infty} e^{-x^2}\,dx\)</span>. Standard real-variable methods like simple substitution or integration by parts fail to yield progress because <span class="math inline">\(e^{-x^2}\)</span> has no elementary antiderivative (a fact proved by Joseph Liouville in 1835). To bypass this roadblock, we use a clever spatial trick: <strong>square the integral</strong>.</p></li>
+<li><p><strong>Square the integral and switch to polar coordinates:</strong> Since <span class="math inline">\(I\)</span> is a convergent real number, we can multiply it by itself using a different dummy variable <span class="math inline">\(y\)</span>, and combine them into a double integral over the entire <span class="math inline">\(xy\)</span>-plane <span class="math inline">\(\mathbb{R}^2\)</span>: <span class="math display">\[I^2 = \left(\int_{-\infty}^{\infty} e^{-x^2}\,dx\right) \cdot \left(\int_{-\infty}^{\infty} e^{-y^2}\,dy\right) = \iint_{\mathbb{R}^2} e^{-(x^2 + y^2)}\,dx\,dy\]</span> Using polar coordinates (<span class="math inline">\(x = r\cos\theta\)</span>, <span class="math inline">\(y = r\sin\theta\)</span>, and <span class="math inline">\(dx\,dy = r\,dr\,d\theta\)</span>) over the domain <span class="math inline">\(r \in [0, \infty)\)</span> and <span class="math inline">\(\theta \in [0, 2\pi]\)</span>, the double integral transforms to: <span class="math display">\[I^2 = \int_{0}^{2\pi} \int_{0}^{\infty} e^{-r^2} \cdot r\,dr\,d\theta\]</span></p></li>
+<li><p><strong>Evaluate the decoupled integrals:</strong> The extra factor <span class="math inline">\(r\)</span> from the Jacobian makes the inner integral easily solvable via substitution (<span class="math inline">\(u = r^2\)</span>, <span class="math inline">\(du = 2r\,dr\)</span>): <span class="math display">\[\int_{0}^{\infty} e^{-r^2} r\,dr = \frac{1}{2}\int_{0}^{\infty} e^{-u}\,du = \frac{1}{2}\]</span> Integrating over the angle <span class="math inline">\(\theta\)</span>: <span class="math display">\[I^2 = \int_{0}^{2\pi} \frac{1}{2}\,d\theta = \pi\]</span> Taking the positive square root (since <span class="math inline">\(e^{-x^2} &gt; 0\)</span>), we obtain: <span class="math display">\[\int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}\]</span></p></li>
+</ol>
+<blockquote class="pull blockquote">
+<p>
+“A mathematician is one to whom that is as obvious as that twice two makes four is to you. Liouville was a mathematician.”
+</p>
+<cite>— Lord Kelvin, referring to the Gaussian Integral formula</cite>
+</blockquote>
+<blockquote class="blockquote">
+<p>[!NOTE] Switching the order of integration and treating the double integral as an iterated integral requires <strong>Fubini’s theorem</strong>. Since the integrand is positive and integrable, the theorem applies rigorously.</p>
+</blockquote>
+<hr>
+</section>
+<section id="feynman-proof" class="level3">
+<h3 class="anchored" data-anchor-id="feynman-proof">2.2. The Feynman-Inspired Proof</h3>
+<p>This section demonstrates how to evaluate the Gaussian integral using the technique of differentiation under the integral sign.</p>
+<section id="history-and-background" class="level4">
+<h4 class="anchored" data-anchor-id="history-and-background">History and Background</h4>
+<p>Today, this technique is widely celebrated as <strong>Feynman’s trick</strong> (differentiation under the integral sign). However, it is not listed among standard textbook proofs. Rather, Feynman’s method was an unconventional tool “picked up on the sly” by a high school student sitting in the back of the classroom.</p>
+<section id="a-teenager-who-taught-himself-in-the-back-of-the-classroom" class="level5">
+<h5 class="anchored" data-anchor-id="a-teenager-who-taught-himself-in-the-back-of-the-classroom">A Teenager Who Taught Himself in the Back of the Classroom</h5>
+<div style="text-align: center; margin: 15px auto;">
+<p><img src="asset/Richard_Feynman.jpg" style="width: 18%; display: block; margin: 0 auto;"> <span style="font-size: 0.8em; color: #888; display: block; margin-top: 5px; margin-bottom: 10px;">Richard P. Feynman (1918–1988)</span></p>
+</div>
+<p>Richard P. Feynman (1918–1988) was a headache for his teachers while attending Far Rockaway High School in New York—not because he was slow, but precisely because he was too quick. One day after school, his physics teacher, Mr.&nbsp;Bader, kept him behind. Feynman thought he was in for another scolding, but Bader said something that would change his life:</p>
+<blockquote class="blockquote">
+<p>“Feynman, you talk too much and are too noisy. I know why—you’re bored. I’ll give you a book. Go sit in that corner over there and read it. Once you understand everything in it, you can start talking again.”</p>
+</blockquote>
+<p>The book was <em>Advanced Calculus</em> by Frederick S. Woods (first edition, 1926)—a hardcore textbook written for junior and senior students at MIT. At the time, Feynman was still wearing his high school uniform and had only taught himself the bare basics of calculus from an introductory booklet called <em>Calculus for the Practical Man</em>. But Bader could tell: what this kid needed was a real challenge, not a classroom recitation of Pascal’s law.</p>
+<p>So for the rest of the semester, a peculiar scene unfolded in physics class: the professor lectured on hydrostatics up front, while Feynman sat in the back corner, clutching a college textbook thicker than his head, plowing through it page by page. Differentiation under the integral sign was a neglected technique in university mathematics education at the time. However, Feynman honed this technique into muscle memory, using it over and over again.</p>
+</section>
+<section id="just-because-my-toolbox-is-different" class="level5">
+<h5 class="anchored" data-anchor-id="just-because-my-toolbox-is-different">“Just Because My Toolbox Is Different”</h5>
+<p>A few years later, Feynman entered Princeton University as a graduate student. Students in the physics and mathematics departments soon noticed a strange phenomenon: this young man from MIT didn’t know how to perform contour integration—which was the standard “heavy artillery” for solving definite integrals at the time. But he had a peculiar alternative approach—no matter what the integral was, he would first try to differentiate under the integral sign.</p>
+<blockquote class="blockquote">
+<p>“I never learned contour integration. The reason my classmates at MIT or Princeton couldn’t solve certain integrals was that they couldn’t solve them using the standard methods taught at school. If it involved contour integration, they would have found a solution long ago; if it was a simple series expansion, they would have found that too. Then I’d come along, try taking the derivative under the integral sign, and often succeed. That’s why I earned the reputation of being an ‘integral whiz’—simply because my toolbox was different from everyone else’s. They’d tried every tool they had before passing the problem on to me.”</p>
+</blockquote>
+<p>Feynman wasn’t smarter than those classmates—they knew more standard methods than he did. He simply <strong>had a tool that none of them possessed</strong>. Moreover, he taught himself this tool from an old book published in 1926; it wasn’t part of any university curriculum. This epitomizes his entire scientific career: don’t compete with others using the same set of weapons; go find your own.</p>
+</section>
+</section>
+<section id="step-by-step-derivation" class="level4">
+<h4 class="anchored" data-anchor-id="step-by-step-derivation">Step-by-Step Derivation</h4>
+<p>We define the target half-integral: <span class="math display">\[I = \int_{0}^{\infty} e^{-x^2}\,dx\]</span> (The full integral is <span class="math inline">\(2I\)</span> by symmetry.)</p>
+<ol type="1">
+<li><p><strong>Construct the auxiliary function:</strong> <span class="math display">\[F(t) = \int_{0}^{\infty} \frac{e^{-t(x^2+1)}}{x^2+1}\,dx\]</span></p></li>
+<li><p><strong>Establish the boundary values:</strong> <span class="math display">\[F(0) = \int_{0}^{\infty} \frac{dx}{x^2+1} = \frac{\pi}{2}, \qquad F(\infty) = 0\]</span></p></li>
+<li><p><strong>Differentiate under the integral sign:</strong> Using the Leibniz integral rule, since the integrand is continuously differentiable, we compute: <span class="math display">\[F'(t) = \int_{0}^{\infty} \frac{\partial}{\partial t}\left[\frac{e^{-t(x^2+1)}}{x^2+1}\right]dx = -\int_{0}^{\infty} e^{-t(x^2+1)}\,dx = -e^{-t}\int_{0}^{\infty} e^{-tx^2}\,dx\]</span></p></li>
+<li><p><strong>Apply substitution:</strong> Let <span class="math inline">\(u = x\sqrt{t}\)</span>, so <span class="math inline">\(dx = du/\sqrt{t}\)</span>. The integral becomes: <span class="math display">\[\int_{0}^{\infty} e^{-tx^2}\,dx = \frac{1}{\sqrt{t}}\int_{0}^{\infty} e^{-u^2}\,du = \frac{I}{\sqrt{t}}\]</span> Substituting this back into our expression for <span class="math inline">\(F'(t)\)</span>: <span class="math display">\[F'(t) = -\frac{I}{\sqrt{t}}\,e^{-t}\]</span></p></li>
+<li><p><strong>Close the loop:</strong> We integrate <span class="math inline">\(F'(t)\)</span> from <span class="math inline">\(0\)</span> to <span class="math inline">\(\infty\)</span>: <span class="math display">\[\int_{0}^{\infty} F'(t)\,dt = F(\infty) - F(0) = -\frac{\pi}{2}\]</span> Simultaneously, we express this integral in terms of <span class="math inline">\(I\)</span>: <span class="math display">\[\int_{0}^{\infty} F'(t)\,dt = -I\int_{0}^{\infty} \frac{e^{-t}}{\sqrt{t}}\,dt\]</span> To evaluate the remaining integral, substitute <span class="math inline">\(t = u^2\)</span> and <span class="math inline">\(dt = 2u\,du\)</span>: <span class="math display">\[\int_{0}^{\infty} \frac{e^{-t}}{\sqrt{t}}\,dt = \int_{0}^{\infty} \frac{e^{-u^2}}{u} \cdot 2u\,du = 2\int_{0}^{\infty} e^{-u^2}\,du = 2I\]</span> Equating the two expressions for the integral of <span class="math inline">\(F'(t)\)</span>: <span class="math display">\[-\frac{\pi}{2} = -I \cdot 2I = -2I^2 \quad\Longrightarrow\quad I^2 = \frac{\pi}{4} \quad\Longrightarrow\quad I = \frac{\sqrt{\pi}}{2}\]</span></p></li>
+</ol>
+<p>Thus, the full integral is: <span class="math display">\[\int_{-\infty}^{\infty} e^{-x^2}\,dx = 2I = \sqrt{\pi}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="gamma-proof" class="level3">
+<h3 class="anchored" data-anchor-id="gamma-proof">2.3. The Gamma Function Approach</h3>
+<p><em>This method connects the Gaussian integral to the Gamma function and, through Euler’s reflection formula, to <span class="math inline">\(\pi\)</span>.</em></p>
+<ol type="1">
+<li><p><strong>Change of variables:</strong> We start with the half-integral: <span class="math display">\[I = \int_{0}^{\infty} e^{-x^2}\,dx\]</span> Let <span class="math inline">\(t = x^2\)</span>. Then <span class="math inline">\(x = \sqrt{t} = t^{1/2}\)</span>, and the differential is <span class="math inline">\(dx = \frac{1}{2}t^{-1/2}\,dt\)</span>. Substituting these into the integral yields: <span class="math display">\[I = \int_{0}^{\infty} e^{-t} \cdot \frac{1}{2}t^{-1/2}\,dt = \frac{1}{2}\int_{0}^{\infty} t^{-1/2}\,e^{-t}\,dt\]</span></p></li>
+<li><p><strong>Recognize the Gamma function:</strong> Recall the definition of the Gamma function for <span class="math inline">\(\operatorname{Re}(z) &gt; 0\)</span>: <span class="math display">\[\Gamma(z) = \int_{0}^{\infty} t^{z-1}\,e^{-t}\,dt\]</span> Comparing this with our integral, we identify <span class="math inline">\(z - 1 = -1/2\)</span>, which implies <span class="math inline">\(z = 1/2\)</span>. Thus: <span class="math display">\[I = \frac{1}{2}\,\Gamma\left(\frac{1}{2}\right)\]</span> Evaluating the Gaussian integral simplifies to evaluating <span class="math inline">\(\Gamma(1/2)\)</span>.</p></li>
+<li><p><strong>Evaluate <span class="math inline">\(\Gamma(1/2)\)</span> via Euler’s reflection formula:</strong> We can evaluate this using <strong>Euler’s reflection formula</strong>: <span class="math display">\[\Gamma(z)\,\Gamma(1-z) = \frac{\pi}{\sin(\pi z)}\]</span> Setting <span class="math inline">\(z = 1/2\)</span>: <span class="math display">\[\Gamma\left(\frac{1}{2}\right)\,\Gamma\left(\frac{1}{2}\right) = \frac{\pi}{\sin(\pi/2)} = \pi \implies \left[\Gamma\left(\frac{1}{2}\right)\right]^2 = \pi\]</span> Since the Gamma function is strictly positive for positive real arguments: <span class="math display">\[\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}\]</span></p></li>
+<li><p><strong>Alternative evaluation via the Beta function:</strong> Alternatively, we can use the <strong>Beta function</strong>: <span class="math display">\[\mathrm{B}(p,q) = \frac{\Gamma(p)\,\Gamma(q)}{\Gamma(p+q)}\]</span> Using <span class="math inline">\(p = q = 1/2\)</span> and the trigonometric form of the Beta function, we find <span class="math inline">\(\mathrm{B}(1/2, 1/2) = \pi\)</span>, which similarly yields <span class="math inline">\(\Gamma(1/2) = \sqrt{\pi}\)</span>.</p></li>
+<li><p><strong>Complete the proof:</strong> Combining the steps: <span class="math display">\[I = \frac{1}{2}\,\Gamma\left(\frac{1}{2}\right) = \frac{\sqrt{\pi}}{2}\]</span> The full integral is: <span class="math display">\[\int_{-\infty}^{\infty} e^{-x^2}\,dx = 2I = \sqrt{\pi}\]</span></p></li>
+</ol>
+<blockquote class="blockquote">
+<p>[!NOTE] To avoid circular reasoning, it is worth noting that standard proofs of Euler’s reflection formula often utilize the Gaussian integral. This shows that the reflection formula and the Gaussian integral are logically equivalent.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="generalization" class="level2">
+<h2 class="anchored" data-anchor-id="generalization">3. Generalization</h2>
+<p>The standard Gaussian integral can be generalized to handle arbitrary quadratic exponents, complex parameters, and multidimensional spaces.</p>
+<section id="quadratic-exponents-scaling-and-translation" class="level3">
+<h3 class="anchored" data-anchor-id="quadratic-exponents-scaling-and-translation">4.1. Quadratic Exponents (Scaling and Translation)</h3>
+<p>To evaluate a Gaussian integral with a general quadratic exponent <span class="math inline">\(-(ax^2+bx+c)\)</span> where <span class="math inline">\(a &gt; 0\)</span>, we complete the square in the exponent:</p>
+<p><span class="math display">\[ax^2+bx+c = a\left(x+\frac{b}{2a}\right)^2 + \frac{4ac-b^2}{4a}\]</span></p>
+<p>This allows us to factor out the constant exponential term from the integral:</p>
+<p><span class="math display">\[\int_{-\infty}^{\infty} e^{-(ax^2+bx+c)} dx = e^{\frac{b^2-4ac}{4a}} \int_{-\infty}^{\infty} e^{-a\left(x+\frac{b}{2a}\right)^2} dx\]</span></p>
+<p>We can evaluate the remaining integral using a single linear substitution that handles both scaling and translation. Let:</p>
+<p><span class="math display">\[u = \sqrt{a}\left(x + \frac{b}{2a}\right)\]</span></p>
+<p>This yields <span class="math inline">\(du = \sqrt{a}dx\)</span> (or <span class="math inline">\(dx = \frac{1}{\sqrt{a}}du\)</span>). Substituting these in, the integral simplifies to the standard Gaussian form:</p>
+<p><span class="math display">\[\int_{-\infty}^{\infty} e^{-a\left(x+\frac{b}{2a}\right)^2} dx = \int_{-\infty}^{\infty} e^{-u^2} \frac{du}{\sqrt{a}} = \frac{1}{\sqrt{a}}\sqrt{\pi} = \sqrt{\frac{\pi}{a}}\]</span></p>
+<p>Combining this with the factored-out constant, we obtain the general formula:</p>
+<p><span class="math display">\[\int_{-\infty}^{\infty} e^{-(ax^2+bx+c)} dx = \sqrt{\frac{\pi}{a}} e^{\frac{b^2-4ac}{4a}}\]</span></p>
+<section id="the-intuition-sliders-and-rubber-bands" class="level4">
+<h4 class="anchored" data-anchor-id="the-intuition-sliders-and-rubber-bands">The Intuition: Sliders and Rubber Bands</h4>
+<p>In the geometric eyes of a mathematician, this first generalization on the 1-D real line is a simple game of manipulation. The parameter <span class="math inline">\(b\)</span> acts merely as a <strong>horizontal slider</strong>, translating the entire bell curve left or right without changing its total area. Meanwhile, the parameter <span class="math inline">\(\sqrt{a}\)</span> behaves like a <strong>rigid rubber band</strong>, stretching or squeezing the width of the curve. For generations, early calculus pioneers believed that with enough shifting and stretching, this 1-D toolkit could tame any wave in nature.</p>
+<p>That was until physics struck back with a vengeance.</p>
+</section>
+</section>
+<section id="complex-rotation-and-the-fresnel-integrals" class="level3">
+<h3 class="anchored" data-anchor-id="complex-rotation-and-the-fresnel-integrals">4.2. Complex Rotation and the Fresnel Integrals</h3>
+<p>A remarkable and far more dramatic extension arises when the scaling parameter in the exponent is forced into the complex domain. Consider the <strong>Fresnel integrals</strong>, which famously arose in 1818 when the young civil engineer Augustin-Jean Fresnel attempted to mathematically describe the diffraction of light waves:</p>
+<p><span class="math display">\[S(x)=\int_0^x \sin(t^2) dt \quad \text{and} \quad C(x)=\int_0^x \cos(t^2) dt\]</span></p>
+<p>Unlike the well-behaved, rapidly decaying bell curve of a Gaussian, these trigonometric integrands oscillate faster and faster as <span class="math inline">\(t \to \infty\)</span>, never settling down. They possess no elementary antiderivative on the real line.</p>
+<blockquote class="blockquote">
+<p><strong>Historical Highlight: Fresnel’s Brute Force</strong></p>
+<div style="text-align: center; margin: 15px auto;">
+<p><img src="asset/Augustin_Fresnel.jpg" style="width: 20%; display: block; margin: 0 auto;"> <span style="font-size: 0.8em; color: #888; display: block; margin-top: 5px; margin-bottom: 10px;">Augustin-Jean Fresnel (1788–1827)</span></p>
+</div>
+<p>Without the comfort of modern computers or complex analysis, Fresnel had to fight these integrals with “brute force.” In his legendary 1819 memoir <em>Mémoire sur la diffraction de la lumière</em>, he utilized a tool central to Calculus II—<strong>term-by-term integration of Maclaurin series</strong>:</p>
+<p><span class="math display">\[\cos(t^2) = 1 - \frac{t^4}{2!} + \frac{t^8}{4!} - \frac{t^{12}}{6!} + \dots \implies C(x) = x - \frac{x^5}{5 \cdot 2!} + \frac{x^9}{9 \cdot 4!} - \dots\]</span></p>
+<p>Working in a dimly lit attic with a quill pen, Fresnel meticulously computed these terms by hand, grinding through massive factorial denominators (such as <span class="math inline">\(15 \cdot 7! = 75,600\)</span>). He compiled the <strong>world’s first Fresnel Integral Table</strong> in his paper’s appendix, manually calculating values from <span class="math inline">\(x=0.1\)</span> to <span class="math inline">\(x=5.5\)</span> with a step size of <span class="math inline">\(\Delta x = 0.1\)</span>, accurate to four decimal places.</p>
+<p>While this heroic table perfectly matched experimental data (famously confirming the counter-intuitive “Poisson’s Spot”), it faced a tragic mathematical dead-end: as <span class="math inline">\(x \to \infty\)</span>, the series required infinitely many terms to compute. Fresnel could never find the exact, ultimate analytical values at infinity.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="asset/2-TableII-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Tableau from Fresnel’s 1819 memoir, showing his manual calculations of the integrals from <span class="math inline">\(v=0.1\)</span> to <span class="math inline">\(v=5.5\)</span>.</figcaption>
+</figure>
+</div>
+</blockquote>
+<section id="the-45-degree-dimensional-leap" class="level4">
+<h4 class="anchored" data-anchor-id="the-45-degree-dimensional-leap">The 45-Degree Dimensional Leap</h4>
+<p>The ultimate resolution of Fresnel’s cliffhanger came from Augustin-Louis Cauchy, who bypassed the 1-D real-line roadblock by escaping into 2-D complex geometry. By invoking Euler’s formula (<span class="math inline">\(e^{it}=\cos t + i\sin t\)</span>), we can elegantly unify Fresnel’s two fighting real waves into a single, complex generalized Gaussian form:</p>
+<p><span class="math display">\[I(a)=\int_{-\infty}^{\infty} e^{-iax^2} dx\]</span></p>
+<p>To evaluate this highly oscillatory expression, we perform a brilliant maneuver known as a <strong>complex path rotation (Wick Rotation)</strong>. If we blindly apply the 1-D substitution rule from Section 4.1 by replacing the real parameter <span class="math inline">\(a\)</span> with <span class="math inline">\(ia\)</span>, we are forced to let <span class="math inline">\(u = \sqrt{ia} \cdot x\)</span>.</p>
+<p>In the complex plane, the imaginary unit <span class="math inline">\(i\)</span> represents a <span class="math inline">\(90^\circ\)</span> rotation (<span class="math inline">\(i = e^{i\pi/2}\)</span>), meaning its square root represents a <strong><span class="math inline">\(45^\circ\)</span> rotation</strong> (<span class="math inline">\(\sqrt{i} = e^{i\pi/4}\)</span>). Tilted by this angle, we define our complex substitution as:</p>
+<p><span class="math display">\[x = u \cdot e^{-i\pi/4}\]</span></p>
+<p>Substituting this into the integral, the differential <span class="math inline">\(dx\)</span> becomes <span class="math inline">\(e^{-i\pi/4} du\)</span>, and the exponent undergoes a magical simplification:</p>
+<p><span class="math display">\[-iax^2 = -ia \left(u \cdot e^{-i\pi/4}\right)^2 = -ia \cdot u^2 \cdot (-i) = -au^2\]</span></p>
+<p>Thanks to this spatial rotation, the troublesome imaginary unit <span class="math inline">\(i\)</span> is completely annihilated by the geometry of the complex plane! The chaotic wave instantly collapses right back into our warm, familiar, standard 1-D Gaussian integral:</p>
+<p><span class="math display">\[I(a) = e^{-i\pi/4} \int_{-\infty}^{\infty} e^{-au^2} du = e^{-i\pi/4} \cdot \sqrt{\frac{\pi}{a}} = \sqrt{\frac{\pi}{2a}} (1 - i)\]</span></p>
+<p>Equating the real and imaginary parts using Euler’s formula, we effortlessly harvest the exact limits at infinity that Fresnel could only dream of:</p>
+<p><span class="math display">\[\int_{-\infty}^{\infty} \cos(ax^2) dx = \int_{-\infty}^{\infty} \sin(ax^2) dx = \sqrt{\frac{\pi}{2a}}\]</span></p>
+</section>
+<section id="the-geometric-aftermath-the-euler-cornu-spiral" class="level4">
+<h4 class="anchored" data-anchor-id="the-geometric-aftermath-the-euler-cornu-spiral">The Geometric Aftermath: The Euler-Cornu Spiral</h4>
+<p>To visualize this triumph, physicist Marie Alfred Cornu in 1874 plotted Fresnel’s hand-calculated points as coordinates <span class="math inline">\((C(t), S(t))\)</span> on the complex plane. This produced an extraordinarily beautiful, self-correcting cosmic whirlpool known as the <strong>Cornu Spiral</strong>—though Leonhard Euler had already predicted its exact shape in 1744 purely for aesthetic geometry, earning it the mathematical name <strong>Euler Spiral</strong>.</p>
+<p>As <span class="math inline">\(t \to \infty\)</span>, the spiral tightly locks around two ultimate destination centers. The coordinates of these divine centers are exactly the analytical limits Cauchy delivered using the complex Gaussian generalization: <span class="math inline">\(\left(\frac{1}{2}\sqrt{\frac{\pi}{2a}}, \frac{1}{2}\sqrt{\frac{\pi}{2a}}\right)\)</span>.</p>
+</section>
+</section>
+<section id="the-multidimensional-gaussian-integral" class="level3">
+<h3 class="anchored" data-anchor-id="the-multidimensional-gaussian-integral">4.3. The Multidimensional Gaussian Integral</h3>
+<p>The single-variable Gaussian integral can be generalized to higher dimensions. This extension is of paramount importance in multivariate statistics, machine learning (e.g., Gaussian processes), quantum field theory, and statistical mechanics.</p>
+<blockquote class="blockquote">
+<p><strong>Historical Highlight: The Lost Planet and the Method of Least Squares</strong></p>
+<div style="text-align: center; margin: 15px auto;">
+<p><img src="asset/Carl_Friedrich_Gauss.jpg" style="width: 20%; display: block; margin: 0 auto;"> <span style="font-size: 0.8em; color: #888; display: block; margin-top: 5px; margin-bottom: 10px;">Carl Friedrich Gauss (1777–1855)</span></p>
+</div>
+<p>The transition from a single variable to multiple dimensions has roots in one of the most famous astronomical triumphs of the 19th century. On January 1, 1801, Italian astronomer Giuseppe Piazzi discovered Ceres, the first known asteroid (now classified as a dwarf planet). However, after observing it for only 41 days, Ceres disappeared behind the glare of the Sun. With less than 1% of its orbit recorded, astronomers were clueless about where it would reappear in the vast night sky.</p>
+<p>Enter a 24-year-old Carl Friedrich Gauss. While other astronomers struggled with the massive observational errors, Gauss approached the problem by accepting the errors as a natural, probabilistically distributed phenomenon. He assumed that the joint probability of <span class="math inline">\(n\)</span> independent astronomical observational errors occurring simultaneously would be the product of their individual 1-D probabilities. When you multiply <span class="math inline">\(n\)</span> Gaussian exponential distributions together, their exponents add up, transforming into a single exponential function whose exponent is a multidimensional quadratic form—leading directly to the multidimensional Gaussian integral.</p>
+<p>By finding the orbital parameters that minimized this multidimensional exponent (a technique we now call the <strong>Method of Least Squares</strong>), Gauss successfully predicted the exact location where Ceres would be recovered later that year. This extraordinary achievement catapulted the young mathematician to international fame and permanently linked his name to the “bell curve.”</p>
+</blockquote>
+<section id="the-multivariate-generalization" class="level4">
+<h4 class="anchored" data-anchor-id="the-multivariate-generalization">The Multivariate Generalization</h4>
+<p>Let <span class="math inline">\(\mathbf{x} = (x_1, \dots, x_n)^{\mathsf{T}} \in \mathbb{R}^n\)</span>. Suppose <span class="math inline">\(A\)</span> is a symmetric positive-definite <span class="math inline">\(n \times n\)</span> matrix, often referred to as the <strong>precision matrix</strong> (the matrix inverse of the covariance matrix <span class="math inline">\(\Sigma\)</span>). We wish to evaluate:</p>
+<p><span class="math display">\[\int_{\mathbb{R}^n} \exp\left(-\mathbf{x}^{\mathsf{T}}A\mathbf{x}\right) \mathrm{d}^n\mathbf{x} = \int_{\mathbb{R}^n} \exp\left(-\sum_{i,j=1}^n A_{ij}x_ix_j\right) \mathrm{d}^n\mathbf{x}\]</span></p>
+</section>
+<section id="derivation-via-diagonalization" class="level4">
+<h4 class="anchored" data-anchor-id="derivation-via-diagonalization">Derivation via Diagonalization</h4>
+<p>By the spectral theorem, the symmetric matrix <span class="math inline">\(A\)</span> can be orthogonally diagonalized as <span class="math inline">\(A = Q \Lambda Q^{\mathsf{T}}\)</span>, where <span class="math inline">\(Q\)</span> is an orthogonal matrix (<span class="math inline">\(Q^{\mathsf{T}}Q = I\)</span>) and <span class="math inline">\(\Lambda = \operatorname{diag}(\lambda_1, \dots, \lambda_n)\)</span> contains the positive eigenvalues of <span class="math inline">\(A\)</span>.</p>
+<p>Under the linear change of variables <span class="math inline">\(\mathbf{y} = Q^{\mathsf{T}}\mathbf{x}\)</span> (so <span class="math inline">\(\mathbf{x} = Q\mathbf{y}\)</span>), the volume element remains invariant (<span class="math inline">\(\mathrm{d}^n\mathbf{x} = \mathrm{d}^n\mathbf{y}\)</span>) because the Jacobian determinant is <span class="math inline">\(|\det Q| = 1\)</span>. The exponent simplifies to:</p>
+<p><span class="math display">\[\mathbf{x}^{\mathsf{T}}A\mathbf{x} = \mathbf{y}^{\mathsf{T}}\Lambda\mathbf{y} = \sum_{i=1}^n \lambda_i y_i^2\]</span></p>
+<p>This decouples the variables, allowing us to factor the multidimensional integral into a product of <span class="math inline">\(n\)</span> independent 1-D Gaussian integrals:</p>
+<p><span class="math display">\[\int_{\mathbb{R}^n} \exp\left(-\mathbf{x}^{\mathsf{T}}A\mathbf{x}\right) \mathrm{d}^n\mathbf{x} = \prod_{i=1}^n \int_{-\infty}^{\infty} e^{-\lambda_i y_i^2} \mathrm{d}y_i\]</span></p>
+<p>Using the scaling property <span class="math inline">\(\int_{-\infty}^{\infty} e^{-au^2}\mathrm{d}u = \sqrt{\pi/a}\)</span>, this product evaluates to:</p>
+<p><span class="math display">\[\prod_{i=1}^n \sqrt{\frac{\pi}{\lambda_i}} = \sqrt{\frac{\pi^n}{\prod_{i=1}^n \lambda_i}} = \sqrt{\frac{\pi^n}{\det A}}\]</span></p>
+<p>Since <span class="math inline">\(\det(\pi A^{-1}) = \pi^n \det(A^{-1}) = \frac{\pi^n}{\det A}\)</span>, we arrive at the elegant, coordinate-free result:</p>
+<p><span class="math display">\[\int_{\mathbb{R}^n} \exp\left(-\mathbf{x}^{\mathsf{T}}A\mathbf{x}\right) \mathrm{d}^n\mathbf{x} = \sqrt{\frac{\pi^n}{\det A}} = \sqrt{\det(\pi A^{-1})}\]</span></p>
+<p>In probability theory, this result directly gives rise to the normalization constant for the multivariate normal distribution <span class="math inline">\(f(\mathbf{x}) \propto \exp\left(-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^{\mathsf{T}}\Sigma^{-1}(\mathbf{x}-\boldsymbol{\mu})\right)\)</span> where <span class="math inline">\(\Sigma = A^{-1}\)</span>.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="applications" class="level2">
+<h2 class="anchored" data-anchor-id="applications">4. Applications: Why the Gaussian Integral Rules the Universe</h2>
+<p>While the pure mathematical evaluation of the Gaussian integral is fascinating, its true power lies in its unparalleled ability to bridge microscopic randomness with macroscopic determinism. The Gaussian integral is arguably the single most important definite integral in all of applied mathematics and theoretical physics.</p>
+<section id="statistics-the-normal-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="statistics-the-normal-distribution">5.1. Statistics: The Normal Distribution</h3>
+<p>In probability theory, the central limit theorem dictates that the sum of many independent random variables tends toward a normal (Gaussian) distribution, regardless of their underlying distributions. The probability density function of a standard normal distribution is given by <span class="math inline">\(f(x) \propto e^{-x^2/2}\)</span>.</p>
+<p>For <span class="math inline">\(f(x)\)</span> to be a valid probability density function, the total probability over all possible outcomes must equal <span class="math inline">\(1\)</span>. This requires finding a normalization constant <span class="math inline">\(Z\)</span> such that: <span class="math display">\[ \int_{-\infty}^{\infty} \frac{1}{Z} e^{-x^2/2} dx = 1 \]</span></p>
+<p>Using the scaling generalization of the Gaussian integral (letting <span class="math inline">\(a = 1/2\)</span>), we evaluate the integral: <span class="math display">\[ \int_{-\infty}^{\infty} e^{-x^2/2} dx = \sqrt{\frac{\pi}{1/2}} = \sqrt{2\pi} \]</span></p>
+<p>Thus, the normalization constant must be <span class="math inline">\(Z = \sqrt{2\pi}\)</span>, which is why the ubiquitous factor of <span class="math inline">\(\sqrt{2\pi}\)</span> appears in the standard normal distribution formula: <span class="math display">\[ f(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2} \]</span></p>
+</section>
+<section id="physics-partition-functions-and-path-integrals" class="level3">
+<h3 class="anchored" data-anchor-id="physics-partition-functions-and-path-integrals">5.2. Physics: Partition Functions and Path Integrals</h3>
+<p>In statistical mechanics, the macroscopic properties of a system in thermal equilibrium are derived from its <strong>partition function</strong> (<span class="math inline">\(Z\)</span>), which sums the probabilities of all possible microscopic states. For a classical ideal gas, the kinetic energy of a particle is <span class="math inline">\(E = \frac{p^2}{2m}\)</span> (where <span class="math inline">\(p\)</span> is momentum and <span class="math inline">\(m\)</span> is mass). The probability of a particle having momentum <span class="math inline">\(p\)</span> is proportional to the Boltzmann factor <span class="math inline">\(e^{-E/kT}\)</span>. Summing these probabilities over all possible momenta requires evaluating a Gaussian integral over momentum space: <span class="math display">\[ Z \propto \int_{-\infty}^{\infty} e^{-\frac{p^2}{2mkT}} dp = \sqrt{2\pi mkT} \]</span> This single integral is the foundation for deriving the ideal gas law and the macroscopic thermodynamic properties of our universe.</p>
+<p>Furthermore, in quantum mechanics, we encounter the <strong>path integral formulation</strong>—developed by none other than Richard Feynman. To calculate the probability amplitude for a particle to travel from point A to point B, Feynman proposed integrating over <em>all possible paths</em> the particle could take. For a free particle, the “weight” of each path involves an exponent of the form <span class="math inline">\(e^{i S / \hbar}\)</span>, where the action <span class="math inline">\(S\)</span> is quadratic in velocity. The infinite-dimensional path integral ultimately boils down to a product of infinitely many complex Gaussian integrals, perfectly echoing the multidimensional and complex extensions we explored earlier.</p>
+<p>Feynman’s unconventional toolbox didn’t just solve a single integral on the blackboard; it provided the mathematical language for modern quantum field theory.</p>
+<hr>
+</section>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">5. References</h2>
+<ul>
+<li>Feynman, R. P. (1985). <em>Surely you’re joking, Mr.&nbsp;Feynman!: Adventures of a curious character</em>. W. W. Norton &amp; Company.</li>
+<li>Fresnel, A.-J. (1866). Mémoire sur la diffraction de la lumière. In H. de Sénarmont, É. Verdet, &amp; L. Fresnel (Eds.), <em>Oeuvres complètes d’Augustin Fresnel</em> (Vol. 1, pp.&nbsp;247-382). Imprimerie impériale. (Original work published 1819).</li>
+<li>Nakib, M. (2018). <em>Gaussian integral and its applications</em>. Scribd.</li>
+<li>Raviprakash, R. (2022). <em>Feynman’s trick: Differentiation under the integral sign</em>. Medium.</li>
+<li>Wikipedia contributors. (n.d.). <em>Gaussian integral</em>. Wikipedia, The Free Encyclopedia.</li>
+<li>Wikipedia contributors. (n.d.). <em>Leibniz integral rule</em>. Wikipedia, The Free Encyclopedia.</li>
+<li>Wikipedia contributors. (n.d.). <em>Fresnel integral</em>. Wikipedia, The Free Encyclopedia.</li>
+<li>Wikipedia contributors. (n.d.). <em>Multivariate normal distribution</em>. Wikipedia, The Free Encyclopedia.</li>
+</ul>
+<p><strong>Wikipedia Biographies of Mentioned Scientists:</strong></p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss">Carl Friedrich Gauss</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Abraham_de_Moivre">Abraham de Moivre</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pierre-Simon_Laplace">Pierre-Simon Laplace</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Joseph_Liouville">Joseph Liouville</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Guido_Fubini">Guido Fubini</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Richard_Feynman">Richard Feynman</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Leonhard_Euler">Leonhard Euler</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Marie_Alfred_Cornu">Marie Alfred Cornu</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Augustin-Louis_Cauchy">Augustin-Louis Cauchy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Augustin-Jean_Fresnel">Augustin-Jean Fresnel</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz">Gottfried Wilhelm Leibniz</a></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

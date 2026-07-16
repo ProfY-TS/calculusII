@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>The Bernoulli Family: A Dynasty that Shaped the Development of Calculus – Calculus Stories</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3cd44411fd72149452863431a2dfbeee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sample.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./bernoulli.html">Bernoulli</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Calculus Stories</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Core Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sample</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./continuity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Continuity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./natural_base.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Natural Base</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./integral.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integral</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./neptune.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neptune</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./integral_story.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integral II</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Stokes_Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stoke’s Theorem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./jacobian.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jacobian</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tangents-areas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tangents and Areas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pseries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">p-series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./brachistochrone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Brachistochrone</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bernoulli.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Bernoulli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./differentiability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differentiability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./maggkari.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Leibniz v. Newton</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gaussian.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gaussian Integral</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./infinite-boundaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Infinite Boundaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./fourier_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fourier Series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./taylor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taylor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gradient_ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Extra</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#origins-of-the-bernoulli-family" id="toc-origins-of-the-bernoulli-family" class="nav-link" data-scroll-target="#origins-of-the-bernoulli-family">Origins of the Bernoulli Family</a></li>
+  </ul></li>
+  <li><a href="#the-bernoulli-family-tree-of-mathematicians" id="toc-the-bernoulli-family-tree-of-mathematicians" class="nav-link" data-scroll-target="#the-bernoulli-family-tree-of-mathematicians">The Bernoulli Family Tree of Mathematicians</a></li>
+  <li><a href="#jacob-bernoulli-1655-1705-pioneer-of-calculus-and-probability" id="toc-jacob-bernoulli-1655-1705-pioneer-of-calculus-and-probability" class="nav-link" data-scroll-target="#jacob-bernoulli-1655-1705-pioneer-of-calculus-and-probability">Jacob Bernoulli (1655-1705): Pioneer of Calculus and Probability</a>
+  <ul class="collapse">
+  <li><a href="#early-life" id="toc-early-life" class="nav-link" data-scroll-target="#early-life">Early Life</a></li>
+  <li><a href="#contributions-to-calculus" id="toc-contributions-to-calculus" class="nav-link" data-scroll-target="#contributions-to-calculus">Contributions to Calculus</a></li>
+  <li><a href="#birth-of-probability-theory" id="toc-birth-of-probability-theory" class="nav-link" data-scroll-target="#birth-of-probability-theory">Birth of Probability Theory</a></li>
+  <li><a href="#the-bernoulli-numbers" id="toc-the-bernoulli-numbers" class="nav-link" data-scroll-target="#the-bernoulli-numbers">The Bernoulli Numbers</a></li>
+  </ul></li>
+  <li><a href="#johann-bernoulli-1667-1748-the-great-teacher-of-calculus" id="toc-johann-bernoulli-1667-1748-the-great-teacher-of-calculus" class="nav-link" data-scroll-target="#johann-bernoulli-1667-1748-the-great-teacher-of-calculus">Johann Bernoulli (1667-1748): The Great Teacher of Calculus</a>
+  <ul class="collapse">
+  <li><a href="#rival-and-successor" id="toc-rival-and-successor" class="nav-link" data-scroll-target="#rival-and-successor">Rival and Successor</a></li>
+  <li><a href="#promotion-of-leibnizian-calculus" id="toc-promotion-of-leibnizian-calculus" class="nav-link" data-scroll-target="#promotion-of-leibnizian-calculus">Promotion of Leibnizian Calculus</a></li>
+  <li><a href="#the-brachistochrone-problem" id="toc-the-brachistochrone-problem" class="nav-link" data-scroll-target="#the-brachistochrone-problem">The Brachistochrone Problem</a></li>
+  </ul></li>
+  <li><a href="#nicolaus-i-bernoulli-1687-1759-extending-the-family-legacy" id="toc-nicolaus-i-bernoulli-1687-1759-extending-the-family-legacy" class="nav-link" data-scroll-target="#nicolaus-i-bernoulli-1687-1759-extending-the-family-legacy">Nicolaus I Bernoulli (1687-1759): Extending the Family Legacy</a></li>
+  <li><a href="#daniel-bernoulli-1700-1782-mathematics-meets-physics" id="toc-daniel-bernoulli-1700-1782-mathematics-meets-physics" class="nav-link" data-scroll-target="#daniel-bernoulli-1700-1782-mathematics-meets-physics">Daniel Bernoulli (1700-1782): Mathematics Meets Physics</a>
+  <ul class="collapse">
+  <li><a href="#early-life-1" id="toc-early-life-1" class="nav-link" data-scroll-target="#early-life-1">Early Life</a></li>
+  <li><a href="#bernoullis-principle" id="toc-bernoullis-principle" class="nav-link" data-scroll-target="#bernoullis-principle">Bernoulli’s Principle</a></li>
+  <li><a href="#differential-equations-and-mathematical-physics" id="toc-differential-equations-and-mathematical-physics" class="nav-link" data-scroll-target="#differential-equations-and-mathematical-physics">Differential Equations and Mathematical Physics</a></li>
+  <li><a href="#contributions-to-probability" id="toc-contributions-to-probability" class="nav-link" data-scroll-target="#contributions-to-probability">Contributions to Probability</a></li>
+  </ul></li>
+  <li><a href="#the-bernoulli-family-and-leonhard-euler" id="toc-the-bernoulli-family-and-leonhard-euler" class="nav-link" data-scroll-target="#the-bernoulli-family-and-leonhard-euler">The Bernoulli Family and Leonhard Euler</a></li>
+  <li><a href="#the-basel-problem-a-famous-challenge-in-analysis" id="toc-the-basel-problem-a-famous-challenge-in-analysis" class="nav-link" data-scroll-target="#the-basel-problem-a-famous-challenge-in-analysis">The Basel Problem: A Famous Challenge in Analysis</a>
+  <ul class="collapse">
+  <li><a href="#interactive-watch-the-basel-sum-approach-pi26" id="toc-interactive-watch-the-basel-sum-approach-pi26" class="nav-link" data-scroll-target="#interactive-watch-the-basel-sum-approach-pi26">Interactive: Watch the Basel Sum Approach <span class="math inline">\(\pi^2/6\)</span></a></li>
+  </ul></li>
+  <li><a href="#family-rivalries-and-competition" id="toc-family-rivalries-and-competition" class="nav-link" data-scroll-target="#family-rivalries-and-competition">Family Rivalries and Competition</a></li>
+  <li><a href="#influence-on-modern-calculus" id="toc-influence-on-modern-calculus" class="nav-link" data-scroll-target="#influence-on-modern-calculus">Influence on Modern Calculus</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#the-full-bernoulli-family-tree" id="toc-the-full-bernoulli-family-tree" class="nav-link" data-scroll-target="#the-full-bernoulli-family-tree">The Full Bernoulli Family Tree</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sample.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./bernoulli.html">Bernoulli</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">The Bernoulli Family: A Dynasty that Shaped the Development of Calculus</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Group Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Group:</strong> Still Thinking</p>
+<p><strong>Authors:</strong> Zhang Yang, Zhu Xinbo, Zhang Qixuan</p>
+<div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; text-align: center;">
+<figure style="margin: 0;" class="figure">
+<img src="asset/member1.png" alt="Portrait associated with group member Zhang Yang" style="width: 210px; height: 260px; object-fit: cover;" class="figure-img">
+<figcaption style="margin-top: 0.5rem;">
+Zhang Yang
+</figcaption>
+</figure>
+<figure style="margin: 0;" class="figure">
+<img src="asset/member2.png" alt="Portrait associated with group member Zhu Xinbo" style="width: 210px; height: 260px; object-fit: cover;" class="figure-img">
+<figcaption style="margin-top: 0.5rem;">
+Zhu Xinbo
+</figcaption>
+</figure>
+<figure style="margin: 0;" class="figure">
+<img src="asset/member3.jpg" alt="Portrait associated with group member Zhang Qixuan" style="width: 210px; height: 260px; object-fit: cover;" class="figure-img">
+<figcaption style="margin-top: 0.5rem;">
+Zhang Qixuan
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>When people tell the story of calculus, the spotlight usually lands on Isaac Newton and Gottfried Wilhelm Leibniz. Fair enough: they created the first big versions of differential and integral calculus. But if calculus were a new machine, Newton and Leibniz built the prototype. The Bernoulli family helped turn it into a machine that other mathematicians could actually use, repair, argue over, and attach to physics.</p>
+<p>The Bernoullis were a Swiss family from Basel whose mathematical branch produced several major figures across multiple generations. Their work touched differential equations, infinite series, probability, mechanics, fluid dynamics, and the calculus of variations. In other words, they were not just “a family with a few smart people.” They were almost a small research institute, except with more dinner-table tension.</p>
+<p>This story focuses on four central members:</p>
+<ul>
+<li><strong>Jacob Bernoulli</strong>: early master of Leibnizian calculus, probability, infinite series, and Bernoulli numbers.</li>
+<li><strong>Johann Bernoulli</strong>: energetic promoter of calculus, famous teacher, and a key figure in the brachistochrone problem.</li>
+<li><strong>Nicolaus I Bernoulli</strong>: important contributor to probability and the St.&nbsp;Petersburg paradox.</li>
+<li><strong>Daniel Bernoulli</strong>: bridge between calculus, probability, economics, and fluid mechanics.</li>
+</ul>
+<section id="origins-of-the-bernoulli-family" class="level2">
+<h2 class="anchored" data-anchor-id="origins-of-the-bernoulli-family">Origins of the Bernoulli Family</h2>
+<p>The Bernoulli family was originally of Flemish origin. Because of religious persecution, the family migrated to Frankfurt and later settled in Basel, Switzerland. Although many family members entered business, law, medicine, and public service, several became distinguished mathematicians.</p>
+<p>The most influential members of the mathematical branch of the family were:</p>
+<ul>
+<li>Jacob Bernoulli (1655-1705)</li>
+<li>Johann Bernoulli (1667-1748)</li>
+<li>Daniel Bernoulli (1700-1782)</li>
+<li>Nicolaus I Bernoulli (1687-1759)</li>
+<li>Nicolaus II Bernoulli (1695-1726)</li>
+</ul>
+<p>Together, they established one of the most productive mathematical dynasties in history.</p>
+</section>
+</section>
+<section id="the-bernoulli-family-tree-of-mathematicians" class="level1">
+<h1>The Bernoulli Family Tree of Mathematicians</h1>
+<p>The mathematical Bernoullis can be confusing because the same names repeat like variables in a badly labelled proof. Here is the simplified tree for the main people in this story. Clickable boxes jump to the related section.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+
+N["Niklaus Bernoulli (1623-1708)"]
+
+N --&gt; J1["Jacob I Bernoulli (1655-1705)"]
+N --&gt; N0["Nicolaus Bernoulli (1662-1716)"]
+N --&gt; J2["Johann I Bernoulli (1667-1748)"]
+N --&gt; H0["Hieronymus Bernoulli (1669-1760)"]
+
+N0 --&gt; NI["Nicolaus I Bernoulli (1687-1759)"]
+
+J2 --&gt; NII["Nicolaus II Bernoulli (1695-1726)"]
+J2 --&gt; D["Daniel Bernoulli (1700-1782)"]
+J2 --&gt; JII["Johann II Bernoulli (1710-1790)"]
+
+JII --&gt; JIII["Johann III Bernoulli (1744-1807)"]
+JII --&gt; DII["Daniel II Bernoulli (1751-1834)"]
+JII --&gt; NIII["Nicolaus III Bernoulli (1754-1841)"]
+JII --&gt; JAC2["Jacob II Bernoulli (1759-1789)"]
+
+click J1 "#jacob-bernoulli-1655-1705" "Jacob Bernoulli"
+click J2 "#johann-bernoulli-1667-1748" "Johann Bernoulli"
+click NI "#nicolaus-i-bernoulli-1687-1759" "Nicolaus I Bernoulli"
+click D "#daniel-bernoulli-1700-1782" "Daniel Bernoulli"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p><a id="jacob-bernoulli-1655-1705"></a></p>
+</section>
+<section id="jacob-bernoulli-1655-1705-pioneer-of-calculus-and-probability" class="level1">
+<h1>Jacob Bernoulli (1655-1705): Pioneer of Calculus and Probability</h1>
+<div style="text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="asset/bernoulli_jakob.jpg" class="img-fluid figure-img" alt="Portrait of Jacob Bernoulli" width="230"></p>
+<figcaption>Jacob Bernoulli</figcaption>
+</figure>
+</div>
+</div>
+<section id="early-life" class="level2">
+<h2 class="anchored" data-anchor-id="early-life">Early Life</h2>
+<p>Jacob Bernoulli was pushed toward philosophy and theology by his family, but he studied mathematics and astronomy anyway. This is a very Bernoulli move: the family often wanted respectable careers, and the mathematically talented members kept wandering toward calculus like iron filings toward a magnet.</p>
+</section>
+<section id="contributions-to-calculus" class="level2">
+<h2 class="anchored" data-anchor-id="contributions-to-calculus">Contributions to Calculus</h2>
+<p>Jacob became one of the first mathematicians to seriously understand and use Leibniz’s calculus. This mattered because Leibniz’s original papers were powerful but not exactly beginner-friendly. Jacob and Johann were among the people who translated the new notation into actual problem-solving.</p>
+<p>One place Jacob appears directly in calculus courses is the <strong>Bernoulli differential equation</strong>:</p>
+<p><span class="math display">\[
+y' + P(x)y = Q(x)y^n.
+\]</span></p>
+<p>For <span class="math inline">\(n \neq 0,1\)</span>, the clever substitution</p>
+<p><span class="math display">\[
+v = y^{1-n}
+\]</span></p>
+<p>turns it into a linear differential equation. This is a perfect example of what the Bernoullis were good at: taking a messy-looking problem and finding the change of viewpoint that makes it solvable.</p>
+</section>
+<section id="birth-of-probability-theory" class="level2">
+<h2 class="anchored" data-anchor-id="birth-of-probability-theory">Birth of Probability Theory</h2>
+<p>Jacob also worked on infinite series, the logarithmic spiral, and probability. His book <em>Ars Conjectandi</em>, published after his death in 1713, became one of the founding texts of probability theory. It contains an early form of the <strong>Law of Large Numbers</strong>, the idea that repeated trials settle down toward a stable probability in the long run.</p>
+</section>
+<section id="the-bernoulli-numbers" class="level2">
+<h2 class="anchored" data-anchor-id="the-bernoulli-numbers">The Bernoulli Numbers</h2>
+<p>One of Jacob’s most lasting legacies is the sequence now called the <strong>Bernoulli numbers</strong>. They appear in formulas for sums of powers:</p>
+<p><span class="math display">\[
+1^k + 2^k + 3^k + \cdots + n^k.
+\]</span></p>
+<p>For example,</p>
+<p><span class="math display">\[
+1 + 2 + \cdots + n = \frac{n(n+1)}{2},
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+1^2 + 2^2 + \cdots + n^2 = \frac{n(n+1)(2n+1)}{6}.
+\]</span></p>
+<p>For higher powers, the formulas become more complicated, and Bernoulli numbers help organize them. They later appeared all over analysis, including in the Euler-Maclaurin formula and the study of the Riemann zeta function. That is the strange life of mathematical ideas: Jacob was studying sums of powers, and centuries later his numbers still show up in advanced analysis.</p>
+<p><a id="johann-bernoulli-1667-1748"></a></p>
+</section>
+</section>
+<section id="johann-bernoulli-1667-1748-the-great-teacher-of-calculus" class="level1">
+<h1>Johann Bernoulli (1667-1748): The Great Teacher of Calculus</h1>
+<div style="text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="asset/bernoulli_johann.jpg" class="img-fluid figure-img" alt="Portrait of Johann Bernoulli" width="230"></p>
+<figcaption>Johann Bernoulli</figcaption>
+</figure>
+</div>
+</div>
+<section id="rival-and-successor" class="level2">
+<h2 class="anchored" data-anchor-id="rival-and-successor">Rival and Successor</h2>
+<p>Johann Bernoulli was Jacob’s younger brother. He first studied medicine, but Jacob taught him mathematics, and soon Johann became one of the strongest mathematicians in Europe. Their relationship then turned from teacher-student into rivalry. This is the part of the story where mathematics starts to feel less like quiet chalkboards and more like a competitive sport.</p>
+</section>
+<section id="promotion-of-leibnizian-calculus" class="level2">
+<h2 class="anchored" data-anchor-id="promotion-of-leibnizian-calculus">Promotion of Leibnizian Calculus</h2>
+<p>Johann’s biggest historical role was spreading Leibnizian calculus. He taught, published, argued, and promoted the new methods across Europe. Through him, calculus became less of a secret technique and more of a working language.</p>
+</section>
+<section id="the-brachistochrone-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-brachistochrone-problem">The Brachistochrone Problem</h2>
+<p>His most famous challenge was the <strong>brachistochrone problem</strong>:</p>
+<blockquote class="blockquote">
+<p>Given two points at different heights, what curve lets a particle slide from the upper point to the lower point in the shortest time under gravity?</p>
+</blockquote>
+<p>The tempting answer is “a straight line,” but the correct answer is a <strong>cycloid</strong>. This problem helped launch the calculus of variations, where instead of optimizing a number, we optimize an entire curve.</p>
+<p>That shift is important. Ordinary calculus asks questions like:</p>
+<p><span class="math display">\[
+\text{Which } x \text{ minimizes } f(x)?
+\]</span></p>
+<p>The calculus of variations asks something bigger:</p>
+<p><span class="math display">\[
+\text{Which function or path minimizes a whole quantity?}
+\]</span></p>
+<p>This idea later became central in mechanics, optics, optimization, and physics.</p>
+<p><a id="nicolaus-i-bernoulli-1687-1759"></a></p>
+</section>
+</section>
+<section id="nicolaus-i-bernoulli-1687-1759-extending-the-family-legacy" class="level1">
+<h1>Nicolaus I Bernoulli (1687-1759): Extending the Family Legacy</h1>
+<div style="text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="asset/bernoulli_nicolaus.jpg" class="img-fluid figure-img" alt="Portrait associated with Nicolaus Bernoulli" width="210"></p>
+<figcaption>Nicolaus Bernoulli</figcaption>
+</figure>
+</div>
+</div>
+<p>Nicolaus I Bernoulli was the nephew of Jacob and Johann. He studied law and mathematics, and much of his important work appeared through correspondence. His name is strongly connected with the <strong>St.&nbsp;Petersburg paradox</strong>, one of the best historical examples of probability refusing to behave politely.</p>
+<p>The simplified game is this:</p>
+<ol type="1">
+<li>Flip a fair coin until the first head appears.</li>
+<li>If the first head appears on toss <span class="math inline">\(k\)</span>, the payoff is <span class="math inline">\(2^k\)</span>.</li>
+<li>The expected value is</li>
+</ol>
+<p><span class="math display">\[
+\frac12(2)+\frac14(4)+\frac18(8)+\cdots
+=1+1+1+\cdots = \infty.
+\]</span></p>
+<p>So the expected monetary value is infinite. But almost nobody would pay an enormous amount of money to play once. The paradox asks: if the expected value is infinite, why does the game not feel infinitely valuable?</p>
+<p>That question pushed mathematicians to think harder about risk, utility, and human decision-making. It also set up Daniel Bernoulli’s famous response.</p>
+<p><a id="daniel-bernoulli-1700-1782"></a></p>
+</section>
+<section id="daniel-bernoulli-1700-1782-mathematics-meets-physics" class="level1">
+<h1>Daniel Bernoulli (1700-1782): Mathematics Meets Physics</h1>
+<div style="text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="asset/bernoulli_daniel.jpg" class="img-fluid figure-img" alt="Portrait of Daniel Bernoulli" width="230"></p>
+<figcaption>Daniel Bernoulli</figcaption>
+</figure>
+</div>
+</div>
+<section id="early-life-1" class="level2">
+<h2 class="anchored" data-anchor-id="early-life-1">Early Life</h2>
+<p>Daniel Bernoulli was Johann’s son. He trained in medicine but became deeply involved in mathematics and natural philosophy. His most famous work is <em>Hydrodynamica</em> (1738), where he studied fluid motion using mathematical reasoning.</p>
+</section>
+<section id="bernoullis-principle" class="level2">
+<h2 class="anchored" data-anchor-id="bernoullis-principle">Bernoulli’s Principle</h2>
+<p>The result most students recognize is <strong>Bernoulli’s principle</strong>:</p>
+<blockquote class="blockquote">
+<p>When the speed of a moving fluid increases, its pressure tends to decrease.</p>
+</blockquote>
+<p>In a simplified steady-flow form, this appears as</p>
+<p><span class="math display">\[
+P+\frac12\rho v^2+\rho gh=\text{constant},
+\]</span></p>
+<p>where <span class="math inline">\(P\)</span> is pressure, <span class="math inline">\(\rho\)</span> is density, <span class="math inline">\(v\)</span> is speed, <span class="math inline">\(g\)</span> is gravitational acceleration, and <span class="math inline">\(h\)</span> is height.</p>
+</section>
+<section id="differential-equations-and-mathematical-physics" class="level2">
+<h2 class="anchored" data-anchor-id="differential-equations-and-mathematical-physics">Differential Equations and Mathematical Physics</h2>
+<p>This is calculus becoming physics. Instead of treating derivatives and integrals as symbolic exercises, Daniel used mathematical relationships to describe real motion. That spirit is everywhere in modern applied mathematics.</p>
+</section>
+<section id="contributions-to-probability" class="level2">
+<h2 class="anchored" data-anchor-id="contributions-to-probability">Contributions to Probability</h2>
+<p>Daniel also gave a famous way to think about the St.&nbsp;Petersburg paradox. His key idea was that people do not value money linearly. Winning an extra dollar matters a lot when you have little money, but it matters much less when you are already rich.</p>
+<p>In modern language, Daniel was thinking in terms of <strong>expected utility</strong> rather than expected money. A common model is logarithmic utility:</p>
+<p><span class="math display">\[
+U(w)=\ln(w).
+\]</span></p>
+<p>The point is not that this exact formula always describes real people. The point is that value depends on context. This idea became important in economics, finance, decision theory, and statistics.</p>
+</section>
+</section>
+<section id="the-bernoulli-family-and-leonhard-euler" class="level1">
+<h1>The Bernoulli Family and Leonhard Euler</h1>
+<p><a id="leonhard-euler-1707-1783"></a></p>
+<div style="text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="asset/bernoulli_euler.jpg" class="img-fluid figure-img" alt="Portrait of Leonhard Euler" width="230"></p>
+<figcaption>Leonhard Euler</figcaption>
+</figure>
+</div>
+</div>
+<p>One of the greatest contributions of the Bernoulli family was their influence on Leonhard Euler (1707-1783), who is widely regarded as one of the greatest mathematicians in history.</p>
+<p>Euler’s father was a close friend of Johann Bernoulli, and Johann quickly recognized the young Euler’s exceptional talent. Although Euler initially studied theology, Johann encouraged him to pursue mathematics. Through regular meetings and private instruction, Johann introduced Euler to the latest developments in calculus and mathematical analysis.</p>
+<p>Euler later expanded many of the ideas pioneered by the Bernoullis. He developed new methods for solving differential equations, advanced the calculus of variations, and established many foundations of modern analysis. In a sense, the Bernoulli family served as a bridge between the invention of calculus by Newton and Leibniz and its later systematic development by Euler.</p>
+</section>
+<section id="the-basel-problem-a-famous-challenge-in-analysis" class="level1">
+<h1>The Basel Problem: A Famous Challenge in Analysis</h1>
+<p>The city of Basel gave its name to one of the most celebrated problems in the history of mathematics: the Basel Problem.</p>
+<p>The problem asks for the exact value of the infinite series</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}\frac{1}{n^2}
+= 1+\frac14+\frac19+\frac1{16}+\cdots .
+\]</span></p>
+<p>Jacob Bernoulli first studied this series, and both he and Johann attempted unsuccessfully to determine its exact sum. The problem remained unsolved for several decades and became one of the most famous challenges in mathematics.</p>
+<p>In 1734, Leonhard Euler astonished the mathematical community by proving that</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}.
+\]</span></p>
+<p>This remarkable result connected an infinite series of rational numbers with the geometric constant <span class="math inline">\(\pi\)</span>. Euler’s solution relied heavily on techniques that had emerged from the Bernoulli tradition of studying infinite series and analysis.</p>
+<section id="interactive-watch-the-basel-sum-approach-pi26" class="level2">
+<h2 class="anchored" data-anchor-id="interactive-watch-the-basel-sum-approach-pi26">Interactive: Watch the Basel Sum Approach <span class="math inline">\(\pi^2/6\)</span></h2>
+<p>Move the slider to see the partial sum</p>
+<p><span class="math display">\[
+S_N=\sum_{n=1}^{N}\frac{1}{n^2}
+\]</span></p>
+<p>creep toward Euler’s value.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="296" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 295;"><span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a>viewof baselTerms <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">500</span>]<span class="op">,</span> {</span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span></span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a>  <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Number of terms"</span></span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a>baselTarget <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="cn">PI</span> <span class="op">**</span> <span class="dv">2</span> <span class="op">/</span> <span class="dv">6</span></span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a>baselPartialSum <span class="op">=</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>(</span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">length</span><span class="op">:</span> baselTerms }<span class="op">,</span></span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>  (_<span class="op">,</span> index) <span class="kw">=&gt;</span> <span class="dv">1</span> <span class="op">/</span> ((index <span class="op">+</span> <span class="dv">1</span>) <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a>)<span class="op">.</span><span class="fu">reduce</span>((total<span class="op">,</span> term) <span class="kw">=&gt;</span> total <span class="op">+</span> term<span class="op">,</span> <span class="dv">0</span>)</span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a>baselError <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(baselTarget <span class="op">-</span> baselPartialSum)</span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`</span></span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;div style="max-width: 760px; margin: 1rem auto; padding: 1rem; border: 1px solid #999; border-radius: 8px;"&gt;</span></span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem;"&gt;</span></span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div&gt;&lt;strong&gt;Partial sum&lt;/strong&gt;&lt;br&gt;</span><span class="sc">${</span>baselPartialSum<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">8</span>)<span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div&gt;&lt;strong&gt;pi^2 / 6&lt;/strong&gt;&lt;br&gt;</span><span class="sc">${</span>baselTarget<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">8</span>)<span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div&gt;&lt;strong&gt;Error&lt;/strong&gt;&lt;br&gt;</span><span class="sc">${</span>baselError<span class="op">.</span><span class="fu">toExponential</span>(<span class="dv">3</span>)<span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div style="height: 18px; border: 1px solid #777; margin-top: 1rem; background: #eee;"&gt;</span></span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div style="height: 100%; width: </span><span class="sc">${</span><span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(<span class="dv">100</span><span class="op">,</span> (baselPartialSum <span class="op">/</span> baselTarget) <span class="op">*</span> <span class="dv">100</span>)<span class="sc">}</span><span class="vs">%; background: #3b82f6;"&gt;&lt;/div&gt;</span></span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/div&gt;</span></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-5" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="family-rivalries-and-competition" class="level1">
+<h1>Family Rivalries and Competition</h1>
+<p>The Bernoulli family was brilliant, but not exactly calm. Jacob and Johann argued over priority and recognition. Johann later had serious conflict with Daniel, reportedly becoming jealous when Daniel shared a prize with him. This is uncomfortable, but it also makes the history more human.</p>
+<p>Mathematics often appears in textbooks as clean final answers. The actual development is messier: ambition, pride, friendship, mentorship, rivalry, mistakes, and correction all push the subject forward. The Bernoullis are a good reminder that mathematics is made by people, not by perfectly rational theorem-generating machines.</p>
+</section>
+<section id="influence-on-modern-calculus" class="level1">
+<h1>Influence on Modern Calculus</h1>
+<p>The Bernoulli story connects directly to topics from calculus:</p>
+<ul>
+<li><strong>Differential equations:</strong> Bernoulli equations and modeling change.</li>
+<li><strong>Infinite series:</strong> the Basel problem and power sums.</li>
+<li><strong>Optimization:</strong> the brachistochrone problem and calculus of variations.</li>
+<li><strong>Applications:</strong> fluid dynamics through Bernoulli’s principle.</li>
+<li><strong>Probability:</strong> the Law of Large Numbers and expected utility.</li>
+</ul>
+<p>Their work helped transform calculus from a new invention into a flexible language for science. That is why the Bernoulli name keeps appearing in different courses: differential equations, probability, statistics, physics, economics, and numerical analysis.</p>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>The Bernoulli family is not just a side note in the history of calculus. Jacob helped develop calculus, series, and probability. Johann spread the new calculus and trained Euler. Nicolaus I pushed probability into strange and important questions. Daniel showed how calculus could describe fluids, risk, and physical systems.</p>
+<p>Together, they helped move calculus from invention to maturity. They also left behind enough family drama to make the story memorable. In a strange way, that combination is perfect: beautiful mathematics, messy humans, and ideas that still show up whenever we study change.</p>
+</section>
+<section id="the-full-bernoulli-family-tree" class="level1">
+<h1>The Full Bernoulli Family Tree</h1>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+
+N["Niklaus Bernoulli (1623-1708)"]
+
+N --&gt; J1["Jacob I (1655-1705)"]
+N --&gt; N1["Nicolaus (1662-1716)"]
+N --&gt; Jo1["Johann I (1667-1748)"]
+N --&gt; H1["Hieronymus (1669-1760)"]
+
+N1 --&gt; NI["Nicolaus I (1687-1759)"]
+
+Jo1 --&gt; NII["Nicolaus II (1695-1726)"]
+Jo1 --&gt; D1["Daniel (1700-1782)"]
+Jo1 --&gt; J2["Johann II (1710-1790)"]
+
+H1 --&gt; F1["Franz (1705-1777)"]
+
+J2 --&gt; J3["Johann III (1744-1807)"]
+J2 --&gt; D2["Daniel II (1751-1834)"]
+J2 --&gt; N3["Nicolaus III (1754-1841)"]
+J2 --&gt; Ja2["Jacob II (1759-1789)"]
+
+F1 --&gt; H2["Hieronymus (1735-1786)"]
+
+J3 --&gt; C1["Christoph (1782-1863)"]
+J3 --&gt; Jos["Johannes (1785-1869)"]
+
+D2 --&gt; Leo1["Leonhard (1786-1852)"]
+D2 --&gt; L2["Leonhard (1791-1871)"]
+
+N3 --&gt; N4["Nicolaus (1793-1876)"]
+
+H2 --&gt; JJ1["Johann Jacob (1769-1853)"]
+
+C1 --&gt; Car1["Carl Christoph (1809-1884)"]
+
+Jos --&gt; Kar1["Carl Johann (1835-1906)"]
+
+Leo1 --&gt; Edu1["Eduard (1819-1899)"]
+
+L2 --&gt; Aug1["August (1839-1921)"]
+L2 --&gt; Fritz["Fritz (1824-1913)"]
+
+N4 --&gt; Theo["Theodor (1837-1909)"]
+
+JJ1 --&gt; JJ2["Johann Jacob (1802-1892)"]
+JJ1 --&gt; Franz2["Franz (1813-1850)"]
+
+Car1 --&gt; CaC["Carl Christoph (1861-1923)"]
+
+Kar1 --&gt; CaA["Carl Albrecht (1868-1937)"]
+
+Edu1 --&gt; Edu2["Eduard (1867-1927)"]
+
+Aug1 --&gt; AL["August Leonhard (1879-1939)"]
+Aug1 --&gt; Maria["Maria (1868-1963)"]
+
+Theo --&gt; Rud["Rudolf (1880-1948)"]
+
+JJ2 --&gt; JJ3["Johann Jakob (1831-1913)"]
+JJ2 --&gt; CaG["Carl Gustav (1834-1878)"]
+JJ2 --&gt; Ernst["Ernst (1846-1931)"]
+
+Franz2 --&gt; Eli["Elisabeth (1873-1935)"]
+Franz2 --&gt; Hans["Hans (1876-1959)"]
+
+CaC --&gt; Christoph["Christoph (1897-1981)"]
+CaA --&gt; Eva["Eva (1903-1995)"]
+JJ3 --&gt; Lucas["Lucas (1907-1976)"]
+Ernst --&gt; Eugen["Eugen (1882-1983)"]
+
+Lucas --&gt; Cornelia["Cornelia Bernoulli (b. 1954)"]
+
+click J1 "#jacob-bernoulli-1655-1705" "Jacob Bernoulli"
+click Jo1 "#johann-bernoulli-1667-1748" "Johann Bernoulli"
+click NI "#nicolaus-i-bernoulli-1687-1759" "Nicolaus I Bernoulli"
+click D1 "#daniel-bernoulli-1700-1782" "Daniel Bernoulli"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="sources" class="level1">
+<h1>Sources</h1>
+<ul>
+<li>MacTutor History of Mathematics Archive, <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Bernoulli_Jacob/">Jacob Bernoulli</a></li>
+<li>MacTutor History of Mathematics Archive, <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Bernoulli_Johann/">Johann Bernoulli</a></li>
+<li>MacTutor History of Mathematics Archive, <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Bernoulli_Daniel/">Daniel Bernoulli</a></li>
+<li>MacTutor History of Mathematics Archive, <a href="https://mathshistory.st-andrews.ac.uk/Diagrams/Bernoulli_family.gif">Bernoulli family tree</a></li>
+<li>Encyclopaedia Britannica, <a href="https://www.britannica.com/topic/Bernoulli-family">Bernoulli family</a></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBiYXNlbFRlcm1zID0gSW5wdXRzLnJhbmdlKFsxLCA1MDBdLCB7XG4gIHZhbHVlOiAyMCxcbiAgc3RlcDogMSxcbiAgbGFiZWw6IFwiTnVtYmVyIG9mIHRlcm1zXCJcbn0pXG5cbmJhc2VsVGFyZ2V0ID0gTWF0aC5QSSAqKiAyIC8gNlxuXG5iYXNlbFBhcnRpYWxTdW0gPSBBcnJheS5mcm9tKFxuICB7IGxlbmd0aDogYmFzZWxUZXJtcyB9LFxuICAoXywgaW5kZXgpID0+IDEgLyAoKGluZGV4ICsgMSkgKiogMilcbikucmVkdWNlKCh0b3RhbCwgdGVybSkgPT4gdG90YWwgKyB0ZXJtLCAwKVxuXG5iYXNlbEVycm9yID0gTWF0aC5hYnMoYmFzZWxUYXJnZXQgLSBiYXNlbFBhcnRpYWxTdW0pXG5cbmh0bWxgXG4gIDxkaXYgc3R5bGU9XCJtYXgtd2lkdGg6IDc2MHB4OyBtYXJnaW46IDFyZW0gYXV0bzsgcGFkZGluZzogMXJlbTsgYm9yZGVyOiAxcHggc29saWQgIzk5OTsgYm9yZGVyLXJhZGl1czogOHB4O1wiPlxuICAgIDxkaXYgc3R5bGU9XCJkaXNwbGF5OiBncmlkOyBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdChhdXRvLWZpdCwgbWlubWF4KDE4MHB4LCAxZnIpKTsgZ2FwOiAwLjc1cmVtO1wiPlxuICAgICAgPGRpdj48c3Ryb25nPlBhcnRpYWwgc3VtPC9zdHJvbmc+PGJyPiR7YmFzZWxQYXJ0aWFsU3VtLnRvRml4ZWQoOCl9PC9kaXY+XG4gICAgICA8ZGl2PjxzdHJvbmc+cGleMiAvIDY8L3N0cm9uZz48YnI+JHtiYXNlbFRhcmdldC50b0ZpeGVkKDgpfTwvZGl2PlxuICAgICAgPGRpdj48c3Ryb25nPkVycm9yPC9zdHJvbmc+PGJyPiR7YmFzZWxFcnJvci50b0V4cG9uZW50aWFsKDMpfTwvZGl2PlxuICAgIDwvZGl2PlxuICAgIDxkaXYgc3R5bGU9XCJoZWlnaHQ6IDE4cHg7IGJvcmRlcjogMXB4IHNvbGlkICM3Nzc7IG1hcmdpbi10b3A6IDFyZW07IGJhY2tncm91bmQ6ICNlZWU7XCI+XG4gICAgICA8ZGl2IHN0eWxlPVwiaGVpZ2h0OiAxMDAlOyB3aWR0aDogJHtNYXRoLm1pbigxMDAsIChiYXNlbFBhcnRpYWxTdW0gLyBiYXNlbFRhcmdldCkgKiAxMDApfSU7IGJhY2tncm91bmQ6ICMzYjgyZjY7XCI+PC9kaXY+XG4gICAgPC9kaXY+XG4gIDwvZGl2PlxuYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdiYXNlbFRlcm1zJykifV19
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

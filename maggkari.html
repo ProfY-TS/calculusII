@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Newton vs Leibniz: The Calculus War Classrooms Never Teach – Calculus Stories</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3cd44411fd72149452863431a2dfbeee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sample.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./maggkari.html">Leibniz v. Newton</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Calculus Stories</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Core Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sample</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./continuity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Continuity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./natural_base.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Natural Base</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./integral.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integral</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./neptune.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neptune</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./integral_story.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integral II</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Stokes_Theorem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stoke’s Theorem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./jacobian.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jacobian</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tangents-areas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tangents and Areas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pseries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">p-series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./brachistochrone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Brachistochrone</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bernoulli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bernoulli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./differentiability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differentiability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./maggkari.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Leibniz v. Newton</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gaussian.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gaussian Integral</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./infinite-boundaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Infinite Boundaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./fourier_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fourier Series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./taylor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taylor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gradient_ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Extra</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro"><span class="header-section-number">1</span> Newton vs Leibniz: The calculus war classrooms never teach</a></li>
+  <li><a href="#C1" id="toc-C1" class="nav-link" data-scroll-target="#C1"><span class="header-section-number">2</span> Chapter 1: Looking Up for Answers…</a></li>
+  <li><a href="#C2" id="toc-C2" class="nav-link" data-scroll-target="#C2"><span class="header-section-number">3</span> Chapter 2: The Ultimate Boss fight…</a></li>
+  <li><a href="#C3" id="toc-C3" class="nav-link" data-scroll-target="#C3"><span class="header-section-number">4</span> Chapter 3: Enter Kepler: The Ultimate Grind Machine…</a></li>
+  <li><a href="#C4" id="toc-C4" class="nav-link" data-scroll-target="#C4"><span class="header-section-number">5</span> Chapter 4 : Gotong-Royong Mode Activated…</a></li>
+  <li><a href="#C5" id="toc-C5" class="nav-link" data-scroll-target="#C5"><span class="header-section-number">6</span> Chapter 5 : Quiet Genius, Dusty Drawer…</a></li>
+  <li><a href="#C6" id="toc-C6" class="nav-link" data-scroll-target="#C6"><span class="header-section-number">7</span> Chapter 6 : An Elegant UI…</a></li>
+  <li><a href="#C7" id="toc-C7" class="nav-link" data-scroll-target="#C7"><span class="header-section-number">8</span> Chapter 7 : Investigate Urself and Winning 100%…</a></li>
+  <li><a href="#C8" id="toc-C8" class="nav-link" data-scroll-target="#C8"><span class="header-section-number">9</span> Chapter 8 : Now You See Me, Now You Dont…</a></li>
+  <li><a href="#C9" id="toc-C9" class="nav-link" data-scroll-target="#C9"><span class="header-section-number">10</span> Chapter 9 : The Limits Era…</a></li>
+  <li><a href="#outro" id="toc-outro" class="nav-link" data-scroll-target="#outro"><span class="header-section-number">11</span> Outro : The Final Merge</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sample.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./maggkari.html">Leibniz v. Newton</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Newton vs Leibniz: The Calculus War Classrooms Never Teach</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Group Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Group:</strong> Maggi Kari Da Best</p>
+<p><strong>Authors:</strong> Cher Ming Sian, Gan Ruoxian, Xie Wanyan</p>
+<div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+<figure class="figure">
+<img src="doesnotexist.png" alt="Group Photo" style="width: 50%; height: auto;" class="figure-img">
+<figcaption style="text-align: center;">
+This group does not have a profile picture…
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>[Your main content goes here…]</p>
+<section id="intro" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="intro"><span class="header-section-number">1</span> Newton vs Leibniz: The calculus war classrooms never teach</h2>
+<p>If you had to pick the biggest copyright fight in the history of mathematics, it wouldn’t be some boring plagiarism story.&nbsp;</p>
+<p>It would be :&nbsp;</p>
+<p><strong>Who is the mother of calculus?</strong>&nbsp;</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3247608363.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Newton said,&nbsp;</p>
+<p>“Eh I wrote the code years ago. It is inside my notebook, i can prove it. You’re just running on my backend.”&nbsp;</p>
+<p>Leibniz replied,&nbsp;</p>
+<p>“Please lah, im the first to make it public. And i even desigened the UI”&nbsp;</p>
+<p>Neither side would give in.&nbsp;</p>
+<p>Before long, the whole European math community split into two camps.&nbsp;</p>
+<p><strong>Team Newton.</strong>&nbsp;</p>
+<p><strong>Team Leibniz.</strong>&nbsp;</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/pic1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>British mathematicians even left the “group chat”. To support Newton, they basically gave Europe the academic cold shoulder.&nbsp;</p>
+<p>Before the two final bosses enter the arena and start their legendary math beef, we need to ask a simple question:&nbsp;</p>
+<p>Why did 17th-century humans feel the urgent to invent Calculus? What kind of bugs were they trying to fix?</p>
+</section>
+<section id="C1" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="C1"><span class="header-section-number">2</span> Chapter 1: Looking Up for Answers…</h2>
+<p>The biggest difference between people back then and people nowadays comes down to what occupies our minds,</p>
+<p>People today: <em>“Later eat what? Mcd or Chicken Rice”</em></p>
+<p><img src="images/latereatwhat.jpg" class="img-fluid" width="1367"></p>
+<p>People in the 17th century: <em>“How exactly did God design the universe?”</em></p>
+<p>Back then, religion in Europe was a super big deal. Most scientists last time truly believed that the universe was not some random accident happen one.</p>
+<p>Instead, they thought God was the ultimate architect who carefully designed everything</p>
+<p><img src="images/god_generate.png" class="img-fluid"></p>
+<p>Those scientists last time all had one ultimate endgame quest, like the final boss level in a game.They looked up and wondered:</p>
+<p><em>Why don’t planets just randomly fly off into deep space? Like, why they don’t simply escape and disappear?</em></p>
+<p><em>Why is the Moon always “sims” behind the Earth? Always following us everywhere like a loyal sidekick, never leaving our side.</em></p>
+<p><em>And why do planets orbit the Sun with what looks like suspiciously perfect stability? So steady, no crashing, no drifting. Everything perfectly on track, like a flawless train schedule.</em></p>
+<p><img src="images/yeeeeeet.png" class="img-fluid" width="1367"></p>
+<p>If you could answer these questions, Yay ! —you had cracked the source code of the universe.</p>
+<p>At that time, many scientists were also super religious, got heavy background one. So studying nature wasn’t just boring science only. It was basically trying to sneak a peek into God’s dev tools and source code without getting a permanent ban from the server.</p>
+<p><img src="images/kenaban.png" class="img-fluid" width="1367"></p>
+<p>And whoever managed to crack that system first wasn’t just a normal scientist anymore. They auto promoted to become the ultimate reality hackers—basically the Big Boss system administrators of physics itself.</p>
+<p>But the problem is, if you want to crack a source code, you need a proper test file to run experiments on. You cannot simply test on the live server, later server crash.</p>
+<p>Luckily for them, they didn’t have to look very far or find trouble. They just looked up at the night sky and found a massive dataset already running flawlessly in production which is the planetary motion.</p>
+</section>
+<section id="C2" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="C2"><span class="header-section-number">3</span> Chapter 2: The Ultimate Boss fight…</h2>
+<p>That’s when one of the biggest architecture debates in early science broke out.</p>
+<p>Was the universe running on an Earth-centered model? Or a Sun-centered model?</p>
+<p><img src="images/pic2.png" class="img-fluid"></p>
+<p>In other words, was Earth the center of the entire system, or just another local node orbiting a much larger compute unit?</p>
+<p>Back then, the fellas supporting the Sun-centered model were basically getting roasted every single day—and I mean literal roasting.</p>
+<p>Case in point: an Italian philosopher and mathematician named Giordano Bruno. This guy was literally “roasted” alive at the stake in Rome’s market square. Why? Just because he took the Sun-centered idea and used it to aggressively troll the religious establishment.</p>
+<p><img src="images/roasted.jpg" class="img-fluid"></p>
+<p>The Earth-centered model had been patched and maintained by generations of legacy scholars for over a thousand years. Even though it sucked with crazy bloated code, it still ran…… more or less, acceptable lah.</p>
+<p>On the other hand, the Sun-centered model looked like a much cleaner, more elegant architecture. But there was a catch: you had to prove it with reliable evidence.</p>
+<p>You had to take your new system and accurately predict exactly where a planet would be next.</p>
+<p>Under this brutal test dataset, the scientific world did not believe in tears, and they didn’t give a fxxk about a beautiful Canva presentation. What mattered was the real output.</p>
+<p>If you could accurately predict where a planet would be in the next moment, you were the strongest person on Earth, the ultimate big boss of science.</p>
+<p>But if you couldn’t, then no matter how beautifully you presented the Sun-centered model, it was still just unoptimized hype,all sembang only, no substance.</p>
+</section>
+<section id="C3" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="C3"><span class="header-section-number">4</span> Chapter 3: Enter Kepler: The Ultimate Grind Machine…</h2>
+<p>Just when everyone was getting completely burned out and exhausted by these brutal benchmark tests, a German astronomer named Kepler stepped into the chat.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/kepler.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="266"></p>
+</figure>
+</div>
+<p>He was the ultimate grind machine of science—the kind of hardcore developer who doesn’t sleep, doesn’t rest, and can spend six straight years obsessing over something as chaotic as Mars’ orbit.</p>
+<p>By filling thousands of pages of scratch paper, he managed to push the new architecture forward in a critical way.</p>
+<p>He eventually formulated the famous laws of planetary motion. His second law basically stated this: planets sweep out equal areas in equal amounts of time.</p>
+<p>Suddenly, those supporting the Sun-centered model felt like the sun had finally come out, got hope already. The core logic worked; the architecture held.</p>
+<p>But just as mathematicians excitedly spread out their papers, ready to turn this into a clean predictive formula, the room collectively hit a “smile to soul-exit” like senyum tapi jiwa dah terbang moment.</p>
+<p>Wait, what? The orbit… is an ellipse?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/wtf.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>This irregular, curved shape… where exactly is the formula supposed to come from?</p>
+<p>Because mathematical tools at the time were severely underdeveloped, a whole pile of long-standing legacy bugs started flooding everyone’s To-Do list:</p>
+<p>1.Find out why planets move in ellipses<br>
+2.Invent new math branches (Develop Calculus)<br>
+3.To Crack “Kepler Equation”<br>
+4.The Multi-Body Problem</p>
+<p>…..</p>
+<p>Back then, the table of contents of a thick geometry textbook was basically what drove countless brilliant minds to exhaustion—a “10,000 Whys” problem set in disguise.</p>
+<p>It wasn’t that people weren’t smart enough. It was simply that they didn’t have the right programming tools to work with.</p>
+<p>Geometry and algebra at the time were mostly static systems, while the world they were trying to describe was full of dynamic, real-time change.</p>
+<p>Trying to handle that with existing tools was like using a plastic toy shovel to dig the Mariana Trench. Cannot lah, the tools were totally not built for the job.</p>
+<p>So, the entire European scientific community got stuck in place, collectively screaming for a god-tier productivity tool that could finally handle change over time.</p>
+</section>
+<section id="C4" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="C4"><span class="header-section-number">5</span> Chapter 4 : Gotong-Royong Mode Activated…</h2>
+<p>In an era when even calculators didn’t exist, the idea that a single lone genius could suddenly “have a flash of insight” and save the world was simply unrealistic.&nbsp;</p>
+<p>Faced with this universe-level bug that had effectively caused everyone to jam and stop moving, the entire European mathematical community quietly formed a massive, decades-long “grind squad” and started brute-forcing the problem.</p>
+<p>Since doing it solo wasn’t working, the top “hackers” of Europe naturally shifted into an open-source collaboration mode.</p>
+<p>Everyone took on different tasks, frantically contributing modules to the shared codebase, trying to build this god-tier tool through pure crowd power and gotong royong spirit.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fixit.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Fermat focused on one direction and essentially extracted the “tangent module” by force.&nbsp;</p>
+<p>Descartes rebuilt the foundation layer and shipped analytic geometry as a core system upgrade, like a major OS update.</p>
+<p>Kepler and Cavalieri acted as frontline stress testers, pushing hard against the concept of infinitesimals—basically trying to break the system to see how small the data could go.</p>
+<p>Barrow and Wallis kept pushing continuous contributions and iterative patches, <em>non-stop</em> updating the repo.</p>
+<p>It was like everyone was jointly assembling an enormous, impossible jigsaw puzzle.&nbsp;</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/assemble.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>By the mid-17th century, everyone rubbed their red, sleep-deprived eyes and suddenly realized in shock.&nbsp;</p>
+<p>Eh, wow! The puzzle was already about 99% complete.</p>
+<p>Everything was in place. The isolated algorithm modules were already built. All that was missing was the final step, integrating everything into a unified calculus framework.&nbsp;</p>
+<p>And the next two characters to enter the chat would each, in their own genius and rivalry-driven way, finally commit the last one percent of the code.&nbsp;</p>
+<p>They were&nbsp;&nbsp;</p>
+<p>Isaac Newton,</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/newton.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="300"></p>
+</figure>
+</div>
+<p>the backend overlord of England’s academic world,</p>
+<p>and Gottfried Wilhelm Leibniz,</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/leibniz.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="302"></p>
+</figure>
+</div>
+<p>the full stack frontend genius from Germany.&nbsp;</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-736009260.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="677"></p>
+</figure>
+</div>
+</section>
+<section id="C5" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="C5"><span class="header-section-number">6</span> Chapter 5 : Quiet Genius, Dusty Drawer…</h2>
+<p>In the hot, tense summer of 1665, a super devastating guest arrived on the shores of England.</p>
+<p>The Great Plague was sweeping through London, turning bustling streets into ghost towns marked with red crosses.</p>
+<p>Seeking safety, Cambridge University decided to tutup kedai temporarily, they packed up the faculty and sent all the students packing.</p>
+<p>Among those fleeing the contagion was a quiet, slightly eccentric 22-year-old student. While most of his friends treated this forced hiatus as an unexpected long holiday—or a miserable pause on their futures—this young guy just packed his notebooks, headed back to his family’s isolated manor at Woolsthorpe, and casually embarked on what would become the most ridiculously productive gap year in human history.</p>
+<p>His name was Isaac Newton.</p>
+<p><img src="images/pic6.png" class="img-fluid"></p>
+<p>Newton&nbsp;viewed quantities as continuously flowing. He called a changing quantity a Fluent, and its rate of change a&nbsp;Fluxion.</p>
+<p>As you can see, he had already built most of the foundations of calculus during his WFH quarantine. But Newton had one fatal flaw that makes zero sense to us nowadays: He absolutely hated publishing.</p>
+<p>After finishing his master-level work, he didn’t post it online or share it with the community. He simply locked the manuscripts deep inside a drawer = moved on to other research.</p>
+</section>
+<section id="C6" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="C6"><span class="header-section-number">7</span> Chapter 6 : An Elegant UI…</h2>
+<p>While Newton’s manuscripts were still sitting quietly inside his drawer collecting dust, a German mathematician named Gottfried Wilhelm Leibniz suddenly appeared in the chat.</p>
+<p>At the time, he dunno that Newton had already developed a similar method, so he completely independently worked it out himself from scratch.</p>
+<p>Most importantly, Leibniz didn’t play hide-and-seek like Newton. He not only developed calculus independently, but also published his work immediately for the whole world to see.</p>
+<p>He also introduced a super elegant notation system that looked like this:</p>
+<p><span class="math display">\[\frac{dy}{dx}\qquad \qquad \int\]</span>These symbols are still used throughout the world today. The exact same ones you see in Liu Jie class.</p>
+<p>You could say that history experienced a giant <strong>Git conflict</strong>: two great mathematicians from different countries submitted their own calculus projects almost simultaneously.</p>
+<p>Newton wrote the hardcore backend core engine, while Leibniz independently built another implementation and designed the beautiful UI and clean syntax that mathematics classrooms around the world still use today.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-707571899.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="C7" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="C7"><span class="header-section-number">8</span> Chapter 7 : Investigate Urself and Winning 100%…</h2>
+<p>Decades passed before Newton suddenly blinked, looked up from his experiments, and realized:</p>
+<p>“Wait… apasal does everyone in Europe think Leibniz invented calculus?”</p>
+<p>The British mathematical community instantly rallied behind their hometown hero, fiercely whispering,</p>
+<p>“Leibniz must have snuck a peek at Newton’s secret manuscripts! He’s a plagiarist!”</p>
+<p>The German side fired back with equal venom:</p>
+<p>“He discovered it completely independently! Your guy kept his math in a drawer; you don’t get to claim the crown now! Siapa cepat siapa dapat!”</p>
+<p>The mudslinging escalated until it threatened to tear European science apart. To stop the drama, the Royal Society of London stepped in. They promised to run a fair, official investigation to see who actually invented calculus first.</p>
+<p>They assembled an elite committee to meticulously “examine the sincerity of the Originals and compare the Copies therewith.” They promised a fair trial based purely on the historical timeline.</p>
+<p>But there was one hilarious and unbelievable problem.</p>
+<p>The leader of the Royal Society—the big boss who picked the committee members and secretly wrote the final report—was none other than Isaac Newton himself.</p>
+<p>Yes, you read that right! Newton acted as the judge, the jury, and the witness all at the same time. It is the most famous case in history of “investigating yourself.”</p>
+<p>Of course, after a “careful” review, Newton’s committee decided that Isaac Newton was the true winner and the only inventor of calculus. The rest of Europe could only stare in shock at this totally unfair trial.</p>
+<p>So, who really won?</p>
+<p>Today, history experts agree that both men were geniuses who figured out calculus completely on their own. Newton did it first in secret, but Leibniz was the one who actually shared it with the world.</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.2%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-4055984109.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="399"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.1%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1530214684.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="398"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.6%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-934575608.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="404"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="C8" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="C8"><span class="header-section-number">9</span> Chapter 8 : Now You See Me, Now You Dont…</h2>
+<p>Even though calculus was finally out in the open, mathematicians soon realized something was wrong. There was a major bug in the system</p>
+<p>.When finding a derivative, you had to use tiny, near-zero numbers called infinitesimals :</p>
+<p><span class="math display">\[\Delta x\]</span></p>
+<p>At the start of the math problem, these tiny numbers could not be zero, because you cannot divide by zero, the system auto crash if do like this.</p>
+<p>But mysteriously, by the end of the problem, those same numbers just seemed to disappear into thin air.</p>
+<p>An Irish philosopher and bishop named George Berkeley stepped forward and looked at the math. He asked a few simple, devastating questions:</p>
+<p>“Is <span class="math inline">\(\Delta x\)</span> actually zero? If it isn’t zero, why does it disappear? If it is zero, how can you divide by it?”</p>
+<p>Berkeley famously mocked these vanishing numbers, calling them the <strong>“Ghosts of departed quantities.”</strong></p>
+<p>The mathematical community fell completely silent. No one had a good answer. This officially started the <strong>Second Crisis in the Foundations of Mathematics</strong>.</p>
+<p>Everyone realized that while calculus gave the correct answer, the underlying code lacked a solid, logical foundation. It worked by luck, but the compiler shouldn’t have allowed it.</p>
+<p>Indefinedally, the next generation of mathematicians would step up to fix this bug. They would finally make calculus safe and logical using a new concept <strong>limits</strong> .</p>
+</section>
+<section id="C9" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="C9"><span class="header-section-number">10</span> Chapter 9 : The Limits Era…</h2>
+<p>For a long time, nobody knew how to fix Bishop Berkeley’s ghost bug.</p>
+<p>The foundations of calculus were completely broken, and mathematicians were just crossing their fingers, and hoping their equations wouldn’t collapse into a pile of syntax errors. Solo attempts to solve the mystery just weren’t working.</p>
+<p>Eventually, the top math “hackers” of Europe naturally shifted into that classic open-source collaboration mode once again.</p>
+<p>Everyone took on different tasks, frantically contributing modules to the shared codebase, trying to build a god-tier logical tool through pure crowd power.</p>
+<p>They realized they finally needed to work together instead of gatekeeping their notes.</p>
+<p>Brilliant minds like Augustin-Louis Cauchy and Karl Weierstrass stepped up to the keyboard. They looked at the messy code and decided to throw away the confusing idea of “ghost numbers” entirely.</p>
+<p>Instead of asking what happens when <span class="math inline">\(\Delta x\)</span> <em>becomes</em> zero, they asked: <em>What happens as</em> <span class="math inline">\(\Delta x\)</span> gets closer and closer to zero, without ever actually touching it?</p>
+<p>With this single, genius pivot, they created the formal, bulletproof definition of limits.</p>
+<p>By working together and combining their massive braincells, the open-source mathematical community successfully patched the universe-level bug.</p>
+<p>They gave calculus the rock-solid, logical foundation it always deserved, turning Newton and Leibniz’s wild, experimental ideas into the most stable and powerful tool in modern science.</p>
+</section>
+<section id="outro" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="outro"><span class="header-section-number">11</span> Outro : The Final Merge</h2>
+<p>Today, the calculus we learn in class looks like just another thick, heavy textbook, kinda that makes you want to cry when you look at the syllabus.</p>
+<p><img src="images/clipboard-3050712647.png" class="img-fluid" width="660"></p>
+<p>But it is actually the culmination of more than three hundred years of relentless, non-stop effort by countless mathematicians, physicists, and astronomers.</p>
+<p>It wasn’t the result of Newton having a sudden, magical stroke of genius one day while sitting under an apple tree</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-112368560.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
+</figure>
+</div>
+<p>, nor was it the work of Leibniz alone.</p>
+<p>It was a magnificent, epic relay race run by generations of scientists. Newton and Leibniz simply stood on the shoulders of all the giants before them to take that final, monumental step and hit the Merge button.</p>
+<p>Because of calculus, humanity possessed for the very first time a precise language to describe motion, change, and the laws of nature.</p>
+<p>Because of calculus, humanity possessed for the very first time a precise language to describe motion, change, and the absolute laws of nature. From the elliptical orbits of planets to the launch of rockets; from electromagnetic fields to the complex optimization algorithms behind modern Artificial Intelligence, almost all of modern science is completely inseparable from calculus.</p>
+<p>Bak kata pepatah:</p>
+<blockquote class="blockquote">
+<p><strong>“If mathematics is a language, then calculus is humanity’s very first grammar book for reading the universe.”</strong></p>
+</blockquote>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
